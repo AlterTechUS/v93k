@@ -39,3 +39,6 @@
 
 # debug information files
 *.dwo
+
+# V93K files to ignore
+lock_file
