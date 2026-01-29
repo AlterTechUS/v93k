@@ -1,0 +1,13 @@
+/dev_tech/cmos
+device_cycles: 16384
+waveform_sets: 32
+timing_sets: 256
+level_sets: 256
+dps_sets: 256
+pdc_sets: 16
+m_sets: 4096
+routing_sets: 256
+period_res_precision: 9
+testpoints: 128
+tester_model: act
+licensing_file: 

@@ -1,0 +1,68 @@
+// march6n.prog
+#include "../include/BasicAccessSequences.inc"
+#include "../include/initialization.inc"
+
+main()
+{
+    //initialize();
+
+    for(bank=zStart; bank<zStop; bank+=1)
+    {
+        WriteBackground(bank,DW,~DW,DW,~DW,DW,~DW,DW,~DW);    
+        Read_WriteInv  (bank,DW,~DW,DW,~DW,DW,~DW,DW,~DW); 
+        ReadInv_Write  (bank,DW,~DW,DW,~DW,DW,~DW,DW,~DW); 
+        ReadBackground (bank,DW,~DW,DW,~DW,DW,~DW,DW,~DW);     
+    }
+   
+    pad(EndProgPad){}
+}
+
+Read_WriteInv(bank,dw1,dw2,dw3,dw4,dw5,dw6,dw7,dw8)
+{
+    for (col=yStart; col<yStop; col+=8)
+    {
+        for (row=xStart; row<xStop; row++)
+        {
+            Activate(row, bank);
+            Idle(tRCD-1);
+
+            Read(row,col,bank,dw1,dw2,dw3,dw4,dw5,dw6,dw7,dw8);
+            // Read to Write latency:
+            // RL + tCCD + 2tCK - WL -4(from Read above)-1(from Write_Pre below)
+            Idle(CL + tCCD + 2 - CWL -5); 
+
+            // WRITE burst with inverted data
+            Write_Preamb();
+            Write(row,col,bank,UNMASK,~dw1,~dw2,~dw3,~dw4,~dw5,~dw6,~dw7,~dw8);
+            Idle(tWR+CWL-1);
+
+            Precharge(bank);
+            Idle(tRP-1);
+        }
+    }
+}
+
+ReadInv_Write(bank,dw1,dw2,dw3,dw4,dw5,dw6,dw7,dw8)
+{
+    for (col=yStart; col<yStop; col+=8)
+    {
+        for (row=xStop-1; row>=xStart; row--)
+        {
+            Activate(row, bank);
+            Idle(tRCD-1);
+
+            // Read with inverted data
+            Read(row,col,bank,~dw1,~dw2,~dw3,~dw4,~dw5,~dw6,~dw7,~dw8);
+            // Read to Write latency:
+            // RL + tCCD + 2tCK - WL -4(from Read above)-1(from Write_Pre below)
+            Idle(CL + tCCD + 2 - CWL -5); 
+
+            Write_Preamb();
+            Write(row,col,bank,UNMASK,dw1,dw2,dw3,dw4,dw5,dw6,dw7,dw8);
+            Idle(tWR+CWL-1);
+
+            Precharge(bank);
+            Idle(tRP-1);
+        }
+    }
+}

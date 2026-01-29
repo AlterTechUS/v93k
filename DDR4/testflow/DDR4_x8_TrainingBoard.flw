@@ -1,0 +1,3489 @@
+hp93000,testflow,0.1
+language_revision = 1;
+
+information
+
+   device_revision = "1";
+
+end
+-----------------------------------------------------------------
+declarations
+
+@CurrentTime = "";
+@VrefDQ_Value = "0x18";
+@VrefDQ_Value_Avg = "0x00";
+end
+-----------------------------------------------------------------
+implicit_declarations
+
+end
+-----------------------------------------------------------------
+flags
+
+report_to_file = 1;
+report_to_printer = 1;
+datalog_to_file = 1;
+datalog_to_printer = 1;
+datalog_to_report_win = 0;
+datalog_formatter = 1;
+datalog_sample_size = 1;
+graphic_result_displa = 1;
+state_display = 0;
+print_wafermap = 0;
+OOC_watch = 1;
+OOC_sample_size = 1;
+ink_wafer = 0;
+max_reprobes = 1;
+temp_monitor = 1;
+calib_age_monitor = 1;
+diag_monitor = 1;
+current_monitor = 1;
+log_events_enable = 1;
+set_pass_level = 0;
+set_fail_level = 0;
+set_bypass_level = 0;
+hold_on_fail = 0;
+optimized_mode = 1;
+global_hold = 0;
+debug_mode = 2;
+debug_analog = 1;
+parallel_mode = 1;
+site_match_mode = 2;
+global_overon = 1;
+limits_enable = 0;
+test_number_enable = 1;
+test_number_inc = 1;
+test_num_col_offset = 3;
+test_number_manager = 0;
+log_cycles_before = 0;
+log_cycles_after = 0;
+unburst_mode = 0;
+sqst_mode = 0;
+warn_as_fail = 1;
+use_hw_dsp = 0;
+dsp_file_enable = 1;
+buffer_testflow_log = 0;
+check_testmethod_api = 0;
+stdf_generation = 1;
+tm_crash_as_fatal = 0;
+hidden_datalog_mode = 0;
+user	SwingValue = 300;
+end
+-----------------------------------------------------------------
+testmethodparameters
+tm_10:
+  "measurementPins" = "DQ_Bus";
+  "DCSubLabel" = "DC_MEAS_RON48";
+  "limitSpecifier" = "RON48";
+tm_100:
+  "sType_Init_Label" = "PDA";
+  "MR0" = "1";
+  "MR0.BurstLength" = "BC8";
+  "MR0.ReadBurstType" = "Sequential";
+  "MR0.CASLatency" = "11";
+  "MR0.DLL_Reset" = "1";
+  "MR0.WriteRecovery" = "12";
+  "MR1" = "1";
+  "MR1.DLL_Enable" = "1";
+  "MR1.DriverImpedanceControl" = "RZQ/5";
+  "MR1.AdditiveLatency" = "0";
+  "MR1.RTT_NOM" = "Disable";
+  "MR1.TDQS_Enable" = "0";
+  "MR2" = "1";
+  "MR2.CASWriteLatency" = "9";
+  "MR2.RTT_WR" = "Off";
+  "MR2.WriteCRC_Enable" = "0";
+  "MR2.LP_ASR" = "Manual_Normal";
+  "MR3" = "1";
+  "MR3.GeardownMode" = "1/2Rate";
+  "MR3.WriteCMDLatency" = "4";
+  "MR4" = "1";
+  "MR4.CALatency" = "0";
+  "MR4.SelfRefreshAbort_Enable" = "0";
+  "MR4.ReadPreamble" = "1";
+  "MR4.WritePreamble" = "1";
+  "MR5" = "1";
+  "MR5.CAParityLatency" = "0";
+  "MR5.RTT_PARK" = "0";
+  "MR5.DataMask_Enable" = "0";
+  "MR5.WriteDBI_Enable" = "0";
+  "MR5.ReadDBI_Enable" = "0";
+  "MR6" = "1";
+  "MR6.tCCD_L" = "5";
+  "MR6.VrefDQRange" = "Range1";
+  "MR6.VrefDQValue" = "Avg";
+  "MR6.PDA_VrefDQ_Enable" = "1";
+tm_103:
+  "sSetupPin" = "Address_Bus,Bank_Addr_Bus,Bank_Grp_Bus,Bank_Bus,Command_Bus,PARITY";
+  "sResultPin" = "DQ_Bus";
+  "sSpecSweep" = "tISH_sweep_ns";
+  "sSpecOffset" = "tISH_offset_ns@PortAC";
+  "dLinStart" = "-1.07";
+  "dLinStop" = "0.535";
+  "dLinStep" = "0.1";
+  "dBinStep" = "0.01";
+  "iReportFlag" = "1";
+tm_104:
+  "testName" = "Functional";
+tm_105:
+  "testName" = "Functional";
+tm_106:
+  "sType_Init_Label" = "Training";
+  "MR0" = "1";
+  "MR0.BurstLength" = "BC8";
+  "MR0.ReadBurstType" = "Sequential";
+  "MR0.CASLatency" = "15";
+  "MR0.DLL_Reset" = "1";
+  "MR0.WriteRecovery" = "16";
+  "MR1" = "1";
+  "MR1.DLL_Enable" = "1";
+  "MR1.DriverImpedanceControl" = "RZQ/7";
+  "MR1.AdditiveLatency" = "0";
+  "MR1.RTT_NOM" = "Disable";
+  "MR1.TDQS_Enable" = "0";
+  "MR2" = "1";
+  "MR2.CASWriteLatency" = "11";
+  "MR2.RTT_WR" = "Off";
+  "MR2.WriteCRC_Enable" = "0";
+  "MR2.LP_ASR" = "Manual_Normal";
+  "MR3" = "1";
+  "MR3.GeardownMode" = "1/2Rate";
+  "MR3.WriteCMDLatency" = "4";
+  "MR4" = "1";
+  "MR4.CALatency" = "0";
+  "MR4.SelfRefreshAbort_Enable" = "0";
+  "MR4.ReadPreamble" = "1";
+  "MR4.WritePreamble" = "1";
+  "MR5" = "1";
+  "MR5.CAParityLatency" = "0";
+  "MR5.RTT_PARK" = "0";
+  "MR5.DataMask_Enable" = "0";
+  "MR5.WriteDBI_Enable" = "0";
+  "MR5.ReadDBI_Enable" = "0";
+  "MR6" = "1";
+  "MR6.tCCD_L" = "6";
+  "MR6.VrefDQRange" = "Range1";
+  "MR6.VrefDQValue" = "0x00";
+  "MR6.PDA_VrefDQ_Enable" = "0";
+tm_108:
+  "title" = "DQ OutputTiming vs Frequency";
+  "x.start" = "-0.3";
+  "x.stop" = "0.7";
+  "x.step" = "f#40";
+  "x.scale" = "Linear";
+  "y.start" = "1.25";
+  "y.stop" = "0.625";
+  "y.step" = "f#40";
+  "y.scale" = "Linear";
+  "testName" = "Shmoo";
+  "x.parameterType" = "SpecVariable";
+  "x.spec" = "TIM..tDQSCK_tAC_offset_ns@PortAC[ns]";
+  "x.setupPins" = "@";
+  "x.instrumentPin" = "";
+  "x.resourceName" = "";
+  "x.property" = "";
+  "x.unit" = "";
+  "y.parameterType" = "SpecVariable";
+  "y.spec" = "TIM..tCK_ns[ns]";
+  "y.setupPins" = "@";
+  "y.instrumentPin" = "";
+  "y.resourceName" = "";
+  "y.property" = "";
+  "y.unit" = "";
+  "resultPins" = "DQ_Bus";
+  "testMode" = "pass/fail";
+tm_109:
+  "title" = "Power vs. Frequency";
+  "x.start" = "0.8";
+  "x.stop" = "1.2";
+  "x.step" = "f#40";
+  "x.scale" = "Linear";
+  "y.start" = "1.25";
+  "y.stop" = "0.625";
+  "y.step" = "f#40";
+  "y.scale" = "Linear";
+  "testName" = "Shmoo";
+  "x.parameterType" = "SpecVariable";
+  "x.spec" = "LEV..VDD[V]";
+  "x.setupPins" = "";
+  "x.instrumentPin" = "";
+  "x.resourceName" = "";
+  "x.property" = "";
+  "x.unit" = "";
+  "y.parameterType" = "SpecVariable";
+  "y.spec" = "TIM..tCK_ns[ns]";
+  "y.setupPins" = "";
+  "y.instrumentPin" = "";
+  "y.resourceName" = "";
+  "y.property" = "";
+  "y.unit" = "";
+  "resultPins" = "DQ_Bus";
+  "testMode" = "pass/fail";
+tm_11:
+  "measurementPins" = "DQ_Bus";
+  "forceVoltageHigh_mV" = "1200";
+  "forceVoltageLow_mV" = "300";
+  "limitSpecifier" = "RTT_60";
+tm_110:
+  "title" = "tIS (Address) vs Frequency";
+  "x.start" = "-2";
+  "x.stop" = "1";
+  "x.step" = "f#40";
+  "x.scale" = "Linear";
+  "y.start" = "1.25";
+  "y.stop" = "0.625";
+  "y.step" = "f#40";
+  "y.scale" = "Linear";
+  "testName" = "Shmoo";
+  "x.parameterType" = "SpecVariable";
+  "x.spec" = "TIM..tISH_offset_ns@PortAC[ns]";
+  "x.setupPins" = "Address_Bus";
+  "x.instrumentPin" = "";
+  "x.resourceName" = "";
+  "x.property" = "";
+  "x.unit" = "";
+  "y.parameterType" = "SpecVariable";
+  "y.spec" = "TIM..tCK_ns[ns]";
+  "y.setupPins" = "";
+  "y.instrumentPin" = "";
+  "y.resourceName" = "";
+  "y.property" = "";
+  "y.unit" = "";
+  "resultPins" = "DQ_Bus";
+  "testMode" = "pass/fail";
+tm_111:
+  "title" = "DQ OutputEye @2400";
+  "x.start" = "-0.208";
+  "x.stop" = "0.208";
+  "x.step" = "f#40";
+  "x.scale" = "Linear";
+  "y.start" = "-0.45";
+  "y.stop" = "0.45";
+  "y.step" = "f#40";
+  "y.scale" = "Linear";
+  "testName" = "Shmoo";
+  "x.parameterType" = "SpecVariable";
+  "x.spec" = "TIM..tDQSCK_tAC_sweep_ns@PortAC[ns]";
+  "x.setupPins" = "";
+  "x.instrumentPin" = "";
+  "x.resourceName" = "";
+  "x.property" = "";
+  "x.unit" = "";
+  "y.parameterType" = "SpecVariable";
+  "y.spec" = "LEV..Vth_DQ_sweep[V]";
+  "y.setupPins" = "";
+  "y.instrumentPin" = "";
+  "y.resourceName" = "";
+  "y.property" = "";
+  "y.unit" = "";
+  "resultPins" = "DQ_Bus";
+  "testMode" = "pass/fail";
+tm_112:
+  "testName" = "Functional";
+tm_113:
+  "testName" = "Functional";
+tm_114:
+  "testName" = "Functional";
+tm_115:
+  "testName" = "Functional";
+tm_116:
+  "testName" = "Functional";
+tm_117:
+  "testName" = "Functional";
+tm_118:
+  "testName" = "Functional";
+tm_119:
+  "testName" = "Functional";
+tm_12:
+  "sType_Init_Label" = "PDA";
+  "MR0" = "1";
+  "MR0.BurstLength" = "BC8";
+  "MR0.ReadBurstType" = "Sequential";
+  "MR0.CASLatency" = "11";
+  "MR0.DLL_Reset" = "1";
+  "MR0.WriteRecovery" = "12";
+  "MR1" = "1";
+  "MR1.DLL_Enable" = "1";
+  "MR1.DriverImpedanceControl" = "RZQ/7";
+  "MR1.AdditiveLatency" = "0";
+  "MR1.RTT_NOM" = "Disable";
+  "MR1.TDQS_Enable" = "0";
+  "MR2" = "1";
+  "MR2.CASWriteLatency" = "9";
+  "MR2.RTT_WR" = "Off";
+  "MR2.WriteCRC_Enable" = "0";
+  "MR2.LP_ASR" = "Manual_Normal";
+  "MR3" = "1";
+  "MR3.GeardownMode" = "1/2Rate";
+  "MR3.WriteCMDLatency" = "4";
+  "MR4" = "1";
+  "MR4.CALatency" = "0";
+  "MR4.SelfRefreshAbort_Enable" = "0";
+  "MR4.ReadPreamble" = "1";
+  "MR4.WritePreamble" = "1";
+  "MR5" = "1";
+  "MR5.CAParityLatency" = "0";
+  "MR5.RTT_PARK" = "0";
+  "MR5.DataMask_Enable" = "0";
+  "MR5.WriteDBI_Enable" = "0";
+  "MR5.ReadDBI_Enable" = "0";
+  "MR6" = "1";
+  "MR6.tCCD_L" = "5";
+  "MR6.VrefDQRange" = "Range1";
+  "MR6.VrefDQValue" = "Avg";
+  "MR6.PDA_VrefDQ_Enable" = "1";
+tm_121:
+  "sMode" = "WRITE";
+  "sSetupPin" = "DQ_Bus";
+  "sSpecOffset" = "tDS_offset_ns@PortAC";
+  "dLinStart_ns" = "-0.625";
+  "dLinStop_ns" = "1.3";
+  "dLinStep_ns" = "0.1";
+  "dBinStep_ns" = "0.01";
+  "iReportFlag" = "1";
+tm_122:
+  "sMode" = "READ";
+  "sSetupPin" = "DQ_Bus,DQS_DiffBus";
+  "sSpecOffset" = "tDQSCK_tAC_offset_ns@PortAC";
+  "dLinStart_ns" = "-0.625";
+  "dLinStop_ns" = "1.3";
+  "dLinStep_ns" = "0.1";
+  "dBinStep_ns" = "0.01";
+  "iReportFlag" = "1";
+tm_123:
+  "sMode" = "WRITE";
+  "sSetupPin" = "DQ_Bus";
+  "sSpecOffset" = "tDS_offset_ns@PortAC";
+  "dLinStart_ns" = "-0.416";
+  "dLinStop_ns" = "1.3";
+  "dLinStep_ns" = "0.1";
+  "dBinStep_ns" = "0.01";
+  "iReportFlag" = "1";
+tm_125:
+  "sSetupPin" = "DQ_Bus";
+  "sSpecSweep" = "Vth_DQ_sweep";
+  "sSpecOffset" = "Vth_DQ_offset";
+  "dLinStart_Low" = "-0.6";
+  "dLinStop_Low" = "0";
+  "dLinStart_High" = "0";
+  "dLinStop_High" = "0.6";
+  "dLinStep" = "0.01";
+  "dBinStep" = "0.01";
+  "iReportFlag" = "1";
+tm_126:
+  "sMode" = "READ";
+  "sSetupPin" = "DQ_Bus,DQS_DiffBus";
+  "sSpecOffset" = "tDQSCK_tAC_offset_ns@PortAC";
+  "dLinStart_ns" = "-0.535";
+  "dLinStop_ns" = "1.3";
+  "dLinStep_ns" = "0.1";
+  "dBinStep_ns" = "0.01";
+  "iReportFlag" = "1";
+tm_127:
+  "sSetupPin" = "DQS_DiffBus";
+  "sResultPin" = "DQ_Bus";
+  "sSpecSweep" = "tDQSS_sweep_ns";
+  "sSpecOffset" = "tDQSS_offset_ns@PortAC";
+  "dLinStart" = "-0.15";
+  "dLinStop" = "0.15";
+  "dLinStep" = "0.1";
+  "dBinStep" = "0.01";
+  "iReportFlag" = "1";
+tm_129:
+  "sMode" = "WRITE";
+  "sSetupPin" = "DQ_Bus";
+  "sSpecOffset" = "tDS_offset_ns@PortAC";
+  "dLinStart_ns" = "-0.535";
+  "dLinStop_ns" = "1.3";
+  "dLinStep_ns" = "0.1";
+  "dBinStep_ns" = "0.01";
+  "iReportFlag" = "1";
+tm_13:
+  "measurementPins" = "DQ_Bus";
+  "forceVoltageHigh_mV" = "1200";
+  "forceVoltageLow_mV" = "300";
+  "limitSpecifier" = "RTT_120";
+tm_130:
+  "testName" = "Functional";
+tm_131:
+  "testName" = "Functional";
+tm_132:
+  "sType_Init_Label" = "PDA";
+  "MR0" = "0";
+  "MR0.BurstLength" = "BC8";
+  "MR0.ReadBurstType" = "Sequential";
+  "MR0.CASLatency" = "16";
+  "MR0.DLL_Reset" = "1";
+  "MR0.WriteRecovery" = "18";
+  "MR1" = "0";
+  "MR1.DLL_Enable" = "1";
+  "MR1.DriverImpedanceControl" = "RZQ/7";
+  "MR1.AdditiveLatency" = "0";
+  "MR1.RTT_NOM" = "Disable";
+  "MR1.TDQS_Enable" = "0";
+  "MR2" = "1";
+  "MR2.CASWriteLatency" = "9";
+  "MR2.RTT_WR" = "Off";
+  "MR2.WriteCRC_Enable" = "0";
+  "MR2.LP_ASR" = "Manual_Normal";
+  "MR3" = "0";
+  "MR3.GeardownMode" = "1/2Rate";
+  "MR3.WriteCMDLatency" = "4";
+  "MR4" = "0";
+  "MR4.CALatency" = "0";
+  "MR4.SelfRefreshAbort_Enable" = "0";
+  "MR4.ReadPreamble" = "1";
+  "MR4.WritePreamble" = "1";
+  "MR5" = "1";
+  "MR5.CAParityLatency" = "0";
+  "MR5.RTT_PARK" = "0";
+  "MR5.DataMask_Enable" = "0";
+  "MR5.WriteDBI_Enable" = "1";
+  "MR5.ReadDBI_Enable" = "1";
+  "MR6" = "0";
+  "MR6.tCCD_L" = "6";
+  "MR6.VrefDQRange" = "Range1";
+  "MR6.VrefDQValue" = "29";
+  "MR6.PDA_VrefDQ_Enable" = "0";
+tm_133:
+  "sType_Init_Label" = "PDA";
+  "MR0" = "0";
+  "MR0.BurstLength" = "BC8";
+  "MR0.ReadBurstType" = "Sequential";
+  "MR0.CASLatency" = "16";
+  "MR0.DLL_Reset" = "1";
+  "MR0.WriteRecovery" = "18";
+  "MR1" = "0";
+  "MR1.DLL_Enable" = "1";
+  "MR1.DriverImpedanceControl" = "RZQ/7";
+  "MR1.AdditiveLatency" = "0";
+  "MR1.RTT_NOM" = "Disable";
+  "MR1.TDQS_Enable" = "0";
+  "MR2" = "1";
+  "MR2.CASWriteLatency" = "9";
+  "MR2.RTT_WR" = "Off";
+  "MR2.WriteCRC_Enable" = "1";
+  "MR2.LP_ASR" = "Manual_Normal";
+  "MR3" = "0";
+  "MR3.GeardownMode" = "1/2Rate";
+  "MR3.WriteCMDLatency" = "4";
+  "MR4" = "0";
+  "MR4.CALatency" = "0";
+  "MR4.SelfRefreshAbort_Enable" = "0";
+  "MR4.ReadPreamble" = "1";
+  "MR4.WritePreamble" = "1";
+  "MR5" = "1";
+  "MR5.CAParityLatency" = "0";
+  "MR5.RTT_PARK" = "0";
+  "MR5.DataMask_Enable" = "0";
+  "MR5.WriteDBI_Enable" = "0";
+  "MR5.ReadDBI_Enable" = "0";
+  "MR6" = "0";
+  "MR6.tCCD_L" = "6";
+  "MR6.VrefDQRange" = "Range1";
+  "MR6.VrefDQValue" = "29";
+  "MR6.PDA_VrefDQ_Enable" = "0";
+tm_134:
+  "title" = "DQ OutputTiming vs Frequency";
+  "x.start" = "-0.3";
+  "x.stop" = "0.7";
+  "x.step" = "f#50";
+  "x.scale" = "Linear";
+  "y.start" = "1.25";
+  "y.stop" = "0.625";
+  "y.step" = "f#40";
+  "y.scale" = "Linear";
+  "testName" = "Shmoo";
+  "x.parameterType" = "SpecVariable";
+  "x.spec" = "TIM..tDQSCK_tAC_offset_ns@PortAC[ns]";
+  "x.setupPins" = "@";
+  "x.instrumentPin" = "";
+  "x.resourceName" = "";
+  "x.property" = "";
+  "x.unit" = "";
+  "y.parameterType" = "SpecVariable";
+  "y.spec" = "TIM..tCK_ns[ns]";
+  "y.setupPins" = "@";
+  "y.instrumentPin" = "";
+  "y.resourceName" = "";
+  "y.property" = "";
+  "y.unit" = "";
+  "resultPins" = "DQ_Bus";
+  "testMode" = "pass/fail";
+tm_135:
+  "title" = "Power vs. Frequency";
+  "x.start" = "1";
+  "x.stop" = "1.2";
+  "x.step" = "f#20";
+  "x.scale" = "Linear";
+  "y.start" = "1.25";
+  "y.stop" = "0.625";
+  "y.step" = "f#40";
+  "y.scale" = "Linear";
+  "testName" = "Shmoo";
+  "x.parameterType" = "SpecVariable";
+  "x.spec" = "LEV..VDD[V]";
+  "x.setupPins" = "";
+  "x.instrumentPin" = "";
+  "x.resourceName" = "";
+  "x.property" = "";
+  "x.unit" = "";
+  "y.parameterType" = "SpecVariable";
+  "y.spec" = "TIM..tCK_ns[ns]";
+  "y.setupPins" = "";
+  "y.instrumentPin" = "";
+  "y.resourceName" = "";
+  "y.property" = "";
+  "y.unit" = "";
+  "resultPins" = "DQ_Bus";
+  "testMode" = "pass/fail";
+tm_136:
+  "title" = "tIS (Address) vs Frequency";
+  "x.start" = "-2";
+  "x.stop" = "1";
+  "x.step" = "f#40";
+  "x.scale" = "Linear";
+  "y.start" = "1.25";
+  "y.stop" = "0.625";
+  "y.step" = "f#40";
+  "y.scale" = "Linear";
+  "testName" = "Shmoo";
+  "x.parameterType" = "SpecVariable";
+  "x.spec" = "TIM..tISH_offset_ns@PortAC[ns]";
+  "x.setupPins" = "Address_Bus";
+  "x.instrumentPin" = "";
+  "x.resourceName" = "";
+  "x.property" = "";
+  "x.unit" = "";
+  "y.parameterType" = "SpecVariable";
+  "y.spec" = "TIM..tCK_ns[ns]";
+  "y.setupPins" = "";
+  "y.instrumentPin" = "";
+  "y.resourceName" = "";
+  "y.property" = "";
+  "y.unit" = "";
+  "resultPins" = "DQ_Bus";
+  "testMode" = "pass/fail";
+tm_137:
+  "title" = "DQ OutputEye @1866";
+  "x.start" = "-0.267";
+  "x.stop" = "0.267";
+  "x.step" = "f#40";
+  "x.scale" = "Linear";
+  "y.start" = "-0.45";
+  "y.stop" = "0.45";
+  "y.step" = "f#40";
+  "y.scale" = "Linear";
+  "testName" = "Shmoo";
+  "x.parameterType" = "SpecVariable";
+  "x.spec" = "TIM..tDQSCK_tAC_sweep_ns@PortAC[ns]";
+  "x.setupPins" = "";
+  "x.instrumentPin" = "";
+  "x.resourceName" = "";
+  "x.property" = "";
+  "x.unit" = "";
+  "y.parameterType" = "SpecVariable";
+  "y.spec" = "LEV..Vth_DQ_sweep[V]";
+  "y.setupPins" = "";
+  "y.instrumentPin" = "";
+  "y.resourceName" = "";
+  "y.property" = "";
+  "y.unit" = "";
+  "resultPins" = "DQ_Bus";
+  "testMode" = "pass/fail";
+tm_138:
+  "sType_Init_Label" = "PDA";
+  "MR0" = "0";
+  "MR0.BurstLength" = "BC8";
+  "MR0.ReadBurstType" = "Sequential";
+  "MR0.CASLatency" = "16";
+  "MR0.DLL_Reset" = "1";
+  "MR0.WriteRecovery" = "18";
+  "MR1" = "0";
+  "MR1.DLL_Enable" = "1";
+  "MR1.DriverImpedanceControl" = "RZQ/7";
+  "MR1.AdditiveLatency" = "0";
+  "MR1.RTT_NOM" = "Disable";
+  "MR1.TDQS_Enable" = "0";
+  "MR2" = "1";
+  "MR2.CASWriteLatency" = "9";
+  "MR2.RTT_WR" = "Off";
+  "MR2.WriteCRC_Enable" = "0";
+  "MR2.LP_ASR" = "Manual_Normal";
+  "MR3" = "0";
+  "MR3.GeardownMode" = "1/2Rate";
+  "MR3.WriteCMDLatency" = "4";
+  "MR4" = "0";
+  "MR4.CALatency" = "0";
+  "MR4.SelfRefreshAbort_Enable" = "0";
+  "MR4.ReadPreamble" = "1";
+  "MR4.WritePreamble" = "1";
+  "MR5" = "1";
+  "MR5.CAParityLatency" = "4";
+  "MR5.RTT_PARK" = "0";
+  "MR5.DataMask_Enable" = "0";
+  "MR5.WriteDBI_Enable" = "0";
+  "MR5.ReadDBI_Enable" = "0";
+  "MR6" = "0";
+  "MR6.tCCD_L" = "6";
+  "MR6.VrefDQRange" = "Range1";
+  "MR6.VrefDQValue" = "29";
+  "MR6.PDA_VrefDQ_Enable" = "0";
+tm_139:
+  "sSetupPin" = "Address_Bus,Bank_Addr_Bus,Bank_Grp_Bus,Bank_Bus,Command_Bus,PARITY";
+  "sResultPin" = "DQ_Bus";
+  "sSpecSweep" = "tISH_sweep_ns";
+  "sSpecOffset" = "tISH_offset_ns@PortAC";
+  "dLinStart" = "-0.9360000000000001";
+  "dLinStop" = "0.468";
+  "dLinStep" = "0.1";
+  "dBinStep" = "0.01";
+  "iReportFlag" = "1";
+tm_14:
+  "measurementPins" = "DQ_Bus";
+  "forceVoltageHigh_mV" = "1200";
+  "forceVoltageLow_mV" = "300";
+  "limitSpecifier" = "RTT_40";
+tm_140:
+  "sType_Init_Label" = "PDA";
+  "MR0" = "0";
+  "MR0.BurstLength" = "BC8";
+  "MR0.ReadBurstType" = "Sequential";
+  "MR0.CASLatency" = "16";
+  "MR0.DLL_Reset" = "1";
+  "MR0.WriteRecovery" = "18";
+  "MR1" = "0";
+  "MR1.DLL_Enable" = "1";
+  "MR1.DriverImpedanceControl" = "RZQ/7";
+  "MR1.AdditiveLatency" = "0";
+  "MR1.RTT_NOM" = "Disable";
+  "MR1.TDQS_Enable" = "0";
+  "MR2" = "1";
+  "MR2.CASWriteLatency" = "9";
+  "MR2.RTT_WR" = "Off";
+  "MR2.WriteCRC_Enable" = "1";
+  "MR2.LP_ASR" = "Manual_Normal";
+  "MR3" = "0";
+  "MR3.GeardownMode" = "1/2Rate";
+  "MR3.WriteCMDLatency" = "4";
+  "MR4" = "0";
+  "MR4.CALatency" = "0";
+  "MR4.SelfRefreshAbort_Enable" = "0";
+  "MR4.ReadPreamble" = "1";
+  "MR4.WritePreamble" = "1";
+  "MR5" = "1";
+  "MR5.CAParityLatency" = "0";
+  "MR5.RTT_PARK" = "0";
+  "MR5.DataMask_Enable" = "0";
+  "MR5.WriteDBI_Enable" = "1";
+  "MR5.ReadDBI_Enable" = "1";
+  "MR6" = "0";
+  "MR6.tCCD_L" = "6";
+  "MR6.VrefDQRange" = "Range1";
+  "MR6.VrefDQValue" = "29";
+  "MR6.PDA_VrefDQ_Enable" = "0";
+tm_141:
+  "sType_Init_Label" = "PDA";
+  "MR0" = "0";
+  "MR0.BurstLength" = "BC8";
+  "MR0.ReadBurstType" = "Sequential";
+  "MR0.CASLatency" = "16";
+  "MR0.DLL_Reset" = "1";
+  "MR0.WriteRecovery" = "18";
+  "MR1" = "0";
+  "MR1.DLL_Enable" = "1";
+  "MR1.DriverImpedanceControl" = "RZQ/7";
+  "MR1.AdditiveLatency" = "0";
+  "MR1.RTT_NOM" = "Disable";
+  "MR1.TDQS_Enable" = "0";
+  "MR2" = "1";
+  "MR2.CASWriteLatency" = "9";
+  "MR2.RTT_WR" = "Off";
+  "MR2.WriteCRC_Enable" = "1";
+  "MR2.LP_ASR" = "Manual_Normal";
+  "MR3" = "0";
+  "MR3.GeardownMode" = "1/2Rate";
+  "MR3.WriteCMDLatency" = "4";
+  "MR4" = "0";
+  "MR4.CALatency" = "0";
+  "MR4.SelfRefreshAbort_Enable" = "0";
+  "MR4.ReadPreamble" = "1";
+  "MR4.WritePreamble" = "1";
+  "MR5" = "1";
+  "MR5.CAParityLatency" = "4";
+  "MR5.RTT_PARK" = "0";
+  "MR5.DataMask_Enable" = "0";
+  "MR5.WriteDBI_Enable" = "0";
+  "MR5.ReadDBI_Enable" = "0";
+  "MR6" = "0";
+  "MR6.tCCD_L" = "6";
+  "MR6.VrefDQRange" = "Range1";
+  "MR6.VrefDQValue" = "29";
+  "MR6.PDA_VrefDQ_Enable" = "0";
+tm_142:
+  "sType_Init_Label" = "PDA";
+  "MR0" = "0";
+  "MR0.BurstLength" = "BC8";
+  "MR0.ReadBurstType" = "Sequential";
+  "MR0.CASLatency" = "16";
+  "MR0.DLL_Reset" = "1";
+  "MR0.WriteRecovery" = "18";
+  "MR1" = "0";
+  "MR1.DLL_Enable" = "1";
+  "MR1.DriverImpedanceControl" = "RZQ/7";
+  "MR1.AdditiveLatency" = "0";
+  "MR1.RTT_NOM" = "Disable";
+  "MR1.TDQS_Enable" = "0";
+  "MR2" = "1";
+  "MR2.CASWriteLatency" = "9";
+  "MR2.RTT_WR" = "Off";
+  "MR2.WriteCRC_Enable" = "0";
+  "MR2.LP_ASR" = "Manual_Normal";
+  "MR3" = "0";
+  "MR3.GeardownMode" = "1/2Rate";
+  "MR3.WriteCMDLatency" = "4";
+  "MR4" = "0";
+  "MR4.CALatency" = "0";
+  "MR4.SelfRefreshAbort_Enable" = "0";
+  "MR4.ReadPreamble" = "1";
+  "MR4.WritePreamble" = "1";
+  "MR5" = "1";
+  "MR5.CAParityLatency" = "4";
+  "MR5.RTT_PARK" = "0";
+  "MR5.DataMask_Enable" = "0";
+  "MR5.WriteDBI_Enable" = "1";
+  "MR5.ReadDBI_Enable" = "1";
+  "MR6" = "0";
+  "MR6.tCCD_L" = "6";
+  "MR6.VrefDQRange" = "Range1";
+  "MR6.VrefDQValue" = "29";
+  "MR6.PDA_VrefDQ_Enable" = "0";
+tm_143:
+  "sType_Init_Label" = "PDA";
+  "MR0" = "0";
+  "MR0.BurstLength" = "BC8";
+  "MR0.ReadBurstType" = "Sequential";
+  "MR0.CASLatency" = "16";
+  "MR0.DLL_Reset" = "1";
+  "MR0.WriteRecovery" = "18";
+  "MR1" = "0";
+  "MR1.DLL_Enable" = "1";
+  "MR1.DriverImpedanceControl" = "RZQ/7";
+  "MR1.AdditiveLatency" = "0";
+  "MR1.RTT_NOM" = "Disable";
+  "MR1.TDQS_Enable" = "0";
+  "MR2" = "1";
+  "MR2.CASWriteLatency" = "9";
+  "MR2.RTT_WR" = "Off";
+  "MR2.WriteCRC_Enable" = "1";
+  "MR2.LP_ASR" = "Manual_Normal";
+  "MR3" = "0";
+  "MR3.GeardownMode" = "1/2Rate";
+  "MR3.WriteCMDLatency" = "4";
+  "MR4" = "0";
+  "MR4.CALatency" = "0";
+  "MR4.SelfRefreshAbort_Enable" = "0";
+  "MR4.ReadPreamble" = "1";
+  "MR4.WritePreamble" = "1";
+  "MR5" = "1";
+  "MR5.CAParityLatency" = "4";
+  "MR5.RTT_PARK" = "0";
+  "MR5.DataMask_Enable" = "0";
+  "MR5.WriteDBI_Enable" = "1";
+  "MR5.ReadDBI_Enable" = "1";
+  "MR6" = "0";
+  "MR6.tCCD_L" = "6";
+  "MR6.VrefDQRange" = "Range1";
+  "MR6.VrefDQValue" = "29";
+  "MR6.PDA_VrefDQ_Enable" = "0";
+tm_144:
+  "sTimingSpecification" = "FCT_1600K_PL4";
+  "sTimingSpecVariable" = "tDQSCK_tAC_offset_ns@PortAC:tISH_offset_ns@PortAC:tDQSCK_tAC_offset_ns@PortAC:tDQSS_offset_ns@PortAC:tDS_offset_ns@PortAC";
+  "sLevelEqnSpecSet" = "";
+  "sLevelSpecVariable" = "";
+tm_145:
+  "sSetupPin" = "DQ_Bus";
+  "sSpecSweep" = "Vth_DQ_sweep";
+  "sSpecOffset" = "Vth_DQ_offset";
+  "dLinStart_Low" = "-0.6";
+  "dLinStop_Low" = "0";
+  "dLinStart_High" = "0";
+  "dLinStop_High" = "0.6";
+  "dLinStep" = "0.01";
+  "dBinStep" = "0.01";
+  "iReportFlag" = "1";
+tm_146:
+  "sMode" = "READ";
+  "sSetupPin" = "DQ_Bus,DQS_DiffBus";
+  "sSpecOffset" = "tDQSCK_tAC_offset_ns@PortAC";
+  "dLinStart_ns" = "-0.468";
+  "dLinStop_ns" = "1.3";
+  "dLinStep_ns" = "0.1";
+  "dBinStep_ns" = "0.01";
+  "iReportFlag" = "1";
+tm_147:
+  "sSetupPin" = "DQS_DiffBus";
+  "sResultPin" = "DQ_Bus";
+  "sSpecSweep" = "tDQSS_sweep_ns";
+  "sSpecOffset" = "tDQSS_offset_ns@PortAC";
+  "dLinStart" = "-0.15";
+  "dLinStop" = "0.15";
+  "dLinStep" = "0.1";
+  "dBinStep" = "0.01";
+  "iReportFlag" = "1";
+tm_149:
+  "sMode" = "WRITE";
+  "sSetupPin" = "DQ_Bus";
+  "sSpecOffset" = "tDS_offset_ns@PortAC";
+  "dLinStart_ns" = "-0.468";
+  "dLinStop_ns" = "1.3";
+  "dLinStep_ns" = "0.1";
+  "dBinStep_ns" = "0.01";
+  "iReportFlag" = "1";
+tm_15:
+  "sX_Type" = "TIM";
+  "sX_Spec" = "tDQSCK_tAC_sweep_ns@PortAC";
+  "dX_Start" = "-0.3125";
+  "dX_Stop" = "0.3125";
+  "iX_NumOfStep" = "40";
+  "sY_Type" = "LEV";
+  "sY_Spec" = "Vth_DQ_sweep";
+  "dY_Start" = "-0.45";
+  "dY_Stop" = "0.45";
+  "iY_NumOfStep" = "40";
+  "sResultPin_A" = "DQS_DiffBus";
+  "sResultPin_B" = "DQ_Bus";
+  "iFlag_DisconnectConnect" = "0";
+  "iFlag_FailStop" = "0";
+tm_150:
+  "testName" = "Functional";
+tm_151:
+  "testName" = "Functional";
+tm_152:
+  "title" = "DQ OutputTiming vs Frequency";
+  "x.start" = "-0.3";
+  "x.stop" = "0.7";
+  "x.step" = "f#50";
+  "x.scale" = "Linear";
+  "y.start" = "1.25";
+  "y.stop" = "0.625";
+  "y.step" = "f#40";
+  "y.scale" = "Linear";
+  "testName" = "Shmoo";
+  "x.parameterType" = "SpecVariable";
+  "x.spec" = "TIM..tDQSCK_tAC_offset_ns@PortAC[ns]";
+  "x.setupPins" = "@";
+  "x.instrumentPin" = "";
+  "x.resourceName" = "";
+  "x.property" = "";
+  "x.unit" = "";
+  "y.parameterType" = "SpecVariable";
+  "y.spec" = "TIM..tCK_ns[ns]";
+  "y.setupPins" = "@";
+  "y.instrumentPin" = "";
+  "y.resourceName" = "";
+  "y.property" = "";
+  "y.unit" = "";
+  "resultPins" = "DQ_Bus";
+  "testMode" = "pass/fail";
+tm_153:
+  "title" = "Power vs. Frequency";
+  "x.start" = "1";
+  "x.stop" = "1.2";
+  "x.step" = "f#20";
+  "x.scale" = "Linear";
+  "y.start" = "1.25";
+  "y.stop" = "0.625";
+  "y.step" = "f#40";
+  "y.scale" = "Linear";
+  "testName" = "Shmoo";
+  "x.parameterType" = "SpecVariable";
+  "x.spec" = "LEV..VDD[V]";
+  "x.setupPins" = "";
+  "x.instrumentPin" = "";
+  "x.resourceName" = "";
+  "x.property" = "";
+  "x.unit" = "";
+  "y.parameterType" = "SpecVariable";
+  "y.spec" = "TIM..tCK_ns[ns]";
+  "y.setupPins" = "";
+  "y.instrumentPin" = "";
+  "y.resourceName" = "";
+  "y.property" = "";
+  "y.unit" = "";
+  "resultPins" = "DQ_Bus";
+  "testMode" = "pass/fail";
+tm_154:
+  "title" = "tIS (Address) vs Frequency";
+  "x.start" = "-2";
+  "x.stop" = "1";
+  "x.step" = "f#40";
+  "x.scale" = "Linear";
+  "y.start" = "1.25";
+  "y.stop" = "0.625";
+  "y.step" = "f#40";
+  "y.scale" = "Linear";
+  "testName" = "Shmoo";
+  "x.parameterType" = "SpecVariable";
+  "x.spec" = "TIM..tISH_offset_ns@PortAC[ns]";
+  "x.setupPins" = "Address_Bus";
+  "x.instrumentPin" = "";
+  "x.resourceName" = "";
+  "x.property" = "";
+  "x.unit" = "";
+  "y.parameterType" = "SpecVariable";
+  "y.spec" = "TIM..tCK_ns[ns]";
+  "y.setupPins" = "";
+  "y.instrumentPin" = "";
+  "y.resourceName" = "";
+  "y.property" = "";
+  "y.unit" = "";
+  "resultPins" = "DQ_Bus";
+  "testMode" = "pass/fail";
+tm_155:
+  "title" = "DQ OutputEye @2133";
+  "x.start" = "-0.234";
+  "x.stop" = "0.234";
+  "x.step" = "f#40";
+  "x.scale" = "Linear";
+  "y.start" = "-0.45";
+  "y.stop" = "0.45";
+  "y.step" = "f#40";
+  "y.scale" = "Linear";
+  "testName" = "Shmoo";
+  "x.parameterType" = "SpecVariable";
+  "x.spec" = "TIM..tDQSCK_tAC_sweep_ns@PortAC[ns]";
+  "x.setupPins" = "";
+  "x.instrumentPin" = "";
+  "x.resourceName" = "";
+  "x.property" = "";
+  "x.unit" = "";
+  "y.parameterType" = "SpecVariable";
+  "y.spec" = "LEV..Vth_DQ_sweep[V]";
+  "y.setupPins" = "";
+  "y.instrumentPin" = "";
+  "y.resourceName" = "";
+  "y.property" = "";
+  "y.unit" = "";
+  "resultPins" = "DQ_Bus";
+  "testMode" = "pass/fail";
+tm_156:
+  "sType_Init_Label" = "PDA";
+  "MR0" = "1";
+  "MR0.BurstLength" = "BC8";
+  "MR0.ReadBurstType" = "Sequential";
+  "MR0.CASLatency" = "11";
+  "MR0.DLL_Reset" = "1";
+  "MR0.WriteRecovery" = "12";
+  "MR1" = "1";
+  "MR1.DLL_Enable" = "1";
+  "MR1.DriverImpedanceControl" = "RZQ/7";
+  "MR1.AdditiveLatency" = "0";
+  "MR1.RTT_NOM" = "RZQ/2";
+  "MR1.TDQS_Enable" = "0";
+  "MR2" = "1";
+  "MR2.CASWriteLatency" = "9";
+  "MR2.RTT_WR" = "Off";
+  "MR2.WriteCRC_Enable" = "0";
+  "MR2.LP_ASR" = "Manual_Normal";
+  "MR3" = "1";
+  "MR3.GeardownMode" = "1/2Rate";
+  "MR3.WriteCMDLatency" = "4";
+  "MR4" = "1";
+  "MR4.CALatency" = "0";
+  "MR4.SelfRefreshAbort_Enable" = "0";
+  "MR4.ReadPreamble" = "1";
+  "MR4.WritePreamble" = "1";
+  "MR5" = "1";
+  "MR5.CAParityLatency" = "0";
+  "MR5.RTT_PARK" = "0";
+  "MR5.DataMask_Enable" = "0";
+  "MR5.WriteDBI_Enable" = "0";
+  "MR5.ReadDBI_Enable" = "0";
+  "MR6" = "1";
+  "MR6.tCCD_L" = "5";
+  "MR6.VrefDQRange" = "Range1";
+  "MR6.VrefDQValue" = "Avg";
+  "MR6.PDA_VrefDQ_Enable" = "1";
+tm_157:
+  "sType_Init_Label" = "PDA";
+  "MR0" = "1";
+  "MR0.BurstLength" = "BC8";
+  "MR0.ReadBurstType" = "Sequential";
+  "MR0.CASLatency" = "11";
+  "MR0.DLL_Reset" = "1";
+  "MR0.WriteRecovery" = "12";
+  "MR1" = "1";
+  "MR1.DLL_Enable" = "1";
+  "MR1.DriverImpedanceControl" = "RZQ/7";
+  "MR1.AdditiveLatency" = "0";
+  "MR1.RTT_NOM" = "RZQ/4";
+  "MR1.TDQS_Enable" = "0";
+  "MR2" = "1";
+  "MR2.CASWriteLatency" = "9";
+  "MR2.RTT_WR" = "Off";
+  "MR2.WriteCRC_Enable" = "0";
+  "MR2.LP_ASR" = "Manual_Normal";
+  "MR3" = "1";
+  "MR3.GeardownMode" = "1/2Rate";
+  "MR3.WriteCMDLatency" = "4";
+  "MR4" = "1";
+  "MR4.CALatency" = "0";
+  "MR4.SelfRefreshAbort_Enable" = "0";
+  "MR4.ReadPreamble" = "1";
+  "MR4.WritePreamble" = "1";
+  "MR5" = "1";
+  "MR5.CAParityLatency" = "0";
+  "MR5.RTT_PARK" = "0";
+  "MR5.DataMask_Enable" = "0";
+  "MR5.WriteDBI_Enable" = "0";
+  "MR5.ReadDBI_Enable" = "0";
+  "MR6" = "1";
+  "MR6.tCCD_L" = "5";
+  "MR6.VrefDQRange" = "Range1";
+  "MR6.VrefDQValue" = "Avg";
+  "MR6.PDA_VrefDQ_Enable" = "1";
+tm_158:
+  "sType_Init_Label" = "PDA";
+  "MR0" = "1";
+  "MR0.BurstLength" = "BC8";
+  "MR0.ReadBurstType" = "Sequential";
+  "MR0.CASLatency" = "11";
+  "MR0.DLL_Reset" = "1";
+  "MR0.WriteRecovery" = "12";
+  "MR1" = "1";
+  "MR1.DLL_Enable" = "1";
+  "MR1.DriverImpedanceControl" = "RZQ/7";
+  "MR1.AdditiveLatency" = "0";
+  "MR1.RTT_NOM" = "RZQ/6";
+  "MR1.TDQS_Enable" = "0";
+  "MR2" = "1";
+  "MR2.CASWriteLatency" = "9";
+  "MR2.RTT_WR" = "Off";
+  "MR2.WriteCRC_Enable" = "0";
+  "MR2.LP_ASR" = "Manual_Normal";
+  "MR3" = "1";
+  "MR3.GeardownMode" = "1/2Rate";
+  "MR3.WriteCMDLatency" = "4";
+  "MR4" = "1";
+  "MR4.CALatency" = "0";
+  "MR4.SelfRefreshAbort_Enable" = "0";
+  "MR4.ReadPreamble" = "1";
+  "MR4.WritePreamble" = "1";
+  "MR5" = "1";
+  "MR5.CAParityLatency" = "0";
+  "MR5.RTT_PARK" = "0";
+  "MR5.DataMask_Enable" = "0";
+  "MR5.WriteDBI_Enable" = "0";
+  "MR5.ReadDBI_Enable" = "0";
+  "MR6" = "1";
+  "MR6.tCCD_L" = "5";
+  "MR6.VrefDQRange" = "Range1";
+  "MR6.VrefDQValue" = "Avg";
+  "MR6.PDA_VrefDQ_Enable" = "1";
+tm_16:
+  "measurementPins" = "DQ_Bus";
+  "limitSpecifier" = "RON_40";
+tm_17:
+  "testName" = "Functional";
+tm_18:
+  "measurementPins" = "DQ_Bus";
+  "DCSubLabel" = "DC_MEAS_RON34";
+  "limitSpecifier" = "RON34";
+tm_19:
+  "sType_Init_Label" = "PDA";
+  "MR0" = "1";
+  "MR0.BurstLength" = "BC8";
+  "MR0.ReadBurstType" = "Sequential";
+  "MR0.CASLatency" = "15";
+  "MR0.DLL_Reset" = "1";
+  "MR0.WriteRecovery" = "16";
+  "MR1" = "1";
+  "MR1.DLL_Enable" = "1";
+  "MR1.DriverImpedanceControl" = "RZQ/7";
+  "MR1.AdditiveLatency" = "0";
+  "MR1.RTT_NOM" = "Disable";
+  "MR1.TDQS_Enable" = "0";
+  "MR2" = "1";
+  "MR2.CASWriteLatency" = "11";
+  "MR2.RTT_WR" = "Off";
+  "MR2.WriteCRC_Enable" = "0";
+  "MR2.LP_ASR" = "Manual_Normal";
+  "MR3" = "1";
+  "MR3.GeardownMode" = "1/2Rate";
+  "MR3.WriteCMDLatency" = "4";
+  "MR4" = "1";
+  "MR4.CALatency" = "0";
+  "MR4.SelfRefreshAbort_Enable" = "0";
+  "MR4.ReadPreamble" = "1";
+  "MR4.WritePreamble" = "1";
+  "MR5" = "1";
+  "MR5.CAParityLatency" = "0";
+  "MR5.RTT_PARK" = "0";
+  "MR5.DataMask_Enable" = "0";
+  "MR5.WriteDBI_Enable" = "0";
+  "MR5.ReadDBI_Enable" = "0";
+  "MR6" = "1";
+  "MR6.tCCD_L" = "6";
+  "MR6.VrefDQRange" = "Range1";
+  "MR6.VrefDQValue" = "Avg";
+  "MR6.PDA_VrefDQ_Enable" = "1";
+tm_20:
+  "measurementPins" = "DQ_Bus";
+  "forceVoltageHigh_mV" = "600";
+  "forceVoltageLow_mV" = "300";
+  "GenericDCSubLabel" = "DC_MEAS_RTT120";
+  "limitSpecifier" = "RTT120";
+tm_21:
+  "measurementPins" = "DQ_Bus";
+  "forceVoltageHigh_mV" = "600";
+  "forceVoltageLow_mV" = "300";
+  "GenericDCSubLabel" = "DC_MEAS_RTT60";
+  "limitSpecifier" = "RTT60";
+tm_22:
+  "sSourcePin" = "DQS";
+  "sSinkPin" = "DQ_Bus";
+  "sSpecVariable" = "tDQSCK_tAC_sweep_ns@PortAC";
+  "dSweepStart" = "-0.5";
+  "dSweepStop" = "0.5";
+  "dSweepStep" = "0.02";
+  "iCycleStart" = "1020400";
+  "iCycleLength" = "128";
+  "sMode" = "EDGE";
+  "iEdgesPerCycle" = "4";
+  "sReportMode" = "All";
+  "sOutput" = "ReportUI";
+  "sFileDirectory" = "./shmoo";
+tm_23:
+  "sX_Type" = "TIM";
+  "sX_Spec" = "tDQSCK_tAC_sweep_ns@PortAC";
+  "dX_Start" = "-1";
+  "dX_Stop" = "1";
+  "iX_NumOfStep" = "20";
+  "sY_Type" = "PERIOD";
+  "sY_Spec" = "tCK_ns";
+  "dY_Start" = "0.625";
+  "dY_Stop" = "1.25";
+  "iY_NumOfStep" = "40";
+  "sResultPin_A" = "DQS_DiffBus";
+  "sResultPin_B" = "DQ_Bus";
+  "iFlag_DisconnectConnect" = "0";
+  "iFlag_FailStop" = "0";
+tm_24:
+  "measurePins" = "VDD";
+  "limitSpecifier" = "IDD2N";
+tm_25:
+  "sType_Init_Label" = "PDA";
+  "MR0" = "1";
+  "MR0.BurstLength" = "BC8";
+  "MR0.ReadBurstType" = "Sequential";
+  "MR0.CASLatency" = "16";
+  "MR0.DLL_Reset" = "1";
+  "MR0.WriteRecovery" = "18";
+  "MR1" = "1";
+  "MR1.DLL_Enable" = "1";
+  "MR1.DriverImpedanceControl" = "RZQ/7";
+  "MR1.AdditiveLatency" = "0";
+  "MR1.RTT_NOM" = "Disable";
+  "MR1.TDQS_Enable" = "0";
+  "MR2" = "1";
+  "MR2.CASWriteLatency" = "12";
+  "MR2.RTT_WR" = "Off";
+  "MR2.WriteCRC_Enable" = "0";
+  "MR2.LP_ASR" = "Manual_Normal";
+  "MR3" = "1";
+  "MR3.GeardownMode" = "1/2Rate";
+  "MR3.WriteCMDLatency" = "4";
+  "MR4" = "1";
+  "MR4.CALatency" = "0";
+  "MR4.SelfRefreshAbort_Enable" = "0";
+  "MR4.ReadPreamble" = "1";
+  "MR4.WritePreamble" = "1";
+  "MR5" = "1";
+  "MR5.CAParityLatency" = "0";
+  "MR5.RTT_PARK" = "0";
+  "MR5.DataMask_Enable" = "0";
+  "MR5.WriteDBI_Enable" = "0";
+  "MR5.ReadDBI_Enable" = "0";
+  "MR6" = "1";
+  "MR6.tCCD_L" = "6";
+  "MR6.VrefDQRange" = "Range1";
+  "MR6.VrefDQValue" = "Avg";
+  "MR6.PDA_VrefDQ_Enable" = "1";
+tm_26:
+  "sSetupPin" = "DQ_Bus";
+  "sSpecSweep" = "Vth_DQ_sweep";
+  "sSpecOffset" = "Vth_DQ_offset";
+  "dLinStart_Low" = "-0.6";
+  "dLinStop_Low" = "0";
+  "dLinStart_High" = "0";
+  "dLinStop_High" = "0.6";
+  "dLinStep" = "0.01";
+  "dBinStep" = "0.01";
+  "iReportFlag" = "1";
+tm_27:
+  "pinlist" = "DQ_Bus";
+  "portName" = "PortAC";
+  "specName_postfix" = "sweep_ns";
+  "UI_width" = "0.625[ns]";
+  "start" = "0[ns]";
+  "stop" = "1[ns]";
+  "dataAcquStepWidth" = "0.01[ns]";
+  "passOnMaxErrorCount" = "0";
+  "autoSync" = "OFF";
+  "autoSync.stepWidth" = "0.01[ns]";
+  "transitionSearch" = "ON";
+  "transitionSearch.transition" = "RIGHT";
+  "output" = "ReportUI";
+  "output.mode" = "DETAIL";
+  "testName" = "(peak_to_peak_jitter_ps,rms_jitter_ps)";
+tm_28:
+  "sSetupPin" = "DQS_DiffBus";
+  "sResultPin" = "DQ_Bus";
+  "sSpecSweep" = "tDQSS_sweep_ns";
+  "sSpecOffset" = "tDQSS_offset_ns@PortAC";
+  "dLinStart" = "-0.15";
+  "dLinStop" = "0.15";
+  "dLinStep" = "0.1";
+  "dBinStep" = "0.01";
+  "iReportFlag" = "1";
+tm_29:
+  "sInit_Label_PDA" = "initialize_pda";
+  "sInit_Label_Training" = "initialize_training";
+  "sComment_MR0" = "INIT_MR0";
+  "sComment_MR1" = "INIT_MR1";
+  "sComment_MR2" = "INIT_MR2";
+  "sComment_MR3" = "INIT_MR3";
+  "sComment_MR4" = "INIT_MR4";
+  "sComment_MR5" = "INIT_MR5";
+  "sComment_MR6_VrefDQ_Enable" = "INIT_MR6_VrefDQ_Enable";
+  "sComment_MR6_VrefDQ_Set" = "INIT_MR6_VrefDQ_Set";
+  "sComment_MR6_VrefDQ_Disable" = "INIT_MR6_VrefDQ_Disable";
+  "sComment_MR3_PDA_Enable" = "PDA_MR3_Enable";
+  "sComment_MR3_PDA_Disable" = "PDA_MR3_Disable";
+  "sComment_MR6_PDA_VrefDQ_Enable" = "PDA_MR6_VrefDQ_Enable";
+  "sComment_Prefix_MR6_PDA_VrefDQ_Set" = "PDA_MR6_VrefDQ_Set_";
+  "sComment_Prefix_MR6_PDA_VrefDQ_Disable" = "PDA_MR6_VrefDQ_Disable_";
+  "iReportFlag" = "1";
+tm_3:
+  "sX_Type" = "LEV";
+  "sX_Spec" = "VDD";
+  "dX_Start" = "1";
+  "dX_Stop" = "1.2";
+  "iX_NumOfStep" = "20";
+  "sY_Type" = "PERIOD";
+  "sY_Spec" = "tCK_ns";
+  "dY_Start" = "0.625";
+  "dY_Stop" = "1.25";
+  "iY_NumOfStep" = "40";
+  "sResultPin_A" = "DQS_DiffBus";
+  "sResultPin_B" = "DQ_Bus";
+  "iFlag_DisconnectConnect" = "0";
+  "iFlag_FailStop" = "0";
+tm_30:
+  "testName" = "Functional";
+tm_32:
+  "testName" = "Functional";
+tm_34:
+  "sType_Init_Label" = "PDA";
+  "MR0" = "1";
+  "MR0.BurstLength" = "BC8";
+  "MR0.ReadBurstType" = "Sequential";
+  "MR0.CASLatency" = "16";
+  "MR0.DLL_Reset" = "0";
+  "MR0.WriteRecovery" = "16";
+  "MR1" = "1";
+  "MR1.DLL_Enable" = "1";
+  "MR1.DriverImpedanceControl" = "RZQ/7";
+  "MR1.AdditiveLatency" = "2";
+  "MR1.RTT_NOM" = "Disable";
+  "MR1.TDQS_Enable" = "0";
+  "MR2" = "1";
+  "MR2.CASWriteLatency" = "14";
+  "MR2.RTT_WR" = "Off";
+  "MR2.WriteCRC_Enable" = "0";
+  "MR2.LP_ASR" = "Manual_Normal";
+  "MR3" = "1";
+  "MR3.GeardownMode" = "1/2Rate";
+  "MR3.WriteCMDLatency" = "5";
+  "MR4" = "1";
+  "MR4.CALatency" = "0";
+  "MR4.SelfRefreshAbort_Enable" = "0";
+  "MR4.ReadPreamble" = "1";
+  "MR4.WritePreamble" = "1";
+  "MR5" = "1";
+  "MR5.CAParityLatency" = "0";
+  "MR5.RTT_PARK" = "0";
+  "MR5.DataMask_Enable" = "0";
+  "MR5.WriteDBI_Enable" = "0";
+  "MR5.ReadDBI_Enable" = "0";
+  "MR6" = "1";
+  "MR6.tCCD_L" = "6";
+  "MR6.VrefDQRange" = "Range1";
+  "MR6.VrefDQValue" = "Avg";
+  "MR6.PDA_VrefDQ_Enable" = "1";
+tm_35:
+  "sTimingSpecification" = "FCT_2133P_AL2";
+  "sTimingSpecVariable" = "tDQSCK_tAC_offset_ns@PortAC:tISH_offset_ns@PortAC:tDQSCK_tAC_offset_ns@PortAC:tDQSS_offset_ns@PortAC:tDS_offset_ns@PortAC";
+  "sLevelEqnSpecSet" = "";
+  "sLevelSpecVariable" = "";
+tm_36:
+  "title" = "DQ OutputTiming vs Frequency";
+  "x.start" = "-0.3";
+  "x.stop" = "0.7";
+  "x.step" = "f#50";
+  "x.scale" = "Linear";
+  "y.start" = "1.25";
+  "y.stop" = "0.625";
+  "y.step" = "f#40";
+  "y.scale" = "Linear";
+  "testName" = "Shmoo";
+  "x.parameterType" = "SpecVariable";
+  "x.spec" = "TIM..tDQSCK_tAC_offset_ns@PortAC[ns]";
+  "x.setupPins" = "@";
+  "x.instrumentPin" = "";
+  "x.resourceName" = "";
+  "x.property" = "";
+  "x.unit" = "";
+  "y.parameterType" = "SpecVariable";
+  "y.spec" = "TIM..tCK_ns[ns]";
+  "y.setupPins" = "@";
+  "y.instrumentPin" = "";
+  "y.resourceName" = "";
+  "y.property" = "";
+  "y.unit" = "";
+  "resultPins" = "DQ_Bus";
+  "testMode" = "pass/fail";
+tm_37:
+  "sType_Init_Label" = "PDA";
+  "MR0" = "0";
+  "MR0.BurstLength" = "BC8";
+  "MR0.ReadBurstType" = "Sequential";
+  "MR0.CASLatency" = "16";
+  "MR0.DLL_Reset" = "1";
+  "MR0.WriteRecovery" = "18";
+  "MR1" = "0";
+  "MR1.DLL_Enable" = "1";
+  "MR1.DriverImpedanceControl" = "RZQ/7";
+  "MR1.AdditiveLatency" = "0";
+  "MR1.RTT_NOM" = "Disable";
+  "MR1.TDQS_Enable" = "0";
+  "MR2" = "1";
+  "MR2.CASWriteLatency" = "9";
+  "MR2.RTT_WR" = "Off";
+  "MR2.WriteCRC_Enable" = "0";
+  "MR2.LP_ASR" = "Manual_Normal";
+  "MR3" = "0";
+  "MR3.GeardownMode" = "1/2Rate";
+  "MR3.WriteCMDLatency" = "4";
+  "MR4" = "0";
+  "MR4.CALatency" = "0";
+  "MR4.SelfRefreshAbort_Enable" = "0";
+  "MR4.ReadPreamble" = "1";
+  "MR4.WritePreamble" = "1";
+  "MR5" = "1";
+  "MR5.CAParityLatency" = "0";
+  "MR5.RTT_PARK" = "0";
+  "MR5.DataMask_Enable" = "0";
+  "MR5.WriteDBI_Enable" = "0";
+  "MR5.ReadDBI_Enable" = "0";
+  "MR6" = "0";
+  "MR6.tCCD_L" = "6";
+  "MR6.VrefDQRange" = "Range1";
+  "MR6.VrefDQValue" = "10";
+  "MR6.PDA_VrefDQ_Enable" = "1";
+tm_39:
+  "measurePins" = "VDD,VDDQ";
+  "range_mA" = "100";
+  "interval_ms" = "0.1";
+  "oversampling" = "1";
+tm_4:
+  "sType_Init_Label" = "PDA";
+  "MR0" = "1";
+  "MR0.BurstLength" = "BC8";
+  "MR0.ReadBurstType" = "Sequential";
+  "MR0.CASLatency" = "11";
+  "MR0.DLL_Reset" = "1";
+  "MR0.WriteRecovery" = "12";
+  "MR1" = "1";
+  "MR1.DLL_Enable" = "1";
+  "MR1.DriverImpedanceControl" = "RZQ/7";
+  "MR1.AdditiveLatency" = "0";
+  "MR1.RTT_NOM" = "Disable";
+  "MR1.TDQS_Enable" = "0";
+  "MR2" = "1";
+  "MR2.CASWriteLatency" = "9";
+  "MR2.RTT_WR" = "Off";
+  "MR2.WriteCRC_Enable" = "0";
+  "MR2.LP_ASR" = "Manual_Normal";
+  "MR3" = "1";
+  "MR3.GeardownMode" = "1/2Rate";
+  "MR3.WriteCMDLatency" = "4";
+  "MR4" = "1";
+  "MR4.CALatency" = "0";
+  "MR4.SelfRefreshAbort_Enable" = "0";
+  "MR4.ReadPreamble" = "1";
+  "MR4.WritePreamble" = "1";
+  "MR5" = "1";
+  "MR5.CAParityLatency" = "0";
+  "MR5.RTT_PARK" = "0";
+  "MR5.DataMask_Enable" = "0";
+  "MR5.WriteDBI_Enable" = "0";
+  "MR5.ReadDBI_Enable" = "0";
+  "MR6" = "1";
+  "MR6.tCCD_L" = "5";
+  "MR6.VrefDQRange" = "Range1";
+  "MR6.VrefDQValue" = "Avg";
+  "MR6.PDA_VrefDQ_Enable" = "1";
+tm_40:
+  "title" = "Power vs. Frequency";
+  "x.start" = "1";
+  "x.stop" = "1.2";
+  "x.step" = "f#20";
+  "x.scale" = "Linear";
+  "y.start" = "1.25";
+  "y.stop" = "0.625";
+  "y.step" = "f#40";
+  "y.scale" = "Linear";
+  "testName" = "Shmoo";
+  "x.parameterType" = "SpecVariable";
+  "x.spec" = "LEV..VDD[V]";
+  "x.setupPins" = "";
+  "x.instrumentPin" = "";
+  "x.resourceName" = "";
+  "x.property" = "";
+  "x.unit" = "";
+  "y.parameterType" = "SpecVariable";
+  "y.spec" = "TIM..tCK_ns[ns]";
+  "y.setupPins" = "";
+  "y.instrumentPin" = "";
+  "y.resourceName" = "";
+  "y.property" = "";
+  "y.unit" = "";
+  "resultPins" = "DQ_Bus";
+  "testMode" = "pass/fail";
+tm_45:
+  "testName" = "Functional";
+tm_53:
+  "sType_Init_Label" = "Training";
+  "MR0" = "1";
+  "MR0.BurstLength" = "BC8";
+  "MR0.ReadBurstType" = "Sequential";
+  "MR0.CASLatency" = "11";
+  "MR0.DLL_Reset" = "1";
+  "MR0.WriteRecovery" = "12";
+  "MR1" = "1";
+  "MR1.DLL_Enable" = "1";
+  "MR1.DriverImpedanceControl" = "RZQ/7";
+  "MR1.AdditiveLatency" = "0";
+  "MR1.RTT_NOM" = "Disable";
+  "MR1.TDQS_Enable" = "0";
+  "MR2" = "1";
+  "MR2.CASWriteLatency" = "9";
+  "MR2.RTT_WR" = "Off";
+  "MR2.WriteCRC_Enable" = "0";
+  "MR2.LP_ASR" = "Manual_Normal";
+  "MR3" = "1";
+  "MR3.GeardownMode" = "1/2Rate";
+  "MR3.WriteCMDLatency" = "4";
+  "MR4" = "1";
+  "MR4.CALatency" = "0";
+  "MR4.SelfRefreshAbort_Enable" = "0";
+  "MR4.ReadPreamble" = "1";
+  "MR4.WritePreamble" = "1";
+  "MR5" = "1";
+  "MR5.CAParityLatency" = "0";
+  "MR5.RTT_PARK" = "0";
+  "MR5.DataMask_Enable" = "0";
+  "MR5.WriteDBI_Enable" = "0";
+  "MR5.ReadDBI_Enable" = "0";
+  "MR6" = "1";
+  "MR6.tCCD_L" = "5";
+  "MR6.VrefDQRange" = "Range1";
+  "MR6.VrefDQValue" = "0x00";
+  "MR6.PDA_VrefDQ_Enable" = "0";
+tm_54:
+  "title" = "tIS (Address) vs Frequency";
+  "x.start" = "-2";
+  "x.stop" = "1";
+  "x.step" = "f#40";
+  "x.scale" = "Linear";
+  "y.start" = "1.25";
+  "y.stop" = "0.625";
+  "y.step" = "f#40";
+  "y.scale" = "Linear";
+  "testName" = "Shmoo";
+  "x.parameterType" = "SpecVariable";
+  "x.spec" = "TIM..tISH_offset_ns@PortAC[ns]";
+  "x.setupPins" = "Address_Bus";
+  "x.instrumentPin" = "";
+  "x.resourceName" = "";
+  "x.property" = "";
+  "x.unit" = "";
+  "y.parameterType" = "SpecVariable";
+  "y.spec" = "TIM..tCK_ns[ns]";
+  "y.setupPins" = "";
+  "y.instrumentPin" = "";
+  "y.resourceName" = "";
+  "y.property" = "";
+  "y.unit" = "";
+  "resultPins" = "DQ_Bus";
+  "testMode" = "pass/fail";
+tm_6:
+  "sTimingSpecification" = "FCT_1600K_refresh_128us";
+  "sTimingSpecVariable" = "tDQSCK_tAC_offset_ns@PortAC:tISH_offset_ns@PortAC:tDQSCK_tAC_offset_ns@PortAC:tDQSS_offset_ns@PortAC:tDS_offset_ns@PortAC";
+  "sLevelEqnSpecSet" = "";
+  "sLevelSpecVariable" = "";
+tm_66:
+  "sSetupPin" = "Address_Bus,Bank_Addr_Bus,Bank_Grp_Bus,Bank_Bus,Command_Bus,PARITY";
+  "sResultPin" = "DQ_Bus";
+  "sSpecSweep" = "tISH_sweep_ns";
+  "sSpecOffset" = "tISH_offset_ns@PortAC";
+  "dLinStart" = "-1.25";
+  "dLinStop" = "0.625";
+  "dLinStep" = "0.1";
+  "dBinStep" = "0.01";
+  "iReportFlag" = "1";
+tm_7:
+  "sTimingSpecification" = "FCT_1600K_jitter_histogram";
+  "sTimingSpecVariable" = "tDQSCK_tAC_offset_ns@PortAC:tISH_offset_ns@PortAC:tDQSCK_tAC_offset_ns@PortAC:tDQSS_offset_ns@PortAC:tDS_offset_ns@PortAC";
+  "sLevelEqnSpecSet" = "";
+  "sLevelSpecVariable" = "";
+tm_74:
+  "pinlist" = "Address_Bus,Bank_Addr_Bus,Command_Bus,Control_Pins,RESETn,DQS_DiffBus,DQ_Bus,DM_Bus,NU_TDQSn,ALERTn,PARITY,VREFCA";
+  "measure" = "BOTH";
+  "measureMode" = "PPMUpar";
+  "relaySwitchMode" = "DEFAULT(BBM)";
+  "forceVoltageLow" = "0[mV]";
+  "forceVoltageHigh" = "1200[mV]";
+  "spmuClampCurrentLow" = "0[uA]";
+  "spmuClampCurrentHigh" = "0[uA]";
+  "ppmuPreCharge" = "ON";
+  "prechargeVoltageLow" = "0[mV]";
+  "prechargeVoltageHigh" = "1200[mV]";
+  "settlingTimeLow" = "10[ms]";
+  "settlingTimeHigh" = "10[ms]";
+  "preFunction" = "NO";
+  "stopCycVecLow" = "0";
+  "stopCycVecHigh" = "0";
+  "testName" = "(passCurrentLow_uA,passCurrentHigh_uA)";
+  "output" = "ReportUI";
+tm_75:
+  "pinlist" = "Clock_Bus,A16,A15,A14,A13,A12,A11,A10,A09,A08,A07,A06,A05,A04,A03,A02,A01,A00,Bank_Addr_Bus,Command_Bus,Control_Pins,RESETn,DQS_DiffBus,DQ_Bus,DM_Bus,NU_TDQSn,ALERTn,PARITY,VREFCA";
+  "testCurrent" = "10[uA]";
+  "settlingTime" = "10[ms]";
+  "measurementMode" = "PPMUpar";
+  "polarity" = "SPOL";
+  "prechargeToZeroVol" = "ON";
+  "testName" = "passVolt_mV";
+  "output" = "ReportUI";
+tm_76:
+  "title" = "DQ OutputEye @1600";
+  "x.start" = "-0.3125";
+  "x.stop" = "0.3125";
+  "x.step" = "f#40";
+  "x.scale" = "Linear";
+  "y.start" = "-0.45";
+  "y.stop" = "0.45";
+  "y.step" = "f#40";
+  "y.scale" = "Linear";
+  "testName" = "Shmoo";
+  "x.parameterType" = "SpecVariable";
+  "x.spec" = "TIM..tDQSCK_tAC_sweep_ns@PortAC[ns]";
+  "x.setupPins" = "";
+  "x.instrumentPin" = "";
+  "x.resourceName" = "";
+  "x.property" = "";
+  "x.unit" = "";
+  "y.parameterType" = "SpecVariable";
+  "y.spec" = "LEV..Vth_DQ_sweep[V]";
+  "y.setupPins" = "";
+  "y.instrumentPin" = "";
+  "y.resourceName" = "";
+  "y.property" = "";
+  "y.unit" = "";
+  "resultPins" = "DQ_Bus";
+  "testMode" = "pass/fail";
+tm_77:
+  "sType_Init_Label" = "Training";
+  "MR0" = "1";
+  "MR0.BurstLength" = "BC8";
+  "MR0.ReadBurstType" = "Sequential";
+  "MR0.CASLatency" = "16";
+  "MR0.DLL_Reset" = "1";
+  "MR0.WriteRecovery" = "18";
+  "MR1" = "1";
+  "MR1.DLL_Enable" = "1";
+  "MR1.DriverImpedanceControl" = "RZQ/7";
+  "MR1.AdditiveLatency" = "0";
+  "MR1.RTT_NOM" = "Disable";
+  "MR1.TDQS_Enable" = "0";
+  "MR2" = "1";
+  "MR2.CASWriteLatency" = "12";
+  "MR2.RTT_WR" = "Off";
+  "MR2.WriteCRC_Enable" = "0";
+  "MR2.LP_ASR" = "Manual_Normal";
+  "MR3" = "1";
+  "MR3.GeardownMode" = "1/2Rate";
+  "MR3.WriteCMDLatency" = "4";
+  "MR4" = "1";
+  "MR4.CALatency" = "0";
+  "MR4.SelfRefreshAbort_Enable" = "0";
+  "MR4.ReadPreamble" = "1";
+  "MR4.WritePreamble" = "1";
+  "MR5" = "1";
+  "MR5.CAParityLatency" = "0";
+  "MR5.RTT_PARK" = "0";
+  "MR5.DataMask_Enable" = "0";
+  "MR5.WriteDBI_Enable" = "0";
+  "MR5.ReadDBI_Enable" = "0";
+  "MR6" = "1";
+  "MR6.tCCD_L" = "6";
+  "MR6.VrefDQRange" = "Range1";
+  "MR6.VrefDQValue" = "0x00";
+  "MR6.PDA_VrefDQ_Enable" = "0";
+tm_8:
+  "sType_Init_Label" = "PDA";
+  "MR0" = "1";
+  "MR0.BurstLength" = "BC8";
+  "MR0.ReadBurstType" = "Sequential";
+  "MR0.CASLatency" = "13";
+  "MR0.DLL_Reset" = "1";
+  "MR0.WriteRecovery" = "14";
+  "MR1" = "1";
+  "MR1.DLL_Enable" = "1";
+  "MR1.DriverImpedanceControl" = "RZQ/7";
+  "MR1.AdditiveLatency" = "0";
+  "MR1.RTT_NOM" = "Disable";
+  "MR1.TDQS_Enable" = "0";
+  "MR2" = "1";
+  "MR2.CASWriteLatency" = "10";
+  "MR2.RTT_WR" = "Off";
+  "MR2.WriteCRC_Enable" = "0";
+  "MR2.LP_ASR" = "Manual_Normal";
+  "MR3" = "1";
+  "MR3.GeardownMode" = "1/2Rate";
+  "MR3.WriteCMDLatency" = "4";
+  "MR4" = "1";
+  "MR4.CALatency" = "0";
+  "MR4.SelfRefreshAbort_Enable" = "0";
+  "MR4.ReadPreamble" = "1";
+  "MR4.WritePreamble" = "1";
+  "MR5" = "1";
+  "MR5.CAParityLatency" = "0";
+  "MR5.RTT_PARK" = "0";
+  "MR5.DataMask_Enable" = "0";
+  "MR5.WriteDBI_Enable" = "0";
+  "MR5.ReadDBI_Enable" = "0";
+  "MR6" = "1";
+  "MR6.tCCD_L" = "5";
+  "MR6.VrefDQRange" = "Range1";
+  "MR6.VrefDQValue" = "Avg";
+  "MR6.PDA_VrefDQ_Enable" = "1";
+tm_80:
+  "testName" = "Functional";
+tm_88:
+  "sType_Init_Label" = "Training";
+  "MR0" = "1";
+  "MR0.BurstLength" = "BC8";
+  "MR0.ReadBurstType" = "Sequential";
+  "MR0.CASLatency" = "13";
+  "MR0.DLL_Reset" = "1";
+  "MR0.WriteRecovery" = "14";
+  "MR1" = "1";
+  "MR1.DLL_Enable" = "1";
+  "MR1.DriverImpedanceControl" = "RZQ/7";
+  "MR1.AdditiveLatency" = "0";
+  "MR1.RTT_NOM" = "Disable";
+  "MR1.TDQS_Enable" = "0";
+  "MR2" = "1";
+  "MR2.CASWriteLatency" = "10";
+  "MR2.RTT_WR" = "Off";
+  "MR2.WriteCRC_Enable" = "0";
+  "MR2.LP_ASR" = "Manual_Normal";
+  "MR3" = "1";
+  "MR3.GeardownMode" = "1/2Rate";
+  "MR3.WriteCMDLatency" = "4";
+  "MR4" = "1";
+  "MR4.CALatency" = "0";
+  "MR4.SelfRefreshAbort_Enable" = "0";
+  "MR4.ReadPreamble" = "1";
+  "MR4.WritePreamble" = "1";
+  "MR5" = "1";
+  "MR5.CAParityLatency" = "0";
+  "MR5.RTT_PARK" = "0";
+  "MR5.DataMask_Enable" = "0";
+  "MR5.WriteDBI_Enable" = "0";
+  "MR5.ReadDBI_Enable" = "0";
+  "MR6" = "1";
+  "MR6.tCCD_L" = "5";
+  "MR6.VrefDQRange" = "Range1";
+  "MR6.VrefDQValue" = "0x00";
+  "MR6.PDA_VrefDQ_Enable" = "0";
+tm_9:
+  "measurementPins" = "DQ_Bus";
+  "limitSpecifier" = "RON_34";
+tm_92:
+  "sSetupPin" = "Address_Bus,Bank_Addr_Bus,Bank_Grp_Bus,Bank_Bus,Command_Bus,PARITY";
+  "sResultPin" = "DQ_Bus";
+  "sSpecSweep" = "tISH_sweep_ns";
+  "sSpecOffset" = "tISH_offset_ns@PortAC";
+  "dLinStart" = "-0.832";
+  "dLinStop" = "0.416";
+  "dLinStep" = "0.1";
+  "dBinStep" = "0.01";
+  "iReportFlag" = "1";
+tm_93:
+  "sSetupPin" = "DQ_Bus";
+  "sSpecSweep" = "Vth_DQ_sweep";
+  "sSpecOffset" = "Vth_DQ_offset";
+  "dLinStart_Low" = "-0.6";
+  "dLinStop_Low" = "0";
+  "dLinStart_High" = "0";
+  "dLinStop_High" = "0.6";
+  "dLinStep" = "0.01";
+  "dBinStep" = "0.01";
+  "iReportFlag" = "1";
+tm_96:
+  "sMode" = "READ";
+  "sSetupPin" = "DQ_Bus,DQS_DiffBus";
+  "sSpecOffset" = "tDQSCK_tAC_offset_ns@PortAC";
+  "dLinStart_ns" = "-0.416";
+  "dLinStop_ns" = "1.3";
+  "dLinStep_ns" = "0.1";
+  "dBinStep_ns" = "0.01";
+  "iReportFlag" = "1";
+tm_97:
+  "sSetupPin" = "DQS_DiffBus";
+  "sResultPin" = "DQ_Bus";
+  "sSpecSweep" = "tDQSS_sweep_ns";
+  "sSpecOffset" = "tDQSS_offset_ns@PortAC";
+  "dLinStart" = "-0.15";
+  "dLinStop" = "0.15";
+  "dLinStep" = "0.1";
+  "dBinStep" = "0.01";
+  "iReportFlag" = "1";
+tm_98:
+  "measurementPins" = "DQ_Bus";
+  "forceVoltageHigh_mV" = "600";
+  "forceVoltageLow_mV" = "300";
+  "GenericDCSubLabel" = "DC_MEAS_RTT40";
+  "limitSpecifier" = "RTT40";
+tm_99:
+  "sType_Init_Label" = "PDA";
+  "MR0" = "1";
+  "MR0.BurstLength" = "BC8";
+  "MR0.ReadBurstType" = "Sequential";
+  "MR0.CASLatency" = "11";
+  "MR0.DLL_Reset" = "1";
+  "MR0.WriteRecovery" = "12";
+  "MR1" = "1";
+  "MR1.DLL_Enable" = "1";
+  "MR1.DriverImpedanceControl" = "RZQ/7";
+  "MR1.AdditiveLatency" = "0";
+  "MR1.RTT_NOM" = "Disable";
+  "MR1.TDQS_Enable" = "0";
+  "MR2" = "1";
+  "MR2.CASWriteLatency" = "9";
+  "MR2.RTT_WR" = "Off";
+  "MR2.WriteCRC_Enable" = "0";
+  "MR2.LP_ASR" = "Manual_Normal";
+  "MR3" = "1";
+  "MR3.GeardownMode" = "1/2Rate";
+  "MR3.WriteCMDLatency" = "4";
+  "MR4" = "1";
+  "MR4.CALatency" = "0";
+  "MR4.SelfRefreshAbort_Enable" = "0";
+  "MR4.ReadPreamble" = "1";
+  "MR4.WritePreamble" = "1";
+  "MR5" = "1";
+  "MR5.CAParityLatency" = "0";
+  "MR5.RTT_PARK" = "0";
+  "MR5.DataMask_Enable" = "0";
+  "MR5.WriteDBI_Enable" = "0";
+  "MR5.ReadDBI_Enable" = "0";
+  "MR6" = "1";
+  "MR6.tCCD_L" = "5";
+  "MR6.VrefDQRange" = "Range1";
+  "MR6.VrefDQValue" = "Avg";
+  "MR6.PDA_VrefDQ_Enable" = "1";
+end
+-----------------------------------------------------------------
+testmethodlimits
+tm_102:
+  "limit_training_vrefdq" = "":"NA":"":"NA":"":"":"";
+tm_103:
+  "limit_training_ca" = "":"NA":"":"NA":"":"":"";
+tm_104:
+  "Functional" = "":"NA":"":"NA":"":"":"";
+tm_105:
+  "Functional" = "":"NA":"":"NA":"":"":"";
+tm_108:
+  "Shmoo" = "":"NA":"":"NA":"":"":"";
+tm_109:
+  "Shmoo" = "":"NA":"":"NA":"":"":"";
+tm_110:
+  "Shmoo" = "":"NA":"":"NA":"":"":"";
+tm_111:
+  "Shmoo" = "":"NA":"":"NA":"":"":"";
+tm_112:
+  "Functional" = "":"NA":"":"NA":"":"":"";
+tm_113:
+  "Functional" = "":"NA":"":"NA":"":"":"";
+tm_114:
+  "Functional" = "":"NA":"":"NA":"":"":"";
+tm_115:
+  "Functional" = "":"NA":"":"NA":"":"":"";
+tm_116:
+  "Functional" = "":"NA":"":"NA":"":"":"";
+tm_117:
+  "Functional" = "":"NA":"":"NA":"":"":"";
+tm_118:
+  "Functional" = "":"NA":"":"NA":"":"":"";
+tm_119:
+  "Functional" = "":"NA":"":"NA":"":"":"";
+tm_121:
+  "limit_training_readwrite" = "":"NA":"":"NA":"":"":"";
+tm_122:
+  "limit_training_readwrite" = "":"NA":"":"NA":"":"":"";
+tm_123:
+  "limit_training_readwrite" = "":"NA":"":"NA":"":"":"";
+tm_125:
+  "limit_training_vthdq" = "":"NA":"":"NA":"":"":"";
+tm_126:
+  "limit_training_readwrite" = "":"NA":"":"NA":"":"":"";
+tm_127:
+  "limit_training_writeleveling" = "":"NA":"":"NA":"":"":"";
+tm_128:
+  "limit_training_vrefdq" = "":"NA":"":"NA":"":"":"";
+tm_129:
+  "limit_training_readwrite" = "":"NA":"":"NA":"":"":"";
+tm_130:
+  "Functional" = "":"NA":"":"NA":"":"":"";
+tm_131:
+  "Functional" = "":"NA":"":"NA":"":"":"";
+tm_134:
+  "Shmoo" = "":"NA":"":"NA":"":"":"";
+tm_135:
+  "Shmoo" = "":"NA":"":"NA":"":"":"";
+tm_136:
+  "Shmoo" = "":"NA":"":"NA":"":"":"";
+tm_137:
+  "Shmoo" = "":"NA":"":"NA":"":"":"";
+tm_139:
+  "limit_training_ca" = "":"NA":"":"NA":"":"":"";
+tm_145:
+  "limit_training_vthdq" = "":"NA":"":"NA":"":"":"";
+tm_146:
+  "limit_training_readwrite" = "":"NA":"":"NA":"":"":"";
+tm_147:
+  "limit_training_writeleveling" = "":"NA":"":"NA":"":"":"";
+tm_148:
+  "limit_training_vrefdq" = "":"NA":"":"NA":"":"":"";
+tm_149:
+  "limit_training_readwrite" = "":"NA":"":"NA":"":"":"";
+tm_150:
+  "Functional" = "":"NA":"":"NA":"":"":"";
+tm_151:
+  "Functional" = "":"NA":"":"NA":"":"":"";
+tm_152:
+  "Shmoo" = "":"NA":"":"NA":"":"":"";
+tm_153:
+  "Shmoo" = "":"NA":"":"NA":"":"":"";
+tm_154:
+  "Shmoo" = "":"NA":"":"NA":"":"":"";
+tm_155:
+  "Shmoo" = "":"NA":"":"NA":"":"":"";
+tm_17:
+  "Functional" = "":"NA":"":"NA":"":"":"";
+tm_22:
+  "limit_tDQSQ" = "":"NA":"":"NA":"":"":"";
+tm_26:
+  "limit_training_vthdq" = "":"NA":"":"NA":"":"":"";
+tm_27:
+  "peak_to_peak_jitter_ps" = "1":"GE":"200":"LE":"":"":"0";
+  "rms_jitter_ps" = "1":"GE":"50":"LE":"":"":"0";
+tm_28:
+  "limit_training_writeleveling" = "":"NA":"":"NA":"":"":"";
+tm_30:
+  "Functional" = "":"NA":"":"NA":"":"":"";
+tm_32:
+  "Functional" = "":"NA":"":"NA":"":"":"";
+tm_36:
+  "Shmoo" = "":"NA":"":"NA":"":"":"";
+tm_40:
+  "Shmoo" = "":"NA":"":"NA":"":"":"";
+tm_45:
+  "Functional" = "":"NA":"":"NA":"":"":"";
+tm_54:
+  "Shmoo" = "":"NA":"":"NA":"":"":"";
+tm_66:
+  "limit_training_ca" = "":"NA":"":"NA":"":"":"";
+tm_68:
+  "limit_training_vrefdq" = "":"NA":"":"NA":"":"":"";
+tm_74:
+  "passCurrentLow_uA" = "-10":"GE":"10":"LE":"":"":"0";
+  "passCurrentHigh_uA" = "-10":"GE":"10":"LE":"":"":"0";
+tm_75:
+  "passVolt_mV" = "200":"GE":"700":"LE":"":"":"0";
+tm_76:
+  "Shmoo" = "":"NA":"":"NA":"":"":"";
+tm_80:
+  "Functional" = "":"NA":"":"NA":"":"":"";
+tm_92:
+  "limit_training_ca" = "":"NA":"":"NA":"":"":"";
+tm_93:
+  "limit_training_vthdq" = "":"NA":"":"NA":"":"":"";
+tm_96:
+  "limit_training_readwrite" = "":"NA":"":"NA":"":"":"";
+tm_97:
+  "limit_training_writeleveling" = "":"NA":"":"NA":"":"":"";
+end
+-----------------------------------------------------------------
+testmethods
+tm_10:
+  testmethod_class = "DDR4_tml.PatternControlledDC.Ron";
+tm_100:
+  testmethod_class = "DDR4_tml.Initialize.Edit_MRS_Vector";
+tm_102:
+  testmethod_class = "DDR4_tml.Training.OpCode_VrefDQ";
+tm_103:
+  testmethod_class = "DDR4_tml.Training.Timing_CA";
+tm_104:
+  testmethod_class = "ac_tml.AcTest.FunctionalTest";
+tm_105:
+  testmethod_class = "ac_tml.AcTest.FunctionalTest";
+tm_106:
+  testmethod_class = "DDR4_tml.Initialize.Edit_MRS_Vector";
+tm_108:
+  testmethod_class = "ac_tml.AcTest.Shmoo";
+tm_109:
+  testmethod_class = "ac_tml.AcTest.Shmoo";
+tm_11:
+  testmethod_class = "DDR4_tml.PatternControlledDC.Rtt";
+tm_110:
+  testmethod_class = "ac_tml.AcTest.Shmoo";
+tm_111:
+  testmethod_class = "ac_tml.AcTest.Shmoo";
+tm_112:
+  testmethod_class = "ac_tml.AcTest.FunctionalTest";
+tm_113:
+  testmethod_class = "ac_tml.AcTest.FunctionalTest";
+tm_114:
+  testmethod_class = "ac_tml.AcTest.FunctionalTest";
+tm_115:
+  testmethod_class = "ac_tml.AcTest.FunctionalTest";
+tm_116:
+  testmethod_class = "ac_tml.AcTest.FunctionalTest";
+tm_117:
+  testmethod_class = "ac_tml.AcTest.FunctionalTest";
+tm_118:
+  testmethod_class = "ac_tml.AcTest.FunctionalTest";
+tm_119:
+  testmethod_class = "ac_tml.AcTest.FunctionalTest";
+tm_12:
+  testmethod_class = "DDR4_tml.Initialize.Edit_MRS_Vector";
+tm_121:
+  testmethod_class = "DDR4_tml.Training.Timing_ReadWrite";
+tm_122:
+  testmethod_class = "DDR4_tml.Training.Timing_ReadWrite";
+tm_123:
+  testmethod_class = "DDR4_tml.Training.Timing_ReadWrite";
+tm_125:
+  testmethod_class = "DDR4_tml.Training.Level_VthDQ";
+tm_126:
+  testmethod_class = "DDR4_tml.Training.Timing_ReadWrite";
+tm_127:
+  testmethod_class = "DDR4_tml.Training.Timing_WriteLeveling";
+tm_128:
+  testmethod_class = "DDR4_tml.Training.OpCode_VrefDQ";
+tm_129:
+  testmethod_class = "DDR4_tml.Training.Timing_ReadWrite";
+tm_13:
+  testmethod_class = "DDR4_tml.PatternControlledDC.Rtt";
+tm_130:
+  testmethod_class = "ac_tml.AcTest.FunctionalTest";
+tm_131:
+  testmethod_class = "ac_tml.AcTest.FunctionalTest";
+tm_132:
+  testmethod_class = "DDR4_tml.Initialize.Edit_MRS_Vector";
+tm_133:
+  testmethod_class = "DDR4_tml.Initialize.Edit_MRS_Vector";
+tm_134:
+  testmethod_class = "ac_tml.AcTest.Shmoo";
+tm_135:
+  testmethod_class = "ac_tml.AcTest.Shmoo";
+tm_136:
+  testmethod_class = "ac_tml.AcTest.Shmoo";
+tm_137:
+  testmethod_class = "ac_tml.AcTest.Shmoo";
+tm_138:
+  testmethod_class = "DDR4_tml.Initialize.Edit_MRS_Vector";
+tm_139:
+  testmethod_class = "DDR4_tml.Training.Timing_CA";
+tm_14:
+  testmethod_class = "DDR4_tml.PatternControlledDC.Rtt";
+tm_140:
+  testmethod_class = "DDR4_tml.Initialize.Edit_MRS_Vector";
+tm_141:
+  testmethod_class = "DDR4_tml.Initialize.Edit_MRS_Vector";
+tm_142:
+  testmethod_class = "DDR4_tml.Initialize.Edit_MRS_Vector";
+tm_143:
+  testmethod_class = "DDR4_tml.Initialize.Edit_MRS_Vector";
+tm_144:
+  testmethod_class = "DDR4_tml.Training.Spec_Value_Copy";
+tm_145:
+  testmethod_class = "DDR4_tml.Training.Level_VthDQ";
+tm_146:
+  testmethod_class = "DDR4_tml.Training.Timing_ReadWrite";
+tm_147:
+  testmethod_class = "DDR4_tml.Training.Timing_WriteLeveling";
+tm_148:
+  testmethod_class = "DDR4_tml.Training.OpCode_VrefDQ";
+tm_149:
+  testmethod_class = "DDR4_tml.Training.Timing_ReadWrite";
+tm_15:
+  testmethod_class = "DDR4_tml.CustomShmoo.Two_ResultPin";
+tm_150:
+  testmethod_class = "ac_tml.AcTest.FunctionalTest";
+tm_151:
+  testmethod_class = "ac_tml.AcTest.FunctionalTest";
+tm_152:
+  testmethod_class = "ac_tml.AcTest.Shmoo";
+tm_153:
+  testmethod_class = "ac_tml.AcTest.Shmoo";
+tm_154:
+  testmethod_class = "ac_tml.AcTest.Shmoo";
+tm_155:
+  testmethod_class = "ac_tml.AcTest.Shmoo";
+tm_156:
+  testmethod_class = "DDR4_tml.Initialize.Edit_MRS_Vector";
+tm_157:
+  testmethod_class = "DDR4_tml.Initialize.Edit_MRS_Vector";
+tm_158:
+  testmethod_class = "DDR4_tml.Initialize.Edit_MRS_Vector";
+tm_16:
+  testmethod_class = "DDR4_tml.PatternControlledDC.Ron";
+tm_17:
+  testmethod_class = "ac_tml.AcTest.FunctionalTest";
+tm_18:
+  testmethod_class = "DDR4_tml.PatternControlledDC.Ron";
+tm_19:
+  testmethod_class = "DDR4_tml.Initialize.Edit_MRS_Vector";
+tm_20:
+  testmethod_class = "DDR4_tml.PatternControlledDC.Rtt";
+tm_21:
+  testmethod_class = "DDR4_tml.PatternControlledDC.Rtt";
+tm_22:
+  testmethod_class = "DDR4_tml.tDQSQ";
+tm_23:
+  testmethod_class = "DDR4_tml.CustomShmoo.Two_ResultPin";
+tm_24:
+  testmethod_class = "DDR4_tml.PatternControlledDC.IDD";
+tm_25:
+  testmethod_class = "DDR4_tml.Initialize.Edit_MRS_Vector";
+tm_26:
+  testmethod_class = "DDR4_tml.Training.Level_VthDQ";
+tm_27:
+  testmethod_class = "ac_tml.AcTest.JitterHistogram";
+tm_28:
+  testmethod_class = "DDR4_tml.Training.Timing_WriteLeveling";
+tm_29:
+  testmethod_class = "DDR4_tml.Initialize.Get_Vector_Number_By_Comment_Search";
+tm_3:
+  testmethod_class = "DDR4_tml.CustomShmoo.Two_ResultPin";
+tm_30:
+  testmethod_class = "ac_tml.AcTest.FunctionalTest";
+tm_32:
+  testmethod_class = "ac_tml.AcTest.FunctionalTest";
+tm_34:
+  testmethod_class = "DDR4_tml.Initialize.Edit_MRS_Vector";
+tm_35:
+  testmethod_class = "DDR4_tml.Training.Spec_Value_Copy";
+tm_36:
+  testmethod_class = "ac_tml.AcTest.Shmoo";
+tm_37:
+  testmethod_class = "DDR4_tml.Initialize.Edit_MRS_Vector";
+tm_39:
+  testmethod_class = "DDR4_tml.PatternControlledDC.IDD_profiling";
+tm_4:
+  testmethod_class = "DDR4_tml.Initialize.Edit_MRS_Vector";
+tm_40:
+  testmethod_class = "ac_tml.AcTest.Shmoo";
+tm_41:
+  testmethod_class = "DDR4_tml.Initialize.Get_CurrentTime";
+tm_45:
+  testmethod_class = "ac_tml.AcTest.FunctionalTest";
+tm_53:
+  testmethod_class = "DDR4_tml.Initialize.Edit_MRS_Vector";
+tm_54:
+  testmethod_class = "ac_tml.AcTest.Shmoo";
+tm_6:
+  testmethod_class = "DDR4_tml.Training.Spec_Value_Copy";
+tm_66:
+  testmethod_class = "DDR4_tml.Training.Timing_CA";
+tm_68:
+  testmethod_class = "DDR4_tml.Training.OpCode_VrefDQ";
+tm_7:
+  testmethod_class = "DDR4_tml.Training.Spec_Value_Copy";
+tm_74:
+  testmethod_class = "dc_tml.DcTest.Leakage";
+tm_75:
+  testmethod_class = "dc_tml.DcTest.Continuity";
+tm_76:
+  testmethod_class = "ac_tml.AcTest.Shmoo";
+tm_77:
+  testmethod_class = "DDR4_tml.Initialize.Edit_MRS_Vector";
+tm_8:
+  testmethod_class = "DDR4_tml.Initialize.Edit_MRS_Vector";
+tm_80:
+  testmethod_class = "ac_tml.AcTest.FunctionalTest";
+tm_88:
+  testmethod_class = "DDR4_tml.Initialize.Edit_MRS_Vector";
+tm_9:
+  testmethod_class = "DDR4_tml.PatternControlledDC.Ron";
+tm_92:
+  testmethod_class = "DDR4_tml.Training.Timing_CA";
+tm_93:
+  testmethod_class = "DDR4_tml.Training.Level_VthDQ";
+tm_96:
+  testmethod_class = "DDR4_tml.Training.Timing_ReadWrite";
+tm_97:
+  testmethod_class = "DDR4_tml.Training.Timing_WriteLeveling";
+tm_98:
+  testmethod_class = "DDR4_tml.PatternControlledDC.Rtt";
+tm_99:
+  testmethod_class = "DDR4_tml.Initialize.Edit_MRS_Vector";
+end
+-----------------------------------------------------------------
+test_suites
+Continuity:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K";
+ override_testf = tm_75;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+CustomShmoo_VDD_vs_Freq_1600K:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K";
+ override_testf = tm_3;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+CustomShmoo_tAC_vs_Freq_1600K:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K";
+ override_testf = tm_23;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+CustomShmoo_tAC_vs_Vth_1600K:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K";
+ override_testf = tm_15;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Edit_MRS_1600K:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K";
+ override_testf = tm_53;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Edit_MRS_1600K_1:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K";
+ override_testf = tm_12;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Edit_MRS_1600K_2:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K";
+ override_testf = tm_37;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Edit_MRS_1866M:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1866M";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1866M";
+ override_testf = tm_88;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Edit_MRS_2133P:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_2133P";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_2133P";
+ override_testf = tm_106;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Edit_MRS_2400R:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_2400R";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_2400R";
+ override_testf = tm_77;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Edit_MRS_CRC_DBI_ON_1600K:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K_CRC_DBI_NoPAR";
+ override_testf = tm_140;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Edit_MRS_CRC_DBI_PAR_ON_1600K:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K_PL4";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K_CRC_DBI_PAR";
+ override_testf = tm_143;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Edit_MRS_CRC_ON_1600K:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K_CRC_NoDBI_NoPAR";
+ override_testf = tm_133;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Edit_MRS_CRC_PAR_ON_1600K:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K_PL4";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K_CRC_NoDBI_PAR";
+ override_testf = tm_141;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Edit_MRS_DBI_ON_1600K:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K_NoCRC_DBI_NoPAR";
+ override_testf = tm_132;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Edit_MRS_DBI_PAR_ON_1600K:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K_PL4";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K_NoCRC_DBI_PAR";
+ override_testf = tm_142;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Edit_MRS_Optimal_VrefDQ_1600K:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K";
+ override_testf = tm_4;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Edit_MRS_Optimal_VrefDQ_1866M:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1866M";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1866M";
+ override_testf = tm_8;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Edit_MRS_Optimal_VrefDQ_2133P:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_2133P";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_2133P";
+ override_testf = tm_19;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Edit_MRS_Optimal_VrefDQ_2133P_1:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_2133P";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_2133P";
+ override_testf = tm_34;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Edit_MRS_Optimal_VrefDQ_2400R:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_2400R";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_2400R";
+ override_testf = tm_25;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Edit_MRS_PAR_ON_1600K:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K_PL4";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K_NoCRC_NoDBI_PAR";
+ override_testf = tm_138;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Edit_MRS_RON34:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K";
+ override_testf = tm_99;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Edit_MRS_RON48:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K";
+ override_testf = tm_100;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Edit_MRS_RTT120:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K";
+ override_testf = tm_156;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Edit_MRS_RTT40:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K";
+ override_testf = tm_158;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Edit_MRS_RTT60:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K";
+ override_testf = tm_157;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Func_MARCH6N_1600K:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 2;
+ override_seqlbl = "MARCH6N_1600K";
+ override_testf = tm_80;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Func_MARCH6N_1866M:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1866M";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 2;
+ override_seqlbl = "MARCH6N_1866M";
+ override_testf = tm_131;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Func_MARCH6N_2133P:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_2133P";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 2;
+ override_seqlbl = "MARCH6N_2133P";
+ override_testf = tm_151;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Func_MARCH6N_2400R:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_2400R";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 2;
+ override_seqlbl = "MARCH6N_2400R";
+ override_testf = tm_105;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Func_SOLID_1600K:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K";
+ override_testf = tm_45;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Func_SOLID_1866M:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1866M";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1866M";
+ override_testf = tm_130;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Func_SOLID_2133P:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_2133P";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_2133P";
+ override_testf = tm_150;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Func_SOLID_2400R:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_2400R";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_2400R";
+ override_testf = tm_104;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Func_SOLID_CRC_DBI_NoPAR_1600K:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K_CRC_DBI_NoPAR";
+ override_testf = tm_116;
+ comment = "CRC on, DBI on, PAR off";
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Func_SOLID_CRC_DBI_PAR_1600K:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K_PL4";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K_CRC_DBI_PAR";
+ override_testf = tm_119;
+ comment = "CRC on, DBI on, PAR on";
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Func_SOLID_CRC_NoDBI_NoPAR_1600K:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K_CRC_NoDBI_NoPAR";
+ override_testf = tm_113;
+ comment = "CRC on, DBI off, PAR off";
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Func_SOLID_CRC_NoDBI_PAR_1600K:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K_PL4";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K_CRC_NoDBI_PAR";
+ override_testf = tm_117;
+ comment = "CRC on, DBI off, PAR on";
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Func_SOLID_NoCRC_DBI_NoPAR_1600K:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K_NoCRC_DBI_NoPAR";
+ override_testf = tm_114;
+ comment = "CRC off, DBI on, PAR off";
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Func_SOLID_NoCRC_DBI_PAR_1600K:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K_PL4";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K_NoCRC_DBI_PAR";
+ override_testf = tm_118;
+ comment = "CRC off, DBI on, PAR on";
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Func_SOLID_NoCRC_NoDBI_NoPAR_1600R:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K_NoCRC_NoDBI_NoPAR";
+ override_testf = tm_112;
+ comment = "CRC off, DBI off, PAR off";
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Func_SOLID_NoCRC_NoDBI_PAR_1600K:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K_PL4";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K_NoCRC_NoDBI_PAR";
+ override_testf = tm_115;
+ comment = "CRC off, DBI off, PAR on";
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Get_CurrentTime:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K";
+ override_testf = tm_41;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Get_Vector_Number_MRS:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K";
+ override_testf = tm_29;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+IDD2N:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "IDD2N_1600K";
+ override_testf = tm_24;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+IDD_Profile:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K";
+ override_testf = tm_39;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+JitterHistogram_SOLID_1600K:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K_jitter_histogram";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K";
+ override_testf = tm_27;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Leakage:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K";
+ override_testf = tm_74;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+RON34:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "MEAS_RON34_1600K";
+ override_testf = tm_18;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+RON48:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "MEAS_RON48_1600K";
+ override_testf = tm_10;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+RTT120:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "MEAS_RTT120_1600K";
+ override_testf = tm_20;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+RTT40:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "MEAS_RTT40_1600K";
+ override_testf = tm_98;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+RTT60:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "MEAS_RTT60_1600K";
+ override_testf = tm_21;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Refresh_Core_1600K:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K_refresh_128us";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K_CORE_REFRESH";
+ override_testf = tm_30;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Refresh_Distributed_1600K:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K_refresh_128us";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K_DISTRIBUTED_REFRESH";
+ override_testf = tm_32;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Shmoo_VDD_vs_Freq_1600K:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K";
+ override_testf = tm_40;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Shmoo_VDD_vs_Freq_1866M:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1866M";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1866M";
+ override_testf = tm_135;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Shmoo_VDD_vs_Freq_2133P:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_2133P";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_2133P";
+ override_testf = tm_153;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Shmoo_VDD_vs_Freq_2400R:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_2400R";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_2400R";
+ override_testf = tm_109;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Shmoo_tAC_vs_Freq_1600K:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K";
+ override_testf = tm_36;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Shmoo_tAC_vs_Freq_1866M:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1866M";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1866M";
+ override_testf = tm_134;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Shmoo_tAC_vs_Freq_2133P:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_2133P";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_2133P";
+ override_testf = tm_152;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Shmoo_tAC_vs_Freq_2400R:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_2400R";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_2400R";
+ override_testf = tm_108;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Shmoo_tAC_vs_Vth_1600K:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K";
+ override_testf = tm_76;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Shmoo_tAC_vs_Vth_1866M:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1866M";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1866M";
+ override_testf = tm_137;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Shmoo_tAC_vs_Vth_2133P:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_2133P";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_2133P";
+ override_testf = tm_155;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Shmoo_tAC_vs_Vth_2400R:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_2400R";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_2400R";
+ override_testf = tm_111;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Shmoo_tIS_vs_Freq_1600K:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K";
+ override_testf = tm_54;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Shmoo_tIS_vs_Freq_1866M:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1866M";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1866M";
+ override_testf = tm_136;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Shmoo_tIS_vs_Freq_2133P:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_2133P";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_2133P";
+ override_testf = tm_154;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Shmoo_tIS_vs_Freq_2400R:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_2400R";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_2400R";
+ override_testf = tm_110;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Training_Level_VthDQ_1600K:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "MPR_READ_00001111_1600K";
+ override_testf = tm_26;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Training_Level_VthDQ_1866M:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1866M";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "MPR_READ_00001111_1866M";
+ override_testf = tm_125;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Training_Level_VthDQ_2133P:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_2133P";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "MPR_READ_00001111_2133P";
+ override_testf = tm_145;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Training_Level_VthDQ_2400R:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_2400R";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "MPR_READ_00001111_2400R";
+ override_testf = tm_93;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Training_OpCode_VrefDQ_1600K:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "TRAINING_VREFDQ_1600K";
+ override_testf = tm_68;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Training_OpCode_VrefDQ_1866M:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1866M";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "TRAINING_VREFDQ_1866M";
+ override_testf = tm_128;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Training_OpCode_VrefDQ_2133P:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_2133P";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "TRAINING_VREFDQ_2133P";
+ override_testf = tm_148;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Training_OpCode_VrefDQ_2400R:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_2400R";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "TRAINING_VREFDQ_2400R";
+ override_testf = tm_102;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Training_Timing_CA_1600K:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "MPR_READ_00001111_1600K";
+ override_testf = tm_66;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Training_Timing_CA_1866M:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1866M";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "MPR_READ_00001111_1866M";
+ override_testf = tm_103;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Training_Timing_CA_2133P:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_2133P";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "MPR_READ_00001111_2133P";
+ override_testf = tm_139;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Training_Timing_CA_2400R:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_2400R";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "MPR_READ_00001111_2400R";
+ override_testf = tm_92;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Training_Timing_Read_1600K:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "MPR_READ_01010101_1600K";
+ override_testf = tm_122;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Training_Timing_Read_1866M:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1866M";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "MPR_READ_01010101_1866M";
+ override_testf = tm_126;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Training_Timing_Read_2133P:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_2133P";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "MPR_READ_01010101_2133P";
+ override_testf = tm_146;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Training_Timing_Read_2400R:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_2400R";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "MPR_READ_01010101_2400R";
+ override_testf = tm_96;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Training_Timing_WriteLeveling_1600K:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "WLEVELING_H_1600K";
+ override_testf = tm_28;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Training_Timing_WriteLeveling_1866M:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1866M";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "WLEVELING_H_1866M";
+ override_testf = tm_127;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Training_Timing_WriteLeveling_2133P:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_2133P";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "WLEVELING_H_2133P";
+ override_testf = tm_147;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Training_Timing_WriteLeveling_2400R:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_2400R";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "WLEVELING_H_2400R";
+ override_testf = tm_97;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Training_Timing_Write_1600K:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K";
+ override_testf = tm_121;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Training_Timing_Write_1866M:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1866M";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1866M";
+ override_testf = tm_129;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Training_Timing_Write_2133P:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_2133P";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_2133P";
+ override_testf = tm_149;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Training_Timing_Write_2400R:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_2400R";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_2400R";
+ override_testf = tm_123;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Training_Value_Copy_1:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K";
+ override_testf = tm_144;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Training_Value_Copy_2:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K";
+ override_testf = tm_6;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Training_Value_Copy_3:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K";
+ override_testf = tm_7;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Training_Value_Copy_4:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_2133P";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_2133P";
+ override_testf = tm_35;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+Vbump:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "VBUMP_1600K";
+ override_testf = tm_17;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+tDQSQ_1600K:
+  override = 1;
+ override_lev_equ_set = 1;
+ override_tim_spec_set = "FCT_1600K";
+ override_lev_spec_set = 1;
+ override_timset = 1;
+ override_levset = 1;
+ override_seqlbl = "SOLID_1600K";
+ override_testf = tm_22;
+local_flags  = output_on_pass, output_on_fail, value_on_pass, value_on_fail, per_pin_on_pass, per_pin_on_fail;
+ site_control = "parallel:";
+end
+-----------------------------------------------------------------
+test_flow
+
+ run_and_branch(Continuity) then{}else{multi_bin;}
+ run_and_branch(Leakage) then{}else{multi_bin;}
+ run(Get_CurrentTime);
+ run(Get_Vector_Number_MRS);
+ {
+    {
+       run(Edit_MRS_1600K);
+       run_and_branch(Training_Timing_CA_1600K)   then{}else{multi_bin;}
+       run_and_branch(Training_Level_VthDQ_1600K) then{}else{multi_bin;}
+       run_and_branch(Training_Timing_Read_1600K) then{}else{multi_bin;}
+       run_and_branch(Training_Timing_WriteLeveling_1600K) then{}else{multi_bin;}
+       run_and_branch(Training_OpCode_VrefDQ_1600K) then{}else{multi_bin;}
+       run(Edit_MRS_Optimal_VrefDQ_1600K);
+       run_and_branch(Training_Timing_Write_1600K)  then{}else{multi_bin;}
+    }, closed,"Training_1600K", ""
+    {
+       run_and_branch(Func_SOLID_1600K)   then{}else{multi_bin;}
+       run_and_branch(Func_MARCH6N_1600K) then{}else{multi_bin;}
+    }, open,"Func_1600K", ""
+    {
+       {
+          run_and_branch(Func_SOLID_NoCRC_NoDBI_NoPAR_1600R) then{}else{multi_bin;}
+       }, open,"NoCRC_NoDBI_NoPAR", ""
+       {
+          run(Edit_MRS_CRC_ON_1600K);
+          run_and_branch(Func_SOLID_CRC_NoDBI_NoPAR_1600K) then{}else{multi_bin;}
+       }, open,"CRC_NoDBI_NoPAR", ""
+       {
+          run(Edit_MRS_DBI_ON_1600K);
+          run_and_branch(Func_SOLID_NoCRC_DBI_NoPAR_1600K) then{}else{multi_bin;}
+       }, open,"NoCRC_DBI_NoPAR", ""
+       {
+          run(Edit_MRS_CRC_DBI_ON_1600K);
+          run_and_branch(Func_SOLID_CRC_DBI_NoPAR_1600K) then{}else{multi_bin;}
+       }, open,"CRC_DBI_NoPAR", ""
+       run(Training_Value_Copy_1);
+       {
+          run(Edit_MRS_PAR_ON_1600K);
+          run_and_branch(Func_SOLID_NoCRC_NoDBI_PAR_1600K) then{}else{multi_bin;}
+       }, open,"NoCRC_NoDBI_PAR", ""
+       {
+          run(Edit_MRS_CRC_PAR_ON_1600K);
+          run_and_branch(Func_SOLID_CRC_NoDBI_PAR_1600K) then{}else{multi_bin;}
+       }, open,"CRC_NoDBI_PAR", ""
+       {
+          run(Edit_MRS_DBI_PAR_ON_1600K);
+          run_and_branch(Func_SOLID_NoCRC_DBI_PAR_1600K) then{}else{multi_bin;}
+       }, open,"NoCRC_DBI_PAR", ""
+       {
+          run(Edit_MRS_CRC_DBI_PAR_ON_1600K);
+          run_and_branch(Func_SOLID_CRC_DBI_PAR_1600K) then{}else{multi_bin;}
+       }, open,"CRC_DBI_PAR", ""
+       run(Edit_MRS_1600K_2);
+    }, open,"Func_CRC_DBI_Parity_1600K", ""
+    {
+       run(Training_Value_Copy_2);
+       run_and_branch(Refresh_Core_1600K) then{}else{multi_bin;}
+       run_and_branch(Refresh_Distributed_1600K) then{}else{multi_bin;}
+    }, closed,"Refresh_1600K", ""
+    {
+       run(Shmoo_tAC_vs_Freq_1600K);
+       run(Shmoo_VDD_vs_Freq_1600K);
+       run(Shmoo_tIS_vs_Freq_1600K);
+       run(Shmoo_tAC_vs_Vth_1600K);
+    }, closed,"Shmoo_1600K", ""
+    {
+       run(CustomShmoo_VDD_vs_Freq_1600K);
+       run(CustomShmoo_tAC_vs_Freq_1600K);
+       run(CustomShmoo_tAC_vs_Vth_1600K);
+    }, open,"CustomShmoo_1600K", ""
+    {
+       run_and_branch(tDQSQ_1600K) then{}else{multi_bin;}
+    }, open,"SourceSync_1600K", ""
+    {
+       {
+          {
+             run_and_branch(Vbump) then{}else{multi_bin;}
+          }, closed,"Vforce", ""
+          {
+             run_and_branch(IDD2N) then{}else{multi_bin;}
+             run(IDD_Profile);
+          }, closed,"IDD", ""
+       }, closed,"DCScaleDPS", ""
+       {
+          {
+             run(Edit_MRS_RON34);
+             run_and_branch(RON34) then{ } else {multi_bin;}
+          }, open,"RON34", ""
+          {
+             run(Edit_MRS_RON48);
+             run_and_branch(RON48) then{}else{multi_bin;}
+          }, open,"RON48", ""
+          {
+             run(Edit_MRS_RTT120);
+             run_and_branch(RTT120) then{}else{multi_bin;}
+          }, closed,"RTT120", ""
+          {
+             run(Edit_MRS_RTT60);
+             run_and_branch(RTT60) then{}else{multi_bin;}
+          }, open,"RTT60", ""
+          {
+             run(Edit_MRS_RTT40);
+             run_and_branch(RTT40) then{}else{multi_bin;}
+          }, open,"RTT40", ""
+          run(Edit_MRS_1600K_1);
+       }, closed,"PMU", ""
+    }, closed,"PatternControlledDC_1600K", ""
+    {
+       run(Training_Value_Copy_3);
+       run_and_branch(JitterHistogram_SOLID_1600K) then{}else{multi_bin;}
+    }, open,"JitterHistogram", ""
+ }, closed,"1600K", ""
+ {
+    {
+       run(Edit_MRS_1866M);
+       run_and_branch(Training_Timing_CA_1866M)   then{}else{multi_bin;}
+       run_and_branch(Training_Level_VthDQ_1866M) then{}else{multi_bin;}
+       run_and_branch(Training_Timing_Read_1866M) then{}else{multi_bin;}
+       run_and_branch(Training_Timing_WriteLeveling_1866M) then{}else{multi_bin;}
+       run_and_branch(Training_OpCode_VrefDQ_1866M) then{}else{multi_bin;}
+       run(Edit_MRS_Optimal_VrefDQ_1866M);
+       run_and_branch(Training_Timing_Write_1866M)  then{}else{multi_bin;}
+    }, closed,"Training_1866M", ""
+    {
+       run_and_branch(Func_SOLID_1866M)   then{}else{multi_bin;}
+       run_and_branch(Func_MARCH6N_1866M) then{}else{multi_bin;}
+    }, open,"Func_1866M", ""
+    {
+       run(Shmoo_tAC_vs_Freq_1866M);
+       run(Shmoo_VDD_vs_Freq_1866M);
+       run(Shmoo_tIS_vs_Freq_1866M);
+       run(Shmoo_tAC_vs_Vth_1866M);
+    }, closed,"Shmoo_1866M", ""
+ }, closed,"1866M", ""
+ {
+    {
+       run(Edit_MRS_2133P);
+       run_and_branch(Training_Timing_CA_2133P)   then{}else{multi_bin;}
+       run_and_branch(Training_Level_VthDQ_2133P) then{}else{multi_bin;}
+       run_and_branch(Training_Timing_Read_2133P) then{}else{multi_bin;}
+       run_and_branch(Training_Timing_WriteLeveling_2133P) then{}else{multi_bin;}
+       run_and_branch(Training_OpCode_VrefDQ_2133P) then{}else{multi_bin;}
+       run(Edit_MRS_Optimal_VrefDQ_2133P);
+       run_and_branch(Training_Timing_Write_2133P)  then{}else{multi_bin;}
+    }, closed,"Training_2133P", ""
+    {
+       run_and_branch(Func_SOLID_2133P)   then{}else{multi_bin;}
+       run_and_branch(Func_MARCH6N_2133P) then{}else{multi_bin;}
+    }, open,"Func_2133P", ""
+    {
+       run(Shmoo_tAC_vs_Freq_2133P);
+       run(Shmoo_VDD_vs_Freq_2133P);
+       run(Shmoo_tIS_vs_Freq_2133P);
+       run(Shmoo_tAC_vs_Vth_2133P);
+    }, closed,"Shmoo_2133P", ""
+ }, closed,"2133P", ""
+ {
+    {
+       run(Edit_MRS_2400R);
+       run_and_branch(Training_Timing_CA_2400R)   then{}else{multi_bin;}
+       run_and_branch(Training_Level_VthDQ_2400R) then{}else{multi_bin;}
+       run_and_branch(Training_Timing_Read_2400R) then{}else{multi_bin;}
+       run_and_branch(Training_Timing_WriteLeveling_2400R) then{}else{multi_bin;}
+       run_and_branch(Training_OpCode_VrefDQ_2400R) then{}else{multi_bin;}
+       run(Edit_MRS_Optimal_VrefDQ_2400R);
+       run_and_branch(Training_Timing_Write_2400R)  then{}else{multi_bin;}
+    }, closed,"Training_2400R", ""
+    {
+       run_and_branch(Func_SOLID_2400R)   then{}else{multi_bin;}
+       run_and_branch(Func_MARCH6N_2400R) then{}else{multi_bin;}
+    }, open,"Func_2400R", ""
+    {
+       run(Shmoo_tAC_vs_Freq_2400R);
+       run(Shmoo_VDD_vs_Freq_2400R);
+       run(Shmoo_tIS_vs_Freq_2400R);
+       run(Shmoo_tAC_vs_Vth_2400R);
+    }, closed,"Shmoo_2400R", ""
+ }, closed,"2400R", ""
+ stop_bin "1", "1", , good, noreprobe, green, 1, not_over_on;
+end
+-----------------------------------------------------------------
+binning
+otherwise bin = "db", "", , bad, noreprobe, red, , not_over_on;
+end
+-----------------------------------------------------------------
+context
+
+context_config_file = "DDR4_x8_TrainingBoard.pin";
+context_levels_file = "DDR4_x8_TrainingBoard.lev";
+context_timing_file = "DDR4_x8_TrainingBoard.tim";
+context_vector_file = "DDR4_x8_TrainingBoard.pmfl";
+context_channel_attrib_file = "DDR4_x8_TrainingBoard_20140121.fxdl";
+context_testtable_file = "TMLimits_all.csv";
+end
+-----------------------------------------------------------------
+hardware_bin_descriptions
+  1 = "1";
+end

@@ -1,0 +1,8 @@
+hp93000,pattern_master_file,0.1
+
+path:
+  ../vectors/flatpats_x8/
+
+files:
+  initialize_training.binl.gz
+  initialize_pda.binl.gz

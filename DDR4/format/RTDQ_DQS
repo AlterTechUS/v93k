@@ -1,0 +1,9 @@
+    format definition file
+$alias_set=DEFAULT
+DQS,o,0
+DQSn,o,0
+ALERTn,o,0
+DM_TDQS,o,0
+DQ00,o,0
+DQ01,o,0
+DQ02,o,0

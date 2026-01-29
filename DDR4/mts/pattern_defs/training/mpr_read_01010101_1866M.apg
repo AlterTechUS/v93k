@@ -1,0 +1,120 @@
+:apgPattern:
+{
+
+    :defines:
+    {
+        :format:
+        { :name:            :value:  }
+        { AddressRange      256      }
+        { DataBusWidth      8        }
+        { tRFC_ps           110000   }
+        { tXPR_ps           120000   }
+        { DataMask_Enabled  0        }
+    }
+
+    :apgProgram:            "mpr_read_01010101.prog"
+    :testLabel:             MPR_READ_01010101_1866M(PARA(initialize_training),*)
+
+    :deviceAccess:          "../../device_defs/access_defs/ddr4.dvac"
+    :deviceArchitecture:    "../../device_defs/arch_defs/ddr4.dvar"
+    :pinMap:                "../../device_defs/pin_maps/ddr4.pmap"
+#   :pinMap:                "../../device_defs/pin_maps/ddr4_dcdynamic.pmap"
+    :waveformMap:           "../../device_defs/waveform_maps/ddr4.wmap:standard"
+    :maintenanceOperation:  ~
+    :dcTest:                ~
+
+    :crc:                   "ddr4_NONE"
+#   :crc:                   "ddr4_CRC"
+#   :crc:                   "ddr4_CRC_PAR"
+#   :crc:                   "ddr4_PAR"
+
+    :dbi:                   "ddr4_NoDBI"
+#   :dbi:                   "ddr4_DBI"
+
+    :programParam:
+    {
+        :format:
+        { :name:        :value: }
+        {  xStart       0       }
+        {  xStop        0       }
+        {  yStart       0       }
+        {  yStop        0       }
+        {  zStart       0       }
+        {  zStop        0       }
+        
+        ##################################################################
+        # 1833M device timing parameters
+        ##################################################################        
+        { tCK_ps        1070    }
+        { tRCD          13      } #13.92ns/ntCK
+        { tRP           13      } #13.92ns/ntCK
+        { tBL           4       } #burst length clock: BL8 == 4tCK 
+        { tWR           14      } #15ns/ntCK 
+        { tRTP          7       } #max(4tCK,7.5ns) 
+        { tCCD          5       } 
+        { tRRD          4       } #max(4tCK,6ns) 
+
+        ##################################################################
+        # MR code
+        ##################################################################        
+        { BL            0       } # MR0 0:8, 1:BC4 or 8 (on the fly), 2:BC4
+        { BT            0       } # MR0 0:Sequential, 1:Interleave
+        { CL            13      } # MR0
+        { DLL_Reset     1       } # MR0 0:No, 1:Yes
+        { WR            14      } # MR0
+
+        { DLL_Enable    1       } # MR1 0:Disable, 1:Enable
+        { ODIC          0       } # MR1 0:7:RZQ/7, 1:RZQ/5
+        { AL            0       } # MR1 0:Disable, 1:CL-1, 2:CL-2
+        { RTT_NOM       0       } # MR1 0:RTT_NOM Disable, 1:RZQ/4, 2:RZQ/2, 3:RZQ/6, 4:RZQ/1, 5:RZQ/5, 6:RZQ/3, 7:RZQ/7
+        { TDQS_enable   0       } # MR1 0:Disable, 1:Enable
+
+        { CWL           10      } # MR2
+        { LP_ASR        0       } # MR2 Low Power Array Self Refresh 0:Manual_Normal, 1:Manual_Reduced, 2:Manual_Extended 3:ASR
+        { RTT_WR        0       } # MR2 0:Dynamic ODT Off, 1:RZQ/2, 2:RZQ/1, 3:Hi-Z
+        { Write_CRC     0       } # MR2 0:Disable, 1:Enable
+
+        { Geardown      0       } # MR3 0:1/2 Rate(default), 1:1/4 Rate(Geardown)
+        { PDA           0       } # MR3 Per DRAM Addressability 0:Dsiable, 1:Enable
+        { WCL           4       } # MR3 Write CMD Latency when CRC and DM are enabled
+
+        { CAL           0       } # MR4
+        { SREF_Abort    0       } # MR4 0:Disable, 1:Enable
+        { Read_PRE      0       } # MR4 0:1 nCK, 1:2 nCK
+        { Write_PRE     0       } # MR4 0:1 nCK, 1:2 nCK
+
+        { PL            0       } # MR5 C/A Parity Latency Mode
+        { RTT_PARK      0       } # MR5 0:RTT_PARK Disable,1:RZQ/4, 2:RZQ/2, 3:RZQ/6, 4:RZQ/1, 5:RZQ/5, 6:RZQ/3, 7:RZQ/7
+        { Data_Mask     0       } # MR5 0:Disable, 1:Enable
+        { Write_DBI     0       } # MR5 0:Disable, 1:Enable
+        { Read_DBI      0       } # MR5 0:Disable, 1:Enable
+
+        { VrefDQ_T_E    0       } # MR6 VrefDQ Training Enable
+        { VrefDQ_T_R    0       } # MR6 VrefDQ Training Range
+        { VrefDQ_T_V    0x18    } # MR6 VrefDQ Training Value
+        { tCCD_L        5       } # MR6
+
+        ##################################################################
+        # Data word
+        ##################################################################        
+        { DW            0x5555  }  
+
+        ##################################################################
+        # Common initialization parameters
+        ##################################################################        
+        { tResetLow     "200000000/tCK_ps"  } # wait 200us for RESETn low
+        { tCKELow       "500000000/tCK_ps"  } # wait 500us for RESET to CKE 
+        { tMRD          8                   } # Mode Register Setup Time: n*tCK
+        { tMOD          24                  } # Mode Register to ZQcal time: n*tCK
+        { tZQinit       1024                } # ZQ calibration wait time: n*tCK
+        { tXPR          "${tXPR_ps}/tCK_ps" } # CKE exit to valid command: n*tCK --> depends on device density
+        { tRFC          "${tRFC_ps}/tCK_ps" }
+        { MR0           0x0                 }
+        { MR1           0x1                 }
+        { MR2           0x2                 }
+        { MR3           0x3                 }
+        { MR4           0x4                 }
+        { MR5           0x5                 }
+        { MR6           0x6                 }
+    }
+}

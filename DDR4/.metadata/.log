@@ -1,0 +1,174 @@
+!SESSION 2015-05-14 14:22:24.025 -----------------------------------------------
+eclipse.buildId=M20090917-0800
+java.version=1.6.0_16
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -showLocation -product com.verigy.itee.ui.ewcProduct
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -showLocation -product com.verigy.itee.ui.ewcProduct
+
+!ENTRY com.verigy.itee.ui 1 0 2015-05-14 14:26:52.900
+!MESSAGE 93000 UI started successfully (version: 7.1.4).
+
+!ENTRY com.verigy.itee.ui 2 0 2015-05-14 14:26:53.328
+!MESSAGE Required project(s) missing. Please import projects below into the current workspace.
+!STACK 1
+com.verigy.itee.core.CoreException93k: Required project(s) missing. Please import projects below into the current workspace.
+	at com.verigy.itee.ui.internal.ProjectImportInitialCleanup.handleMissingProjects(ProjectImportInitialCleanup.java:85)
+	at com.verigy.itee.ui.internal.ProjectImportInitialCleanup.runInWorkspace(ProjectImportInitialCleanup.java:49)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Contains: DDR4_tml does not exist in current workspace.
+!SUBENTRY 1 com.verigy.itee.ui 2 0 2015-05-14 14:26:53.328
+!MESSAGE Required project(s) missing. Please import projects below into the current workspace.
+!SUBENTRY 2 com.verigy.itee.ui 2 0 2015-05-14 14:26:53.328
+!MESSAGE DDR4_tml does not exist in current workspace.
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-05-14 14:26:55.630
+!MESSAGE Indexed 'DDR4' (22 sources, 17 headers) in 2.12 sec: 2,371 declarations; 6,478 references; 58 unresolved inclusions; 23 syntax errors; 4,975 unresolved names (35.99%)
+
+!ENTRY com.verigy.itee.core 1 0 2015-05-14 14:35:49.467
+!MESSAGE 93000 Shutdown successful
+
+!ENTRY com.verigy.itee.svc.unoaccess 4 0 2015-05-14 14:36:09.522
+!MESSAGE Could not create instance of service xoc.pws.pam.ZSPatternManagementAccessor
+!STACK 0
+java.lang.IllegalStateException: UnoConnection already disposed
+	at com.verigy.itee.svc.unoaccess.internal.UnoConnector$SessionServiceManagerWrapper.getInstance(UnoConnector.java:140)
+	at com.verigy.itee.testflow.core.util.PatternUtil.<clinit>(PatternUtil.java:66)
+	at com.verigy.itee.testflow.core.eventhandler.event.OptionUpdateEvent.registerWithRelevantEvents(OptionUpdateEvent.java:66)
+	at com.verigy.itee.testflow.core.eventhandler.TestflowEventProvider.addListener(TestflowEventProvider.java:134)
+	at com.verigy.itee.testflow.core.TestflowCoreActivator.addListener(TestflowCoreActivator.java:218)
+	at com.verigy.itee.testflow.ui.graphical.editparts.RootNodeEditorPart.activate(RootNodeEditorPart.java:735)
+	at org.eclipse.gef.editparts.AbstractEditPart.addChild(AbstractEditPart.java:201)
+	at org.eclipse.gef.editparts.SimpleRootEditPart.setContents(SimpleRootEditPart.java:101)
+	at org.eclipse.gef.ui.parts.AbstractEditPartViewer.setContents(AbstractEditPartViewer.java:601)
+	at org.eclipse.gef.ui.parts.AbstractEditPartViewer.setContents(AbstractEditPartViewer.java:610)
+	at com.verigy.itee.testflow.ui.graphical.editor.TestFlowGraphicalEditor.initializeGraphicalViewer(TestFlowGraphicalEditor.java:437)
+	at com.verigy.itee.testflow.ui.graphical.editor.TestFlowGraphicalEditor.createGraphicalViewer(TestFlowGraphicalEditor.java:621)
+	at org.eclipse.gef.ui.parts.GraphicalEditor.createPartControl(GraphicalEditor.java:163)
+	at org.eclipse.gef.ui.parts.GraphicalEditorWithFlyoutPalette.createPartControl(GraphicalEditorWithFlyoutPalette.java:77)
+	at com.verigy.itee.testflow.ui.graphical.editor.TestFlowGraphicalEditor.createPartControl(TestFlowGraphicalEditor.java:503)
+	at org.eclipse.ui.internal.EditorReference.createPartHelper(EditorReference.java:662)
+	at org.eclipse.ui.internal.EditorReference.createPart(EditorReference.java:462)
+	at org.eclipse.ui.internal.WorkbenchPartReference.getPart(WorkbenchPartReference.java:595)
+	at org.eclipse.ui.internal.PartPane.setVisible(PartPane.java:313)
+	at org.eclipse.ui.internal.presentations.PresentablePart.setVisible(PresentablePart.java:180)
+	at org.eclipse.ui.internal.presentations.util.PresentablePartFolder.select(PresentablePartFolder.java:270)
+	at org.eclipse.ui.internal.presentations.util.LeftToRightTabOrder.select(LeftToRightTabOrder.java:65)
+	at org.eclipse.ui.internal.presentations.util.TabbedStackPresentation.selectPart(TabbedStackPresentation.java:473)
+	at org.eclipse.ui.internal.PartStack.refreshPresentationSelection(PartStack.java:1256)
+	at org.eclipse.ui.internal.PartStack.setSelection(PartStack.java:1209)
+	at org.eclipse.ui.internal.PartStack.showPart(PartStack.java:1608)
+	at org.eclipse.ui.internal.PartStack.add(PartStack.java:499)
+	at org.eclipse.ui.internal.EditorStack.add(EditorStack.java:103)
+	at org.eclipse.ui.internal.PartStack.add(PartStack.java:485)
+	at org.eclipse.ui.internal.EditorStack.add(EditorStack.java:112)
+	at org.eclipse.ui.internal.EditorSashContainer.addEditor(EditorSashContainer.java:63)
+	at org.eclipse.ui.internal.EditorAreaHelper.addToLayout(EditorAreaHelper.java:225)
+	at org.eclipse.ui.internal.EditorAreaHelper.addEditor(EditorAreaHelper.java:213)
+	at org.eclipse.ui.internal.EditorManager.createEditorTab(EditorManager.java:778)
+	at org.eclipse.ui.internal.EditorManager.openEditorFromDescriptor(EditorManager.java:677)
+	at org.eclipse.ui.internal.EditorManager.openEditor(EditorManager.java:638)
+	at org.eclipse.ui.internal.WorkbenchPage.busyOpenEditorBatched(WorkbenchPage.java:2854)
+	at org.eclipse.ui.internal.WorkbenchPage.busyOpenEditor(WorkbenchPage.java:2762)
+	at org.eclipse.ui.internal.WorkbenchPage.access$11(WorkbenchPage.java:2754)
+	at org.eclipse.ui.internal.WorkbenchPage$10.run(WorkbenchPage.java:2705)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:2701)
+	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:2685)
+	at com.verigy.itee.testflow.ui.common.actions.OpenTFEditorsAction$3.run(OpenTFEditorsAction.java:181)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:134)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3475)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3122)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.block(ModalContext.java:173)
+	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:388)
+	at org.eclipse.jface.dialogs.ProgressMonitorDialog.run(ProgressMonitorDialog.java:507)
+	at com.verigy.itee.ui.internal.events.WorkbenchShutdownEventProvider.finishShutdown(WorkbenchShutdownEventProvider.java:336)
+	at com.verigy.itee.ui.internal.events.WorkbenchShutdownEventProvider.preShutdown(WorkbenchShutdownEventProvider.java:143)
+	at org.eclipse.ui.internal.Workbench$8.run(Workbench.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.runtime.Platform.run(Platform.java:888)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:48)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:175)
+	at org.eclipse.ui.internal.Workbench.firePreShutdown(Workbench.java:726)
+	at org.eclipse.ui.internal.Workbench.busyClose(Workbench.java:866)
+	at org.eclipse.ui.internal.Workbench.access$15(Workbench.java:856)
+	at org.eclipse.ui.internal.Workbench$23.run(Workbench.java:1100)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:1098)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:1070)
+	at org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:721)
+	at org.eclipse.ui.internal.WorkbenchWindow.access$0(WorkbenchWindow.java:700)
+	at org.eclipse.ui.internal.WorkbenchWindow$5.run(WorkbenchWindow.java:816)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:814)
+	at org.eclipse.jface.window.Window.handleShellCloseEvent(Window.java:741)
+	at org.eclipse.jface.window.Window$3.shellClosed(Window.java:687)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:92)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1176)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1200)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1185)
+	at org.eclipse.swt.widgets.Shell.closeWidget(Shell.java:612)
+	at org.eclipse.swt.widgets.Shell.gtk_delete_event(Shell.java:1087)
+	at org.eclipse.swt.widgets.Widget.windowProc(Widget.java:1562)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4592)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4198)
+	at org.eclipse.swt.internal.gtk.OS._gtk_main_do_event(Native Method)
+	at org.eclipse.swt.internal.gtk.OS.gtk_main_do_event(OS.java:7588)
+	at org.eclipse.swt.widgets.Display.eventProc(Display.java:1185)
+	at org.eclipse.swt.internal.gtk.OS._g_main_context_iteration(Native Method)
+	at org.eclipse.swt.internal.gtk.OS.g_main_context_iteration(OS.java:1860)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3117)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2405)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2369)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2221)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:500)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:493)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:194)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:368)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:559)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1287)
+!SESSION 2015-05-14 14:43:54.785 -----------------------------------------------
+eclipse.buildId=M20090917-0800
+java.version=1.6.0_16
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -showLocation -product com.verigy.itee.ui.ewcProduct
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -showLocation -product com.verigy.itee.ui.ewcProduct
+
+!ENTRY org.eclipse.core.resources 2 10035 2015-05-14 14:44:21.981
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY com.verigy.itee.ui 1 0 2015-05-14 14:44:54.502
+!MESSAGE 93000 UI started successfully (version: 7.1.4).
+
+!ENTRY com.verigy.itee.ui 2 0 2015-05-14 14:44:54.559
+!MESSAGE Required project(s) missing. Please import projects below into the current workspace.
+!STACK 1
+com.verigy.itee.core.CoreException93k: Required project(s) missing. Please import projects below into the current workspace.
+	at com.verigy.itee.ui.internal.ProjectImportInitialCleanup.handleMissingProjects(ProjectImportInitialCleanup.java:85)
+	at com.verigy.itee.ui.internal.ProjectImportInitialCleanup.runInWorkspace(ProjectImportInitialCleanup.java:49)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Contains: DDR4_tml does not exist in current workspace.
+!SUBENTRY 1 com.verigy.itee.ui 2 0 2015-05-14 14:44:54.560
+!MESSAGE Required project(s) missing. Please import projects below into the current workspace.
+!SUBENTRY 2 com.verigy.itee.ui 2 0 2015-05-14 14:44:54.560
+!MESSAGE DDR4_tml does not exist in current workspace.
+
+!ENTRY org.eclipse.cdt.core 1 0 2015-05-14 14:44:55.618
+!MESSAGE Indexed 'DDR4' (3 sources, 12 headers) in 0.35 sec: 180 declarations; 337 references; 16 unresolved inclusions; 0 syntax errors; 179 unresolved names (25.72%)

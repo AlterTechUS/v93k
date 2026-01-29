@@ -1,0 +1,120 @@
+#if   ${DataBusWidth} == 8
+using pinconfig ../../../configuration/DDR4_x8_TrainingBoard.pin
+#elif ${DataBusWidth} == 16
+using pinconfig ../../../configuration/DDR4_x16_TrainingBoard.pin
+#endif
+
+using defaultxmode 4   
+using modecontext DEFAULT
+
+#sequencer controlled refresh
+using interruptctrl seq
+
+CK=CK
+CKn=CKn
+
+CKE=CKE
+CSn=CSn
+
+ODT=ODT
+ACTn=ACTn
+RESETn=RESETn
+
+Address.017=A17
+Address.016=A16
+Address.015=A15
+Address.014=A14
+Address.013=A13
+Address.012=A12
+Address.011=A11
+Address.010=A10
+Address.009=A09
+Address.008=A08
+Address.007=A07
+Address.006=A06
+Address.005=A05
+Address.004=A04
+Address.003=A03
+Address.002=A02
+Address.001=A01
+Address.000=A00
+Address=Address_Bus
+
+ALERTn=ALERTn
+
+PARITY=PARITY
+
+VREFCA=VREFCA
+
+#if   ${DataBusWidth} == 8
+Bank.003=BG1
+Bank.002=BG0
+Bank.001=BA1
+Bank.000=BA0
+Bank=Bank_Bus
+#elif ${DataBusWidth} == 16
+Bank.002=BG0
+Bank.001=BA1
+Bank.000=BA0
+Bank=Bank_Bus
+#endif
+
+#if   ${DataBusWidth} == 8
+DQS.001=DQS
+DQS.000=DQSn
+DQS=DQS_DiffBus
+#elif ${DataBusWidth} == 16  
+DQS.003=DQSU
+DQS.002=DQSUn
+DQS.001=DQSL
+DQS.000=DQSLn
+DQS=DQS_DiffBus
+#endif
+
+#if   ${DataBusWidth} == 8
+DQ.007=DQ07
+DQ.006=DQ06
+DQ.005=DQ05
+DQ.004=DQ04
+DQ.003=DQ03
+DQ.002=DQ02
+DQ.001=DQ01
+DQ.000=DQ00
+DQ=DQ_Bus
+#elif ${DataBusWidth} == 16  
+DQ.015=DQ15
+DQ.014=DQ14
+DQ.013=DQ13
+DQ.012=DQ12
+DQ.011=DQ11
+DQ.010=DQ10
+DQ.009=DQ09
+DQ.008=DQ08
+DQ.007=DQ07
+DQ.006=DQ06
+DQ.005=DQ05
+DQ.004=DQ04
+DQ.003=DQ03
+DQ.002=DQ02
+DQ.001=DQ01
+DQ.000=DQ00
+DQ=DQ_Bus
+#endif
+
+#if   ${DataBusWidth} == 8
+DM.000=DM_TDQS
+DM=DM_Bus
+#elif ${DataBusWidth} == 16  
+DM.001=DMUn
+DM.000=DMLn
+DM=DM_Bus
+#endif
+
+#if   ${DataBusWidth} == 8
+CKE1_C0=CKE1_C0
+CS1n_C1=CS1n_C1
+ODT1_C2=ODT1_C2
+NU_TDQSn=NU_TDQSn
+#elif ${DataBusWidth} == 16
+TEN=TEN
+#endif

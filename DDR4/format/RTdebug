@@ -1,0 +1,24 @@
+    format definition file
+CK,i,0
+CKE,i,0
+CSn,i,0
+RASn,i,0
+CASn,i,0
+WEn,i,0
+A.00,i,0
+A.01,i,0
+A.02,i,0
+A.03,i,0
+A.04,i,0
+A.05,i,0
+A.06,i,0
+A.07,i,0
+A.08,i,0
+A.09,i,0
+A.10,i,0
+A.11,i,0
+A.12,i,0
+DQS_i,i,0
+DQS_o,o,0
+DQ_i.05,i,0
+DQ_o.05,o,0

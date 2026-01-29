@@ -1,0 +1,47 @@
+#include "../include/BasicAccessSequences.inc"
+#include "../include/initialization.inc"
+
+main () 
+{
+    //initialize();
+    Idle(1024); 
+   
+    // do a write with lower VDD on first half of banks 
+    DC_EVENT(forceLow);
+    Idle(bumpSettlingTime_tCK);  
+
+    for (bank=zStart; bank<zStop/2; bank++)
+    {
+        WriteBackground(bank,DW1,DW2,DW3,DW4,DW5,DW6,DW7,DW8);
+    }
+   
+    // do a read with default VDD on first half of banks
+    DC_EVENT(forceDefault);
+    Idle(bumpSettlingTime_tCK);  
+
+    for (bank=zStart; bank<zStop/2; bank++)
+    {
+        ReadBackground(bank,DW1,DW2,DW3,DW4,DW5,DW6,DW7,DW8);
+    }
+
+    // do a write with higher VDD on second half of banks 
+    DC_EVENT(forceHigh);
+    Idle(bumpSettlingTime_tCK);  
+ 
+    for (bank=zStop/2; bank<zStop; bank++)
+    {
+        WriteBackground(bank,DW1,DW2,DW3,DW4,DW5,DW6,DW7,DW8);
+    }
+   
+    // do a read with default VDD on second half of banks 
+    DC_EVENT(forceDefault);
+    Idle(bumpSettlingTime_tCK);  
+
+    for (bank=zStop/2; bank<zStop; bank++)
+    {
+        ReadBackground(bank,DW1,DW2,DW3,DW4,DW5,DW6,DW7,DW8);
+    }
+
+    pad(EndProgPad){}
+}
+      

@@ -1,0 +1,5 @@
+V 1 1465274210 27832
+DPPS "training_vrefdq_1600K",6930
+SQLB "TRAINING_VREFDQ_1600K",MAIN,0,4,"standard",(@)
+SQPG 2,JSUB,,"initialize_training",,(@)
+SQPG 3,JPPS,,"training_vrefdq_1600K",,(@)

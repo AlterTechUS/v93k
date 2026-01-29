@@ -1,0 +1,32 @@
+// readleveling.prog
+#include "../include/BasicAccessSequences.inc"
+#include "../include/initialization.inc"
+
+main()
+{
+  
+    //initialize();  
+
+    for(lp=0; lp<512; lp++) {
+        MPRRead();
+    }
+   
+    pad(EndProgPad){}
+}
+
+MPRRead()
+{
+
+    ModeRegister(3, 0x0004);                                      // MR3, A2=1 : Dataflow from MPR, A12:A11=00(Serial)
+                                                        
+    Idle(24);                                                     // tMOD(max 24*tCK)
+
+  //CLK();  CTRL(1,ODT_OFF);  RD(col, bank); DBUS_RD8(dw1,   dw2,   dw3,   dw4,   dw5,   dw6,   dw7,   dw8,   row,col,bank);  CNBUS_SPECIFY(0,0,0);
+    CLK();  CTRL(1,ODT_OFF);  RD(0x0, 0x0 ); DBUS_RD8(0x0000,0xFFFF,0x0000,0xFFFF,0x0000,0xFFFF,0x0000,0xFFFF,0x0,0x0,0x0);   CNBUS_SPECIFY(0,0,0);
+    CLK();  CTRL(1,ODT_OFF);  DES();                                                                                          CNBUS_SPECIFY(0,0,0);
+    CLK();  CTRL(1,ODT_OFF);  DES();                                                                                          CNBUS_SPECIFY(0,0,0);
+    CLK();  CTRL(1,ODT_OFF);  DES();                                                                                          CNBUS_SPECIFY(0,0,0);
+    CLK();  CTRL(1,ODT_OFF);  DES();                                                                                          CNBUS_SPECIFY(0,0,0);
+
+    Idle(24);
+}

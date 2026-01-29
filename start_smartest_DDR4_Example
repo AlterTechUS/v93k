@@ -1,0 +1,116 @@
+#! /bin/bash
+
+#############################################################
+device_name="DDR4"
+model_offline_name="model_DDR4_Example"
+model_online_name="model_DDR4_Example"
+workspace_name="workspace_DDR4"
+display_name="display_DDR4"
+#############################################################
+
+root=`cd $(dirname $0) && pwd`
+smartest_root="/opt/hp93000/soc"
+smartest_prog="${smartest_root}/prod_env/bin/HPSmarTest"
+
+get_major_release() {
+    echo `ls -l /opt/hp93000/soc | sed 's;^.*soc64_\([0-9]\.[0-9]\).*$;\1.x;g'`
+}
+
+get_release() {
+    echo `ls -l /opt/hp93000/soc | sed 's;^.*soc64_\([^/]*\).*$;\1;g'`
+}
+
+get_eclipse_prefs() {
+    echo `find ~/.eclipse -name org.eclipse.ui.ide.prefs | grep -e "$(get_release)" | grep -e "$(id -nu)"`
+}
+
+set_workspace() {
+    #workspace=${root}/workspace-`get_major_release`
+    workspace=${root}/${workspace_name}
+    prefs=`get_eclipse_prefs`
+
+    if [ -n "${prefs}" ] ; then
+        backup_prefs=$(mktemp ${prefs}.XXX)
+        cp ${prefs} ${backup_prefs}
+        sed -e 's;^\(SHOW_WORKSPACE_SELECTION_DIALOG=\).*$;\1false;g' \
+            -e "s;^\(RECENT_WORKSPACES=\\).*\$;\\1${workspace};g" \
+            ${backup_prefs} > ${prefs}
+    fi
+    rm -f ${backup_prefs}
+    echo ${workspace}
+}
+
+set_device_dir() {
+    waste_dir=`ls -d ${root}/${device_name}/waste`
+
+    if [ ! -d "${waste_dir}" ] ; then
+        echo "ERROR: smartest device dir `dirname ${waste_dir}` not found'" >&2
+        exit 1
+    fi
+    echo ${waste_dir} > ~/.device_inuse_soc@$HOSTNAME
+    echo `dirname ${waste_dir}`
+}
+
+set_display_env() {
+    display_env="DISPLAY_HP83000="${display_name}""
+    export ${display_env}
+}
+
+set_model_offline_env() {
+    if [ -f "${root}/${model_offline_name}" ] ; then
+        model_env="V93000_MODEL=${root}/${model_offline_name}"
+        export ${model_env}
+    fi
+}
+
+set_model_online_env() {
+    if [ -f "${root}/${model_online_name}" ] ; then
+        model_env="V93000_MODEL=${root}/${model_online_name}"
+        export ${model_env}
+    fi
+}
+
+run_smartest() {
+    set_workspace
+    set_device_dir
+    set_display_env
+    set_model_online_env
+    ${smartest_prog}
+}
+
+run_smartest_offline() {
+    set_workspace
+    set_device_dir
+    set_display_env
+    set_model_offline_env
+    ${smartest_prog} -o
+}
+
+kill_smartest() {
+    ${smartest_root}/prod_env/lbin/kill_smarTest
+}
+
+
+usage() {
+    cat >&2 <<EOF
+USAGE: $(basename $0) [-h|-k|-o]
+  Run Smartest programs. Options
+  -h       : print this message
+  -k       : kill SmarTest
+  -o       : run SmarTest in offine mode
+  Without any option SmarTest is run in online mode
+EOF
+    exit 1
+}
+
+proc="run_smartest";
+
+while getopts "hko" OPT ; do
+    case $OPT in
+        h) proc="usage" ;;
+        k) proc="kill_smartest" ;;
+        o) proc="run_smartest_offline" ;;
+    esac
+done
+
+${proc}

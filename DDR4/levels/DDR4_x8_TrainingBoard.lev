@@ -1,0 +1,351 @@
+hp93000,level,0.1
+EQSP LEV,EQN,#9000002688
+EQNSET 1 "functional"
+
+SPECS         
+VDD             [V] 
+VPP             [V] 
+
+Vswing_CK       [V]
+Vswing_CA       [V]
+Vswing_DQ       [V]
+
+Vswing_CK_sweep [V]
+Vcom_CA_sweep   [V]
+Vcom_DQ_sweep   [V]
+Vth_DQ_sweep    [V]
+Vth_DQ_offset   [V]
+
+EQUATIONS
+Vref_CA=VDD*0.50
+Vref_DQ=VDD*0.75
+
+# utilizing DCScale32
+DPSPINS VDD VDDQ 
+vout   = VDD
+vout_frc_rng = VDD
+ilimit = 1000
+iout_clamp_rng = 1000
+#t_ms   = 0
+offcurr= act
+vout_rise_t_ms_per_volt = 0
+vout_fall_t_ms_per_volt = 0
+vout_rise_settling_t_ms = 0
+vout_fall_settling_t_ms = 0
+
+DPSPINS VPP
+vout   = VPP
+vout_frc_rng = VPP
+ilimit = 1000
+iout_clamp_rng = 1000
+t_ms   = 0
+offcurr= act
+
+LEVELSET 1 "SBD_off"
+
+PINS Command_Bus Address_Bus Bank_Addr_Bus Bank_Grp_Bus PARITY ODT CKE1_C0 CS1n_C1 ODT1_C2
+vil= Vref_CA - Vswing_CA/2 + Vcom_CA_sweep
+vih= Vref_CA + Vswing_CA/2 + Vcom_CA_sweep
+v3h= Vref_CA
+
+PINS RESETn
+vil= VDD*0.2
+vih= VDD*0.8
+
+#100ohm cross
+PINS Clock_Bus 
+vil= Vref_CA - Vswing_CK + Vswing_CK_sweep
+vih= Vref_CA + Vswing_CK + Vswing_CK_sweep
+
+#differential
+PINS DQS_DiffBus
+term on
+vt = VDD  				            
+vth= Vref_DQ + Vth_DQ_offset + Vth_DQ_sweep	            
+vil= Vref_DQ - Vswing_DQ/2 + Vcom_DQ_sweep
+vih= Vref_DQ + Vswing_DQ/2 + Vcom_DQ_sweep
+
+PINS DQ_Bus DM_Bus NU_TDQSn
+term on
+vt = VDD  
+vth= Vref_DQ + Vth_DQ_offset + Vth_DQ_sweep					
+vil= Vref_DQ - Vswing_DQ/2 + Vcom_DQ_sweep
+vih= Vref_DQ + Vswing_DQ/2 + Vcom_DQ_sweep
+
+PINS VREFCA
+vil=Vref_CA
+vih=Vref_CA
+
+PINS ALERTn 
+term on
+vt = VDD
+vth= Vref_CA + Vth_DQ_sweep					
+
+LEVELSET 2 "SBD_on"
+
+PINS Command_Bus Address_Bus Bank_Addr_Bus Bank_Grp_Bus PARITY ODT CKE1_C0 CS1n_C1 ODT1_C2
+vil=Vref_CA - Vswing_CA/2 + Vcom_CA_sweep
+vih=Vref_CA + Vswing_CA/2 + Vcom_CA_sweep
+v3h=Vref_CA
+
+PINS RESETn
+vil= VDD*0.2
+vih= VDD*0.8
+
+#100ohm cross
+PINS Clock_Bus 
+vil= Vref_CA - Vswing_CK + Vswing_CK_sweep
+vih= Vref_CA + Vswing_CK + Vswing_CK_sweep
+
+#differential
+PINS DQS_DiffBus
+#term sbd_diff
+term sbd
+vt= VDD
+#vth= Vth_DQ_sweep	            
+vth= Vref_DQ + Vth_DQ_offset + Vth_DQ_sweep	- (VDD-(Vref_DQ - Vswing_DQ/2 + Vcom_DQ_sweep))*(34/84)					
+vil= Vref_DQ - Vswing_DQ/2 + Vcom_DQ_sweep
+vih= Vref_DQ + Vswing_DQ/2 + Vcom_DQ_sweep
+
+PINS DQ_Bus DM_Bus NU_TDQSn
+term sbd
+#SBD correction for compare threshold: 
+#SBD assumes termination against vil at 50ohm on tester side
+#device Ron=34ohm 
+vt= VDD 
+#vth= Vref_DQ + Vth_DQ_sweep -(VDD-(Vref_DQ - Vswing_DQ/2 + Vcom_DQ_sweep))*(1/2)					
+vth= Vref_DQ + Vth_DQ_sweep -(VDD-(Vref_DQ - Vswing_DQ/2 + Vcom_DQ_sweep))*(34/84)					
+vil= Vref_DQ - Vswing_DQ/2 + Vcom_DQ_sweep			
+vih= Vref_DQ + Vswing_DQ/2 + Vcom_DQ_sweep	
+
+PINS VREFCA
+vil=Vref_CA
+vih=Vref_CA
+
+PINS ALERTn 
+term on
+vt = VDD
+vth= Vref_CA + Vth_DQ_sweep					
+@
+EQSP LEV,SPS,#9000005345
+
+
+EQNSET 1 "functional"
+
+
+
+SPECSET 1 "300mV swing, 1.2V VDD"
+
+
+# SPECNAME       *****ACTUAL***** *****MINIMUM**** *****MAXIMUM**** UNITS COMMENT
+VDD              1.2                                                [  V] 
+VPP              2.5                                                [  V] 
+Vswing_CK        0.3                                                [  V] 
+Vswing_CA        0.3                                                [  V] 
+Vswing_DQ        0.3                                                [  V] 
+Vswing_CK_sweep  0                                                  [  V] 
+Vcom_CA_sweep    0                                                  [  V] 
+Vcom_DQ_sweep    0                                                  [  V] 
+Vth_DQ_sweep     0                                                  [  V] 
+Vth_DQ_offset    0                                                  [  V] 
+
+
+
+SPECSET 2 "500mV swing, 1.2V VDD"
+
+
+# SPECNAME       *****ACTUAL***** *****MINIMUM**** *****MAXIMUM**** UNITS COMMENT
+VDD              1.2                                                [  V] 
+VPP              2.5                                                [  V] 
+Vswing_CK        0.5                                                [  V] 
+Vswing_CA        0.5                                                [  V] 
+Vswing_DQ        0.5                                                [  V] 
+Vswing_CK_sweep  0                                                  [  V] 
+Vcom_CA_sweep    0                                                  [  V] 
+Vcom_DQ_sweep    0                                                  [  V] 
+Vth_DQ_sweep     0                                                  [  V] 
+Vth_DQ_offset    0                                                  [  V] 
+
+
+
+SPECSET 3 "700mV swing, 1.2V VDD"
+
+
+# SPECNAME       *****ACTUAL***** *****MINIMUM**** *****MAXIMUM**** UNITS COMMENT
+VDD              1.2                                                [  V] 
+VPP              2.5                                                [  V] 
+Vswing_CK        0.7                                                [  V] 
+Vswing_CA        0.7                                                [  V] 
+Vswing_DQ        0.7                                                [  V] 
+Vswing_CK_sweep  0                                                  [  V] 
+Vcom_CA_sweep    0                                                  [  V] 
+Vcom_DQ_sweep    0                                                  [  V] 
+Vth_DQ_sweep     0                                                  [  V] 
+Vth_DQ_offset    0                                                  [  V] 
+
+
+
+SPECSET 11 "300mV swing, 1.2V VDD RTSA"
+
+
+# SPECNAME       *****ACTUAL***** *****MINIMUM**** *****MAXIMUM**** UNITS COMMENT
+VDD              1.2                                                [  V] 
+VPP              2.5                                                [  V] 
+Vswing_CK        0.3                                                [  V] 
+Vswing_CA        0.3                                                [  V] 
+Vswing_DQ        0.3                                                [  V] 
+Vswing_CK_sweep  0                                                  [  V]
+Vcom_CA_sweep    0                                                  [  V]
+Vcom_DQ_sweep    0                                                  [  V]
+Vth_DQ_sweep     -0.1                                               [  V] #do not track midlevel noise
+Vth_DQ_offset    0                                                  [  V] 
+
+
+
+SPECSET 12 "500mV swing, 1.2V VDD RTSA"
+
+
+# SPECNAME       *****ACTUAL***** *****MINIMUM**** *****MAXIMUM**** UNITS COMMENT
+VDD              1.2                                                [  V] 
+VPP              2.5                                                [  V] 
+Vswing_CK        0.5                                                [  V] 
+Vswing_CA        0.5                                                [  V] 
+Vswing_DQ        0.5                                                [  V] 
+Vswing_CK_sweep  0                                                  [  V]
+Vcom_CA_sweep    0                                                  [  V]
+Vcom_DQ_sweep    0                                                  [  V]
+Vth_DQ_sweep     -0.1                                               [  V] #do not track midlevel noise
+Vth_DQ_offset    0                                                  [  V] 
+
+
+
+SPECSET 13 "700mV swing, 1.2V VDD RTSA"
+
+
+# SPECNAME       *****ACTUAL***** *****MINIMUM**** *****MAXIMUM**** UNITS COMMENT
+VDD              1.2                                                [  V] 
+VPP              2.5                                                [  V] 
+Vswing_CK        0.7                                                [  V] 
+Vswing_CA        0.7                                                [  V] 
+Vswing_DQ        0.7                                                [  V] 
+Vswing_CK_sweep  0                                                  [  V]
+Vcom_CA_sweep    0                                                  [  V]
+Vcom_DQ_sweep    0                                                  [  V]
+Vth_DQ_sweep     -0.1                                               [  V] #do not track midlevel noise
+Vth_DQ_offset    0                                                  [  V] 
+@
+DFTD "IDD2N",REPLACE,(VDD),#9000000254<?xml version="1.0"?>
+<testdata>
+  <td id="0" type="dcset">
+    <setMeasureRange type="current" minValue="0" maxValue="0.05"/>
+  </td>
+  <td id="1" type="dcset">
+    <measure type="current" samples="16" limitLow="0" limitHigh="0.05"/>
+  </td>
+</testdata>
+DFTD "IDD2P0",REPLACE,(VDD),#9000000254<?xml version="1.0"?>
+<testdata>
+  <td id="0" type="dcset">
+    <setMeasureRange type="current" minValue="0" maxValue="0.05"/>
+  </td>
+  <td id="1" type="dcset">
+    <measure type="current" samples="16" limitLow="0" limitHigh="0.05"/>
+  </td>
+</testdata>
+DFTD "IDD4R",REPLACE,(VDDQ),#9000000252<?xml version="1.0"?>
+<testdata>
+  <td id="0" type="dcset">
+    <setMeasureRange type="current" minValue="0" maxValue="0.3"/>
+  </td>
+  <td id="1" type="dcset">
+    <measure type="current" samples="16" limitLow="0" limitHigh="0.3"/>
+  </td>
+</testdata>
+DFTD "IDD4R",REPLACE,(VDD),#9000000252<?xml version="1.0"?>
+<testdata>
+  <td id="0" type="dcset">
+    <setMeasureRange type="current" minValue="0" maxValue="0.3"/>
+  </td>
+  <td id="1" type="dcset">
+    <measure type="current" samples="16" limitLow="0" limitHigh="0.3"/>
+  </td>
+</testdata>
+DFTD "modulation",REPLACE,(VDDQ),#9000000724<?xml version="1.0"?>
+<testdata>
+  <td id="0" type="dcset">
+    <setForceValue type="voltage" value="1.2"/>
+  </td>
+  <td id="30" type="dcset">
+    <setForceValue type="voltage" value="1.25"/>
+  </td>
+  <td id="60" type="dcset">
+    <setForceValue type="voltage" value="1.287"/>
+  </td>
+  <td id="90" type="dcset">
+    <setForceValue type="voltage" value="1.3"/>
+  </td>
+  <td id="210" type="dcset">
+    <setForceValue type="voltage" value="1.15"/>
+  </td>
+  <td id="240" type="dcset">
+    <setForceValue type="voltage" value="1.113"/>
+  </td>
+  <td id="270" type="dcset">
+    <setForceValue type="voltage" value="1.1"/>
+  </td>
+  <td id="99" type="dcset">
+    <setForceValue type="voltage" value="1.2"/>
+  </td>
+</testdata>
+DFTD "modulation",REPLACE,(VDD),#9000000724<?xml version="1.0"?>
+<testdata>
+  <td id="0" type="dcset">
+    <setForceValue type="voltage" value="1.2"/>
+  </td>
+  <td id="30" type="dcset">
+    <setForceValue type="voltage" value="1.25"/>
+  </td>
+  <td id="60" type="dcset">
+    <setForceValue type="voltage" value="1.287"/>
+  </td>
+  <td id="90" type="dcset">
+    <setForceValue type="voltage" value="1.3"/>
+  </td>
+  <td id="210" type="dcset">
+    <setForceValue type="voltage" value="1.15"/>
+  </td>
+  <td id="240" type="dcset">
+    <setForceValue type="voltage" value="1.113"/>
+  </td>
+  <td id="270" type="dcset">
+    <setForceValue type="voltage" value="1.1"/>
+  </td>
+  <td id="99" type="dcset">
+    <setForceValue type="voltage" value="1.2"/>
+  </td>
+</testdata>
+DFTD "vBump",REPLACE,(VDDQ),#9000000296<?xml version="1.0"?>
+<testdata>
+  <td id="1" type="dcset">
+    <setForceValue type="voltage" value="1.15"/>
+  </td>
+  <td id="2" type="dcset">
+    <setForceValue type="voltage" value="1.25"/>
+  </td>
+  <td id="3" type="dcset">
+    <setForceValue type="voltage" value="1.20"/>
+  </td>
+</testdata>
+DFTD "vBump",REPLACE,(VDD),#9000000296<?xml version="1.0"?>
+<testdata>
+  <td id="1" type="dcset">
+    <setForceValue type="voltage" value="1.15"/>
+  </td>
+  <td id="2" type="dcset">
+    <setForceValue type="voltage" value="1.25"/>
+  </td>
+  <td id="3" type="dcset">
+    <setForceValue type="voltage" value="1.20"/>
+  </td>
+</testdata>
+NOOP "7.1.4",,,

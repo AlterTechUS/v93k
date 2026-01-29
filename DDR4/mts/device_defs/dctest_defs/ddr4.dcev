@@ -1,0 +1,184 @@
+:dcTest:
+{
+    ##################################################################
+    # RON measurements
+    ##################################################################        
+    :dcSet:
+    {
+        :name: RON34
+        :table:
+        {
+            :format:
+            { :dcEvent:     :pinList:    :dcSetup:        :type: }
+#if ${DataBusWidth} == 8  
+            { RON34      DQ.000,DQ.001,DQ.002,DQ.003,DQ.004,DQ.005,DQ.006,DQ.007      "LBL DC_MEAS_RON34"   pmu }
+#elif ${DataBusWidth} == 16
+            { RON34      DQ.000,DQ.001,DQ.002,DQ.003,DQ.004,DQ.005,DQ.006,DQ.007,DQ.008,DQ.009,DQ.010,DQ.011,DQ.012,DQ.013,DQ.014,DQ.015     "LBL DC_MEAS_RON34"   pmu }
+#endif
+        }
+    }
+    :dcSet:
+    {
+        :name: RON48
+        :table:
+        {
+            :format:
+            { :dcEvent:     :pinList:    :dcSetup:        :type: }
+#if ${DataBusWidth} == 8  
+            { RON48      DQ.000,DQ.001,DQ.002,DQ.003,DQ.004,DQ.005,DQ.006,DQ.007      "LBL DC_MEAS_RON48"   pmu }
+#elif ${DataBusWidth} == 16
+            { RON48      DQ.000,DQ.001,DQ.002,DQ.003,DQ.004,DQ.005,DQ.006,DQ.007,DQ.008,DQ.009,DQ.010,DQ.011,DQ.012,DQ.013,DQ.014,DQ.015     "LBL DC_MEAS_RON48"   pmu }
+#endif
+        }
+    }
+
+    ##################################################################
+    # RTT measurements
+    ##################################################################        
+    :dcSet:
+    {
+        :name: RTT120
+        :table:
+        {
+            :format:
+            { :dcEvent:     :pinList:    :dcSetup:        :type: }
+#if ${DataBusWidth} == 8  
+            { RTT120pu      DQS.000,DQS.001,DQ.000,DQ.001,DQ.002,DQ.003,DQ.004,DQ.005,DQ.006,DQ.007      "LBL DC_MEAS_RTT120_PU"     pmu }
+            { RTT120pd      DQS.000,DQS.001,DQ.000,DQ.001,DQ.002,DQ.003,DQ.004,DQ.005,DQ.006,DQ.007      "LBL DC_MEAS_RTT120_PD"     pmu }
+#elif ${DataBusWidth} == 16
+            { RTT120pu      DQS.000,DQS.001,DQS.002,DQS.003,DQ.000,DQ.001,DQ.002,DQ.003,DQ.004,DQ.005,DQ.006,DQ.007,DQ.008,DQ.009,DQ.010,DQ.011,DQ.012,DQ.013,DQ.014,DQ.015     "LBL DC_MEAS_RTT120_PU"     pmu }
+            { RTT120pd      DQS.000,DQS.001,DQS.002,DQS.003,DQ.000,DQ.001,DQ.002,DQ.003,DQ.004,DQ.005,DQ.006,DQ.007,DQ.008,DQ.009,DQ.010,DQ.011,DQ.012,DQ.013,DQ.014,DQ.015     "LBL DC_MEAS_RTT120_PD"     pmu }
+#endif
+        }
+    }
+    :dcSet:
+    {
+        :name: RTT60
+        :table:
+        {
+            :format:
+            { :dcEvent:     :pinList:    :dcSetup:        :type: }
+#if ${DataBusWidth} == 8  
+            { RTT60pu      DQS.000,DQS.001,DQ.000,DQ.001,DQ.002,DQ.003,DQ.004,DQ.005,DQ.006,DQ.007      "LBL DC_MEAS_RTT60_PU"     pmu }
+            { RTT60pd      DQS.000,DQS.001,DQ.000,DQ.001,DQ.002,DQ.003,DQ.004,DQ.005,DQ.006,DQ.007      "LBL DC_MEAS_RTT60_PD"     pmu }
+#elif ${DataBusWidth} == 16
+            { RTT60pu      DQS.000,DQS.001,DQS.002,DQS.003,DQ.000,DQ.001,DQ.002,DQ.003,DQ.004,DQ.005,DQ.006,DQ.007,DQ.008,DQ.009,DQ.010,DQ.011,DQ.012,DQ.013,DQ.014,DQ.015     "LBL DC_MEAS_RTT60_PU"     pmu }
+            { RTT60pd      DQS.000,DQS.001,DQS.002,DQS.003,DQ.000,DQ.001,DQ.002,DQ.003,DQ.004,DQ.005,DQ.006,DQ.007,DQ.008,DQ.009,DQ.010,DQ.011,DQ.012,DQ.013,DQ.014,DQ.015     "LBL DC_MEAS_RTT60_PD"     pmu }
+#endif
+        }
+    }
+    :dcSet:
+    {
+        :name: RTT40
+        :table:
+        {
+            :format:
+            { :dcEvent:     :pinList:    :dcSetup:        :type: }
+#if ${DataBusWidth} == 8  
+            { RTT40pu       DQS.000,DQS.001,DQ.000,DQ.001,DQ.002,DQ.003,DQ.004,DQ.005,DQ.006,DQ.007      "LBL DC_MEAS_RTT40_PU"     pmu }
+            { RTT40pd       DQS.000,DQS.001,DQ.000,DQ.001,DQ.002,DQ.003,DQ.004,DQ.005,DQ.006,DQ.007      "LBL DC_MEAS_RTT40_PD"     pmu }
+#elif ${DataBusWidth} == 16
+            { RTT40pu       DQS.000,DQS.001,DQS.002,DQS.003,DQ.000,DQ.001,DQ.002,DQ.003,DQ.004,DQ.005,DQ.006,DQ.007,DQ.008,DQ.009,DQ.010,DQ.011,DQ.012,DQ.013,DQ.014,DQ.015     "LBL DC_MEAS_RTT40_PU"     pmu }
+            { RTT40pd       DQS.000,DQS.001,DQS.002,DQS.003,DQ.000,DQ.001,DQ.002,DQ.003,DQ.004,DQ.005,DQ.006,DQ.007,DQ.008,DQ.009,DQ.010,DQ.011,DQ.012,DQ.013,DQ.014,DQ.015     "LBL DC_MEAS_RTT40_PD"     pmu }
+#endif
+        }
+    }
+
+    ##################################################################
+    # vBump execution
+    ##################################################################        
+    :dcSet:
+    {
+        :name: vBump
+        :table:
+        {
+            :format:
+            { :dcEvent:     :pinList:   :dcSetup:   :type: }
+            { forceLow       VDD,VDDQ    vBump,1   dcscale }
+            { forceHigh      VDD,VDDQ    vBump,2   dcscale }
+            { forceDefault   VDD,VDDQ    vBump,3   dcscale }
+        }
+    }
+
+    ##################################################################
+    # noise injection
+    ##################################################################        
+    :dcSet:
+    {
+        :name: PowerModulation
+        :table:
+        {
+            :format:
+            { :dcEvent:     :pinList:   :dcSetup:        :type:  }
+            { sine000       VDD,VDDQ    modulation,0     dcscale }
+            { sine030       VDD,VDDQ    modulation,30    dcscale }
+            { sine060       VDD,VDDQ    modulation,60    dcscale }
+            { sine090       VDD,VDDQ    modulation,90    dcscale }
+            { sine210       VDD,VDDQ    modulation,210   dcscale }
+            { sine240       VDD,VDDQ    modulation,240   dcscale }
+            { sine270       VDD,VDDQ    modulation,270   dcscale }
+            { forceDefault  VDD,VDDQ    modulation,99    dcscale }
+        }
+        
+        :dcSequence:
+        {
+          :name: sineWave
+          :interface: { sampleRate }
+          :period: "12 * sampleRate"
+          :table:
+          {
+              :format:
+              { :dcEvent:     :offset:         }
+              { sine000      " 0 * sampleRate" }
+              { sine030      " 1 * sampleRate" }
+              { sine060      " 2 * sampleRate" }
+              { sine090      " 3 * sampleRate" }
+              { sine060      " 4 * sampleRate" }
+              { sine030      " 5 * sampleRate" }
+              { sine000      " 6 * sampleRate" }
+              { sine210      " 7 * sampleRate" }
+              { sine240      " 8 * sampleRate" }
+              { sine270      " 9 * sampleRate" }
+              { sine240      "10 * sampleRate" }
+              { sine210      "11 * sampleRate" }
+          }
+        }
+    }
+
+    ##################################################################
+    # IDD measurements
+    ##################################################################        
+    :dcSet:
+    {
+        :name: IDD2N
+        :table:
+        {
+            :format:
+            { :dcEvent:     :pinList:   :dcSetup:  :type: }
+            { setRange       VDD        IDD2N,0     dcscale }
+            { measure        VDD        IDD2N,1     dcscale }
+        }
+    }       
+    :dcSet:
+    {
+        :name: IDD2P0
+        :table:
+        {
+            :format:
+            { :dcEvent:     :pinList:   :dcSetup:  :type: }
+            { setRange       VDD        IDD2P0,0     dcscale }
+            { measure        VDD        IDD2P0,1     dcscale }
+        }
+    }       
+    :dcSet:
+    {
+        :name: IDD4R
+        :table:
+        {
+            :format:
+            { :dcEvent:     :pinList:   :dcSetup:  :type: }
+            { setRange       VDD,VDDQ   IDD4R,0     dcscale }
+            { measure        VDD,VDDQ   IDD4R,1     dcscale }
+        }
+    }       
+}

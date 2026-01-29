@@ -1,0 +1,5 @@
+#include "ddr4.pmap"
+
+VDD(CK)=VDD@(type = dcscale ; cycleratio = 1:4)  # 1 DCScale (VDD) tester cycle per 4 reference pin cycles (CK)
+VDDQ(CK)=VDDQ@(type = dcscale ; cycleratio = 1:4)
+VPP(CK)=VPP@(type = dcscale ; cycleratio = 1:4)

@@ -1,0 +1,5 @@
+V 1 1465274122 21010
+DPPS "dcscale_idd2n_1600K",384000544
+SQLB "IDD2N_1600K",MAIN,0,4,"standard",(@)
+SQPG 2,JSUB,,"initialize_pda",,(@)
+SQPG 3,JPPS,,"dcscale_idd2n_1600K",,(@)

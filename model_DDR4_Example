@@ -1,0 +1,62 @@
+# HSM benchsystem modelfile
+
+GLOBAL
+#  testhead = TH_2CC                          # TH_2CC | TH_4CC | TH_8CC
+  testhead = TH_8CC                          # TH_2CC | TH_4CC | TH_8CC
+#  dut_interface = HSM                        # SOC | HSM
+  dut_interface = SOC_8GROUP                 # SOC_4GROUP | SOC_8GROUP | HSM
+#  hpib_interface = vxi11/192.168.0.100/gpib0 # hpib | vxi11/192.168.0.100/gpib0
+  hpib_interface = vxi11/e5810a/192.168.0.100/gpib0
+  timing_bundle = w256-d8-r8
+#  operator_console = 192.168.0.101
+  memorytest = OFF
+  memory_stacker = OFF
+  xpressdata = ON
+#  rapid_source_synch = 128
+  device_maintenance = ON
+  multisite = ON
+  apg_speed = 6800 Mbps
+  s&s_value_package = ON
+
+POGOCABLING
+# 108: pogoblocks="428,828,228,628",type=HD1x256
+# 112: pogoblocks="431,432"
+
+201: pogoblocks = "425, 825, 225, 625",  type=HD1x256 # installed board has pogo cable of type HD1x256 connected
+202: pogoblocks = "426, 826, 226, 626",  type=HD1x256 # installed board has pogo cable of type HD1x256 connected
+203: pogoblocks = "427, 827, 227, 627",  type=HD1x256 # installed board has pogo cable of type HD1x256 connected
+204: pogoblocks = "428, 828, 228, 628",  type=HD1x256 # installed board has pogo cable of type HD1x256 connected
+
+207: pogoblocks = "231,232"
+208: pogoblocks = "431,432"
+
+209: pogoblocks = "8"
+
+
+IOCHANNEL
+  42801-42816: HW= HSM6800, speed= 6800 Mbps, apgmem= 112M, paramem= 8M, diff, tmu, prbs, sbd, rtsa
+  82801-82816: HW= HSM6800, speed= 6800 Mbps, apgmem= 112M, paramem= 8M, diff, tmu, prbs, sbd, rtsa
+  22801-22816: HW= HSM6800, speed= 6800 Mbps, apgmem= 112M, paramem= 8M, diff, tmu, prbs, sbd, rtsa
+  62801-62816: HW= HSM6800, speed= 6800 Mbps, apgmem= 112M, paramem= 8M, diff, tmu, prbs, sbd, rtsa
+
+ANALOGBOARD
+
+BOARDCONF
+
+SOC_CABLING
+
+SOC_INSTRUMENTS
+
+AMC
+
+INTERFACE_SECTION
+
+ETC
+
+# REFERENCECLOCK:input=EXTERNAL
+
+DPS
+  43101-43216: type = DCS-DPS32
+DMM
+
+OPENNESSBOARD

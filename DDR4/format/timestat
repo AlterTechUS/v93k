@@ -1,0 +1,13 @@
+    timestat file
+$first_pin_shown=CK
+$snap_mode=y
+$snap_value=500
+$edit_compatible=n
+$shapes_doubling=y
+$viewing_mode=1
+$viewing_wfset="FCT_1600K_PL4" 1
+$viewing_tset=1
+$screen_size=0
+$show_mode=0
+$cycle_info=2 -5 -4
+$port_shown=PortAC

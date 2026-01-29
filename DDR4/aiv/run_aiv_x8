@@ -1,0 +1,2 @@
+rm ../vectors/flatpats_x8/*.binl.gz
+/opt/93000/aif/aiv/bin/aiv ddr4_x8.aiv

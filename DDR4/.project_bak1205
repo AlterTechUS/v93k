@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>DDR4</name>
+	<comment></comment>
+	<projects>
+		<project>JitterModulation</project>
+		<project>PatternControlledDC</project>
+		<project>SourceSynchronous</project>
+		<project>DDR4_tml</project>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>com.verigy.itee.tm.core.SOCProjectBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>com.verigy.itee.tm.core.socdevicenature</nature>
+		<nature>com.verigy.itee.tm.core.socbuildernature</nature>
+		<nature>org.eclipse.cdt.core.cnature</nature>
+		<nature>org.eclipse.cdt.core.ccnature</nature>
+	</natures>
+</projectDescription>

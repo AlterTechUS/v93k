@@ -1,0 +1,47 @@
+// meas_Rtt.prog
+#include "../include/BasicAccessSequences.inc"
+#include "../include/initialization.inc"
+
+main () 
+{
+
+    //initialize();
+
+    //switchRtt(RTT);
+
+    Idle_ODT(20);   // make sure ODT is on
+
+    pad(DCPad){} 
+    DC_EVENT(RTT${RTT_Selector}pd); 
+    Idle_ODT(measWaitTime_tCK);   
+    
+    pad(DCPad){} 
+    DC_EVENT(RTT${RTT_Selector}pu); 
+    Idle_ODT(measWaitTime_tCK);   
+
+    pad(EndProgPad){}
+}
+
+switchRtt(value)
+{
+    //MR1 = 0x1; 
+    ModeRegister(MR1,value);
+    Idle(tMOD-1);
+  
+    // issue ZQCcal command...
+    ZQCalibration();
+    Idle(tZQinit-1);
+}
+
+Idle_ODT(n)
+{
+    for(i=0; i<n; i+=1){
+        CLK();  CTRL(1,ODT_ON);  DES();   DBUS_IDLE(); CNBUS_SPECIFY(0,0,0);
+    }
+}
+
+
+DCPad()
+{
+    CLK(); CTRL(1,ODT_ON); DES(); DBUS_IDLE();   CNBUS_SPECIFY(0,0,0);
+}

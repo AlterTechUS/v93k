@@ -1,0 +1,31 @@
+// solid.prog
+#include "../include/BasicAccessSequences.inc"
+#include "../include/initialization.inc"
+
+main () 
+{
+
+    //initialize();
+   
+    // refresh case:
+    // refresh insertion points are encapsulated in the Write|ReadBackground subfunctions
+    
+    // DW - datawords are defined in *.apg file
+    for (bank=zStart; bank<zStop; bank++)
+    {
+        WriteBackground(bank,DW1,DW2,DW3,DW4,DW5,DW6,DW7,DW8);
+        ReadBackground(bank,DW1,DW2,DW3,DW4,DW5,DW6,DW7,DW8);
+    }
+     
+    // inverted
+    for (bank=zStart; bank<zStop; bank++)
+    {
+        WriteBackground(bank,~DW1,~DW2,~DW3,~DW4,~DW5,~DW6,~DW7,~DW8);
+        ReadBackground(bank,~DW1,~DW2,~DW3,~DW4,~DW5,~DW6,~DW7,~DW8);
+    }
+
+    pad(EndProgPad){}
+}
+
+#include "../include/core_refresh.inc"
+#include "../include/distributed_refresh.inc"

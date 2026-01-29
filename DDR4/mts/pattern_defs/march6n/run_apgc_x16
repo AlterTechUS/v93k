@@ -1,0 +1,16 @@
+#!/bin/ksh
+
+PATH=$PATH:/opt/93000mts/mts/mtl/bin
+
+if [[ $# -eq 1 ]]; then 
+  apgc -O2 -e 400 -evs -v -D DataBusWidth=16 -D AddressRange=128 $1
+  /bin/mv $1.vec ../../../vectors/mempats_x16/march6n
+  exit
+fi
+
+# NOTE: 
+# to view waveform usage add parameter "-vw"
+
+find . -maxdepth 1 -name '*.apg'  -exec apgc -O2 -e 400 -evs -v -D DataBusWidth=16 -D AddressRange=128 {} \;
+/bin/mv *.apg.vec ../../../vectors/mempats_x16/march6n
+

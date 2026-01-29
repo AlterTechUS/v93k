@@ -1,0 +1,12 @@
+    format definition file
+$show_free_res_col=n
+$show_wf_numbers=n
+$show_prev_next_dc=y
+$show_same_dc_for_all_pins=y
+$global_DC_names=,,
+WEn,p,,,
+CK,p,,,
+DQ.07,p,,,
+VREFCA,p,,,
+CKE,p,,,
+RESETn,p,,,

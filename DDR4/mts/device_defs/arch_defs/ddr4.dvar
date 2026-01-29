@@ -1,0 +1,668 @@
+:deviceArchitecture: 
+{
+    ##################################################################
+    # generic DDR4 architecture definitions
+    ##################################################################        
+    :deviceParam:
+    {
+        :format:  
+        { :name:     :value:  }
+#if ${DataBusWidth} == 8  
+   #if ${AddressRange} == 256
+        {  xBits   14         }  
+        {  yBits   10         }  
+        {  zBits   4          } 
+        {  MAX_X   (1<<xBits) }  
+        {  MAX_Y   (1<<yBits) }  
+        {  MAX_Z   (1<<zBits) } 
+        {  dBits   8          }
+   #else
+      #error  "ddr4.dvar: unknown AddressRange '${AddressRange}'"
+   #endif
+#elif ${DataBusWidth} == 16
+   #if ${AddressRange} == 128
+        {  xBits   14         }  
+        {  yBits   10         }  
+        {  zBits   3          } 
+        {  MAX_X   (1<<xBits) }  
+        {  MAX_Y   (1<<yBits) }  
+        {  MAX_Z   (1<<zBits) } 
+        {  dBits   16         }
+   #else
+      #error  "ddr4.dvar: unknown AddressRange '${AddressRange}'"
+   #endif
+#else
+   #error  "ddr4.dvar unknown DataBusWidth '${DataBusWidth}'"
+#endif
+    }
+
+    ##################################################################
+    # SCRAMBLING definitions
+    ##################################################################        
+    :scramble:
+    {
+        :name:  scramble_example1
+        :table:
+        {
+            :format:
+            { :bit:    :expression: }
+            {  xa0      "x1 xor x0 xor x5 xor y7 xor z2" }
+            {  ya3      "not y3 xor x2"    }
+        }
+    }
+
+    :bitInversion:
+    {
+        :name:  bitInversion_example1 
+        :table:
+        {
+            :format:
+            { :bit: :expression: }
+            {  d[1,3,5,7]  "not x10 xor z2 xor y7" }
+        }
+    }
+
+
+    :bitOrdering:
+    {
+        :name:  bitOrdering_example1 
+        :table:
+        {
+            :format:
+            { :bit:              :expression: }
+            {  d[0..3,7..4]      "not x10"   }
+            {  d[4..7,3..0]       x10        }
+        }
+    }
+
+    ##############################################################
+    # dynamic bus inversion definitions
+    ##############################################################
+    :operationOrder:  { dbi crc }
+
+    :dbi:
+    {
+        :name:       ddr4_DBI
+        :configuration:
+        {
+            :name:       DBI
+            :condition:  "bitCount(e[],0) > 4"
+            :table:
+            {
+                :format:
+                { :bus:             :flag:   }
+#if ${DataBusWidth} == 8  
+                { "DQ[0..7]"        DM.000   }
+#elif ${DataBusWidth} == 16
+                { "DQ[0..7]"        DM.000   }
+                { "DQ[8..15]"       DM.001   }
+#endif
+            }
+        }
+    }
+
+    :dbi:
+    {
+        :name:       ddr4_NoDBI
+        :configuration:
+        {
+            :name:       DBI
+            :condition:  "0x0"
+            :table:
+            {
+                :format:
+                { :bus:             :flag:   }
+#if ${DataBusWidth} == 8  
+                { "DQ[0..7]"        DM.000   }
+#elif ${DataBusWidth} == 16
+                { "DQ[0..7]"        DM.000   }
+                { "DQ[8..15]"       DM.001   }
+#endif
+            }
+        }
+    }
+
+    ##############################################################
+    # CRC definitions
+    ##############################################################
+    :crc:
+    {
+        :name: ddr4_CRC_PAR
+
+        :bitSequence:
+        {
+            :name:   ddr4_PAR_BitOrder
+            :table:
+            {
+                :format:
+                { :pinList:                                :sequence:   }
+#if ${DataBusWidth} == 8  
+                { ACTn                                     [0]          }
+                { Bank.000                                 [1]          }
+                { Bank.001                                 [2]          }
+                { Bank.002                                 [3]          }
+                { Bank.003                                 [4]          }
+                { Address.000                              [5]          }
+                { Address.001                              [6]          }
+                { Address.002                              [7]          }
+                { Address.003                              [8]          }
+                { Address.004                              [9]          }
+                { Address.005                              [10]         }
+                { Address.006                              [11]         }
+                { Address.007                              [12]         }
+                { Address.008                              [13]         }
+                { Address.009                              [14]         }
+                { Address.010                              [15]         }
+                { Address.011                              [16]         }
+                { Address.012                              [17]         }
+                { Address.013                              [18]         }
+                { Address.014                              [19]         }
+                { Address.015                              [20]         }
+                { Address.016                              [21]         }
+#elif ${DataBusWidth} == 16
+                { ACTn                                     [0]          }
+                { Bank.000                                 [1]          }
+                { Bank.001                                 [2]          }
+                { Bank.002                                 [3]          }
+                { Address.000                              [4]          }
+                { Address.001                              [5]          }
+                { Address.002                              [6]          }
+                { Address.003                              [7]          }
+                { Address.004                              [8]          }
+                { Address.005                              [9]          }
+                { Address.006                              [10]         }
+                { Address.007                              [11]         }
+                { Address.008                              [12]         }
+                { Address.009                              [13]         }
+                { Address.010                              [14]         }
+                { Address.011                              [15]         }
+                { Address.012                              [16]         }
+                { Address.013                              [17]         }
+                { Address.014                              [18]         }
+                { Address.015                              [19]         }
+                { Address.016                              [20]         }
+#endif
+            }
+        }
+
+        :bitExpression:
+        {
+            :name:   ddr4_PARRule
+            :table:
+            {
+                :format:
+                { :bit:        :expression:                                      }
+#if ${DataBusWidth} == 8  
+                { 0            "e[0]^e[1]^e[2]^e[3]^e[4]^e[5]^e[6]^e[7]
+                               ^e[8]^e[9]^e[10]^e[11]^e[12]^e[13]^e[14]^e[15]
+                               ^e[16]^e[17]^e[18]^e[19]^e[20]^e[21]"             }
+#elif ${DataBusWidth} == 16
+                { 0            "e[0]^e[1]^e[2]^e[3]^e[4]^e[5]^e[6]^e[7]
+                               ^e[8]^e[9]^e[10]^e[11]^e[12]^e[13]^e[14]^e[15]
+                               ^e[16]^e[17]^e[18]^e[19]^e[20]"                   }
+#endif
+            }
+        }
+
+        :bitSequence:
+        {
+            :name:   ddr4_CRC_BitOrder
+            :table:
+            {
+                :format:
+                { :pinList:                                :sequence:   }
+#if ${DataBusWidth} == 8  
+                { DQ.000                                   [0..7]       }
+                { DQ.001                                   [8..15]      }
+                { DQ.002                                   [16..23]     }
+                { DQ.003                                   [24..31]     }
+                { DQ.004                                   [32..39]     }
+                { DQ.005                                   [40..47]     }
+                { DQ.006                                   [48..55]     }
+                { DQ.007                                   [56..63]     }
+                { DM.000                                   [64..71]     }
+#elif ${DataBusWidth} == 16
+                { DQ.000,DQ.008                            [0..7]       }
+                { DQ.001,DQ.009                            [8..15]      }
+                { DQ.002,DQ.010                            [16..23]     }
+                { DQ.003,DQ.011                            [24..31]     }
+                { DQ.004,DQ.012                            [32..39]     }
+                { DQ.005,DQ.013                            [40..47]     }
+                { DQ.006,DQ.014                            [48..55]     }
+                { DQ.007,DQ.015                            [56..63]     }
+                { DM.000,DM.001                            [64..71]     }
+#endif
+            }
+        }
+
+        :bitExpression:
+        {
+            :name:   ddr4_CRCRule
+            :table:
+            {
+                :format:
+                { :bit:        :expression:                                  }
+                { 0            "e[69]^e[68]^e[67]^e[66]^e[64]^e[63]^e[60]
+                               ^e[56]^e[54]^e[53]^e[52]^e[50]^e[49]^e[48]
+                               ^e[45]^e[43]^e[40]^e[39]^e[35]^e[34]^e[31]
+                               ^e[30]^e[28]^e[23]^e[21]^e[19]^e[18]^e[16]
+                               ^e[14]^e[12]^e[8]^e[7]^e[6]^e[0]"             }
+                { 1            "e[70]^e[66]^e[65]^e[63]^e[61]^e[60]^e[57]
+                               ^e[56]^e[55]^e[52]^e[51]^e[48]^e[46]^e[45]
+                               ^e[44]^e[43]^e[41]^e[39]^e[36]^e[34]^e[32]
+                               ^e[30]^e[29]^e[28]^e[24]^e[23]^e[22]^e[21]
+                               ^e[20]^e[18]^e[17]^e[16]^e[15]^e[14]^e[13]
+                               ^e[12]^e[9]^e[6]^e[1]^e[0]"                   }
+                { 2            "e[71]^e[69]^e[68]^e[63]^e[62]^e[61]^e[60]
+                               ^e[58]^e[57]^e[54]^e[50]^e[48]^e[47]^e[46]
+                               ^e[44]^e[43]^e[42]^e[39]^e[37]^e[34]^e[33]
+                               ^e[29]^e[28]^e[25]^e[24]^e[22]^e[17]^e[15]
+                               ^e[13]^e[12]^e[10]^e[8]^e[6]^e[2]^e[1]^e[0]"  }
+                { 3            "e[70]^e[69]^e[64]^e[63]^e[62]^e[61]^e[59]
+                               ^e[58]^e[55]^e[51]^e[49]^e[48]^e[47]^e[45]
+                               ^e[44]^e[43]^e[40]^e[38]^e[35]^e[34]^e[30]
+                               ^e[29]^e[26]^e[25]^e[23]^e[18]^e[16]^e[14]
+                               ^e[13]^e[11]^e[9]^e[7]^e[3]^e[2]^e[1]"        }
+                { 4            "e[71]^e[70]^e[65]^e[64]^e[63]^e[62]^e[60]
+                               ^e[59]^e[56]^e[52]^e[50]^e[49]^e[48]^e[46]
+                               ^e[45]^e[44]^e[41]^e[39]^e[36]^e[35]^e[31]
+                               ^e[30]^e[27]^e[26]^e[24]^e[19]^e[17]^e[15]
+                               ^e[14]^e[12]^e[10]^e[8]^e[4]^e[3]^e[2]"       }
+                { 5            "e[71]^e[66]^e[65]^e[64]^e[63]^e[61]^e[60]
+                               ^e[57]^e[53]^e[51]^e[50]^e[49]^e[47]^e[46]
+                               ^e[45]^e[42]^e[40]^e[37]^e[36]^e[32]^e[31]
+                               ^e[28]^e[27]^e[25]^e[20]^e[18]^e[16]^e[15]
+                               ^e[13]^e[11]^e[9]^e[5]^e[4]^e[3]"             }
+                { 6            "e[67]^e[66]^e[65]^e[64]^e[62]^e[61]^e[58]
+                               ^e[54]^e[52]^e[51]^e[50]^e[48]^e[47]^e[46]
+                               ^e[43]^e[41]^e[38]^e[37]^e[33]^e[32]^e[29]
+                               ^e[28]^e[26]^e[21]^e[19]^e[17]^e[16]^e[14]
+                               ^e[12]^e[10]^e[6]^e[5]^e[4]"                  }
+                { 7            "e[68]^e[67]^e[66]^e[65]^e[63]^e[62]^e[59]
+                               ^e[55]^e[53]^e[52]^e[51]^e[49]^e[48]^e[47]
+                               ^e[44]^e[42]^e[39]^e[38]^e[34]^e[33]^e[30]
+                               ^e[29]^e[27]^e[22]^e[20]^e[18]^e[17]^e[15]
+                               ^e[13]^e[11]^e[7]^e[6]^e[5]"                  }
+            }
+        }
+
+        :configuration:
+        {
+            :name:            CRC
+            :bitSequence:     ddr4_CRC_BitOrder
+            :bitExpression:   ddr4_CRCRule
+        }
+
+        :configuration:
+        {
+            :name:            PAR
+            :bitSequence:     ddr4_PAR_BitOrder
+            :bitExpression:   ddr4_PARRule
+        }
+    }
+
+    :crc:
+    {
+        :name: ddr4_PAR
+
+        :bitSequence:
+        {
+            :name:   ddr4_PAR_BitOrder
+            :table:
+            {
+                :format:
+                { :pinList:                                :sequence:   }
+#if ${DataBusWidth} == 8  
+                { ACTn                                     [0]          }
+                { Bank.000                                 [1]          }
+                { Bank.001                                 [2]          }
+                { Bank.002                                 [3]          }
+                { Bank.003                                 [4]          }
+                { Address.000                              [5]          }
+                { Address.001                              [6]          }
+                { Address.002                              [7]          }
+                { Address.003                              [8]          }
+                { Address.004                              [9]          }
+                { Address.005                              [10]         }
+                { Address.006                              [11]         }
+                { Address.007                              [12]         }
+                { Address.008                              [13]         }
+                { Address.009                              [14]         }
+                { Address.010                              [15]         }
+                { Address.011                              [16]         }
+                { Address.012                              [17]         }
+                { Address.013                              [18]         }
+                { Address.014                              [19]         }
+                { Address.015                              [20]         }
+                { Address.016                              [21]         }
+#elif ${DataBusWidth} == 16
+                { ACTn                                     [0]          }
+                { Bank.000                                 [1]          }
+                { Bank.001                                 [2]          }
+                { Bank.002                                 [3]          }
+                { Address.000                              [4]          }
+                { Address.001                              [5]          }
+                { Address.002                              [6]          }
+                { Address.003                              [7]          }
+                { Address.004                              [8]          }
+                { Address.005                              [9]          }
+                { Address.006                              [10]         }
+                { Address.007                              [11]         }
+                { Address.008                              [12]         }
+                { Address.009                              [13]         }
+                { Address.010                              [14]         }
+                { Address.011                              [15]         }
+                { Address.012                              [16]         }
+                { Address.013                              [17]         }
+                { Address.014                              [18]         }
+                { Address.015                              [19]         }
+                { Address.016                              [20]         }
+#endif
+            }
+        }
+
+        :bitExpression:
+        {
+            :name:   ddr4_PARRule
+            :table:
+            {
+                :format:
+                { :bit:        :expression:                                      }
+#if ${DataBusWidth} == 8  
+                { 0            "e[0]^e[1]^e[2]^e[3]^e[4]^e[5]^e[6]^e[7]
+                               ^e[8]^e[9]^e[10]^e[11]^e[12]^e[13]^e[14]^e[15]
+                               ^e[16]^e[17]^e[18]^e[19]^e[20]^e[21]"             }
+#elif ${DataBusWidth} == 16
+                { 0            "e[0]^e[1]^e[2]^e[3]^e[4]^e[5]^e[6]^e[7]
+                               ^e[8]^e[9]^e[10]^e[11]^e[12]^e[13]^e[14]^e[15]
+                               ^e[16]^e[17]^e[18]^e[19]^e[20]"                   }
+#endif
+            }
+        }
+
+        :bitSequence:
+        {
+            :name:   ddr4_CRC_BitOrder
+            :table:
+            {
+                :format:
+                { :pinList:                                :sequence:   }
+#if ${DataBusWidth} == 8  
+                { DQ.000                                   [0]          }
+#elif ${DataBusWidth} == 16
+                { DQ.000,DQ.008                            [0]          }
+#endif
+            }
+        }
+
+        :bitExpression:
+        {
+            :name:   ddr4_CRCRule
+            :table:
+            {
+                :format:
+                { :bit:        :expression:                                      }
+                { 0            "~(e[0] ^ e[0])"                                  }   
+                { 1            "~(e[0] ^ e[0])"                                  }   
+                { 2            "~(e[0] ^ e[0])"                                  }   
+                { 3            "~(e[0] ^ e[0])"                                  }   
+                { 4            "~(e[0] ^ e[0])"                                  }   
+                { 5            "~(e[0] ^ e[0])"                                  }   
+                { 6            "~(e[0] ^ e[0])"                                  }   
+                { 7            "~(e[0] ^ e[0])"                                  }   
+            }
+        }
+
+        :configuration:
+        {
+            :name:            CRC
+            :bitSequence:     ddr4_CRC_BitOrder
+            :bitExpression:   ddr4_CRCRule
+        }
+
+        :configuration:
+        {
+            :name:            PAR
+            :bitSequence:     ddr4_PAR_BitOrder
+            :bitExpression:   ddr4_PARRule
+        }
+    }
+
+    :crc:
+    {
+        :name: ddr4_CRC
+
+        :bitSequence:
+        {
+            :name:   ddr4_PAR_BitOrder
+            :table:
+            {
+                :format:
+                { :pinList:                                :sequence:   }
+                { Address.000                              [0]          }
+            }
+        }
+
+        :bitExpression:
+        {
+            :name:   ddr4_PARRule
+            :table:
+            {
+                :format:
+                { :bit:        :expression:                                      }
+                { 0            "~(e[0] ^ e[0])"                                  }   
+            }
+        }
+
+        :bitSequence:
+        {
+            :name:   ddr4_CRC_BitOrder
+            :table:
+            {
+                :format:
+                { :pinList:                                :sequence:   }
+#if ${DataBusWidth} == 8  
+                { DQ.000                                   [0..7]       }
+                { DQ.001                                   [8..15]      }
+                { DQ.002                                   [16..23]     }
+                { DQ.003                                   [24..31]     }
+                { DQ.004                                   [32..39]     }
+                { DQ.005                                   [40..47]     }
+                { DQ.006                                   [48..55]     }
+                { DQ.007                                   [56..63]     }
+                { DM.000                                   [64..71]     }
+#elif ${DataBusWidth} == 16
+                { DQ.000,DQ.008                            [0..7]       }
+                { DQ.001,DQ.009                            [8..15]      }
+                { DQ.002,DQ.010                            [16..23]     }
+                { DQ.003,DQ.011                            [24..31]     }
+                { DQ.004,DQ.012                            [32..39]     }
+                { DQ.005,DQ.013                            [40..47]     }
+                { DQ.006,DQ.014                            [48..55]     }
+                { DQ.007,DQ.015                            [56..63]     }
+                { DM.000,DM.001                            [64..71]     }
+#endif
+            }
+        }
+
+        :bitExpression:
+        {
+            :name:   ddr4_CRCRule
+            :table:
+            {
+            :format:
+            { :bit:        :expression:                                 }
+            { 0            "e[69]^e[68]^e[67]^e[66]^e[64]^e[63]^e[60]
+                           ^e[56]^e[54]^e[53]^e[52]^e[50]^e[49]^e[48]
+                           ^e[45]^e[43]^e[40]^e[39]^e[35]^e[34]^e[31]
+                           ^e[30]^e[28]^e[23]^e[21]^e[19]^e[18]^e[16]
+                           ^e[14]^e[12]^e[8]^e[7]^e[6]^e[0]"             }
+            { 1            "e[70]^e[66]^e[65]^e[63]^e[61]^e[60]^e[57]
+                           ^e[56]^e[55]^e[52]^e[51]^e[48]^e[46]^e[45]
+                           ^e[44]^e[43]^e[41]^e[39]^e[36]^e[34]^e[32]
+                           ^e[30]^e[29]^e[28]^e[24]^e[23]^e[22]^e[21]
+                           ^e[20]^e[18]^e[17]^e[16]^e[15]^e[14]^e[13]
+                           ^e[12]^e[9]^e[6]^e[1]^e[0]"                   }
+            { 2            "e[71]^e[69]^e[68]^e[63]^e[62]^e[61]^e[60]
+                           ^e[58]^e[57]^e[54]^e[50]^e[48]^e[47]^e[46]
+                           ^e[44]^e[43]^e[42]^e[39]^e[37]^e[34]^e[33]
+                           ^e[29]^e[28]^e[25]^e[24]^e[22]^e[17]^e[15]
+                           ^e[13]^e[12]^e[10]^e[8]^e[6]^e[2]^e[1]^e[0]"  }
+            { 3            "e[70]^e[69]^e[64]^e[63]^e[62]^e[61]^e[59]
+                           ^e[58]^e[55]^e[51]^e[49]^e[48]^e[47]^e[45]
+                           ^e[44]^e[43]^e[40]^e[38]^e[35]^e[34]^e[30]
+                           ^e[29]^e[26]^e[25]^e[23]^e[18]^e[16]^e[14]
+                           ^e[13]^e[11]^e[9]^e[7]^e[3]^e[2]^e[1]"        }
+            { 4            "e[71]^e[70]^e[65]^e[64]^e[63]^e[62]^e[60]
+                           ^e[59]^e[56]^e[52]^e[50]^e[49]^e[48]^e[46]
+                           ^e[45]^e[44]^e[41]^e[39]^e[36]^e[35]^e[31]
+                           ^e[30]^e[27]^e[26]^e[24]^e[19]^e[17]^e[15]
+                           ^e[14]^e[12]^e[10]^e[8]^e[4]^e[3]^e[2]"       }
+            { 5            "e[71]^e[66]^e[65]^e[64]^e[63]^e[61]^e[60]
+                           ^e[57]^e[53]^e[51]^e[50]^e[49]^e[47]^e[46]
+                           ^e[45]^e[42]^e[40]^e[37]^e[36]^e[32]^e[31]
+                           ^e[28]^e[27]^e[25]^e[20]^e[18]^e[16]^e[15]
+                           ^e[13]^e[11]^e[9]^e[5]^e[4]^e[3]"             }
+            { 6            "e[67]^e[66]^e[65]^e[64]^e[62]^e[61]^e[58]
+                           ^e[54]^e[52]^e[51]^e[50]^e[48]^e[47]^e[46]
+                           ^e[43]^e[41]^e[38]^e[37]^e[33]^e[32]^e[29]
+                           ^e[28]^e[26]^e[21]^e[19]^e[17]^e[16]^e[14]
+                           ^e[12]^e[10]^e[6]^e[5]^e[4]"                  }
+            { 7            "e[68]^e[67]^e[66]^e[65]^e[63]^e[62]^e[59]
+                           ^e[55]^e[53]^e[52]^e[51]^e[49]^e[48]^e[47]
+                           ^e[44]^e[42]^e[39]^e[38]^e[34]^e[33]^e[30]
+                           ^e[29]^e[27]^e[22]^e[20]^e[18]^e[17]^e[15]
+                           ^e[13]^e[11]^e[7]^e[6]^e[5]"                  }
+            }
+        }
+
+        :configuration:
+        {
+            :name:            CRC
+            :bitSequence:     ddr4_CRC_BitOrder
+            :bitExpression:   ddr4_CRCRule
+        }
+
+        :configuration:
+        {
+            :name:            PAR
+            :bitSequence:     ddr4_PAR_BitOrder
+            :bitExpression:   ddr4_PARRule
+        }
+    }
+
+
+    :crc:
+    {
+        :name: ddr4_NONE
+
+        :bitSequence:
+        {
+            :name:   ddr4_PAR_BitOrder
+            :table:
+            {
+                :format:
+                { :pinList:                                :sequence:   }
+                { Address.000                              [0]          }
+            }
+        }
+
+        :bitExpression:
+        {
+            :name:   ddr4_PARRule
+            :table:
+            {
+                :format:
+                { :bit:        :expression:                                      }
+                { 0            "~(e[0] ^ e[0])"                                  }   
+            }
+        }
+
+        :bitSequence:
+        {
+            :name:   ddr4_CRC_BitOrder
+            :table:
+            {
+                :format:
+                { :pinList:                                :sequence:   }
+#if ${DataBusWidth} == 8  
+                { DQ.000                                   [0]          }
+#elif ${DataBusWidth} == 16
+                { DQ.000,DQ.008                            [0]          }
+#endif
+            }
+        }
+
+        :bitExpression:
+        {
+            :name:   ddr4_CRCRule
+            :table:
+            {
+                :format:
+                { :bit:        :expression:                                      }
+                { 0            "~(e[0] ^ e[0])"                                  }   
+                { 1            "~(e[0] ^ e[0])"                                  }   
+                { 2            "~(e[0] ^ e[0])"                                  }   
+                { 3            "~(e[0] ^ e[0])"                                  }   
+                { 4            "~(e[0] ^ e[0])"                                  }   
+                { 5            "~(e[0] ^ e[0])"                                  }   
+                { 6            "~(e[0] ^ e[0])"                                  }   
+                { 7            "~(e[0] ^ e[0])"                                  }   
+            }
+        }
+
+        :configuration:
+        {
+            :name:            CRC
+            :bitSequence:     ddr4_CRC_BitOrder
+            :bitExpression:   ddr4_CRCRule
+        }
+
+        :configuration:
+        {
+          :name:            PAR
+          :bitSequence:     ddr4_PAR_BitOrder
+          :bitExpression:   ddr4_PARRule
+        }
+    }
+
+    ##################################################################
+    # REFRESH definitions
+    ##################################################################        
+    # dynamic refresh: :intervalMode: "compensated" (default)
+    :maintenanceOperation:
+    {
+        :name:  allcore_refresh 
+        :table:
+        {
+            :format:
+            { :operation:   :subroutine:            }
+            {  maintop_a    allcore_refresh_routine }
+        }
+    }
+
+    # dynamic refresh: :intervalMode: "compensated" (default)
+    :maintenanceOperation:
+    {
+        :name:  distributed_refresh 
+        :table:
+        {
+            :format:
+            { :operation:   :subroutine:                  }
+            {  maintop_a    distributed_refresh_routine   }
+        }
+    }
+
+
+    # static refresh: :intervalMode: "compensated" or "accumulated"
+    :maintenanceOperation:
+    {
+        :name:  static_accumulated_refresh
+        :table:
+        {
+            :format:
+            { :operation:   :subroutine:            :timerMode:    :intervalMode: }
+            {  maintop_a    static_refresh_routine  static         accumulated    }
+        }
+    }
+}

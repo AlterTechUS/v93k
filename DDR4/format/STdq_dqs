@@ -1,0 +1,9 @@
+    format definition file
+$show_free_res_col=n
+$show_wf_numbers=n
+$show_prev_next_dc=n
+$show_same_dc_for_all_pins=n
+$global_DC_names=,,
+DQ.00,p,,10XL,
+DQS,p,,00XH,
+DQSn,p,,11XL,

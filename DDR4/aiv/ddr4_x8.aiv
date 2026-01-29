@@ -1,0 +1,16 @@
+AI_DIR_FILE
+tmp_dir                          ./
+tmf_dir                          ./tmf_x8
+avc_dir                          ./avc_x8
+pinconfig_file                  ../configuration/DDR4_x8_TrainingBoard.pin
+pmf_file                         ./flatpats_x8
+single_binary_pattern_dir       ../vectors/flatpats_x8/
+pmf_path                        ../vectors/flatpats_x8/
+
+AI_V2B_OPTIONS -ATL -z PS3600
+
+PATTERNS    name                    avc_file                tmf_file        port        context     v2b_options  
+
+            initialize_training     initialize_training.avc x4.tmf          @           "DEFAULT"   { -w "standard" -s -k }
+            initialize_pda          initialize_pda.avc      x4.tmf          @           "DEFAULT"   { -w "standard" -s -k }
+

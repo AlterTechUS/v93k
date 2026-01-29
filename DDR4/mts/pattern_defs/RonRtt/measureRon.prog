@@ -1,0 +1,71 @@
+// meas_Ron.prog
+#include "../include/BasicAccessSequences.inc"
+#include "../include/initialization.inc"
+
+main () 
+{
+
+    //initialize();
+
+    PULLDOWN = 0x0;
+    PULLUP = 0xFFFF;
+     
+   //switchRON(MRS);
+    measureRON(PULLDOWN);
+    measureRON(PULLUP);
+   
+    pad(EndProgPad){}
+}
+
+switchRON(value)
+{
+    //MR1 = 0x1; 
+    ModeRegister(MR1,value);
+    Idle(tMOD-1);
+  
+    // issue ZQCcal command...
+    ZQCalibration();
+    Idle(tZQinit-1);
+}
+
+
+measureRON(dword)
+{
+    bank = 0x0;
+    row  = 0x0;
+    col  = 0x0;
+
+    // do some write first, than continous read out of device to measure Ron 
+    Activate(row, bank);
+    Idle(tRCD-2);
+    Write_Preamb();
+    Write(row,col,bank,UNMASK,dword,dword,dword,dword,dword,dword,dword,dword);
+    Idle(tWR+CWL-1);
+    Precharge(bank);
+    Idle(tRP-1);
+
+    // read access
+    Activate(row, bank);
+    Idle(tRCD-1);
+    // keep continous read during measurement
+    Read2(row,col,bank,dword,dword,dword,dword,dword,dword,dword,dword);
+
+    pad(DCPad){} 
+    DC_EVENT(RON${RON_Selector}); 
+    
+    // make sure loop covers measurement execution time
+    // 1 Read issues 4 tCK
+    // --> wait for minimum 5ms to allow measurement to finish 
+    for(measLoop=0; measLoop<measWaitTime_tCK; measLoop+=4){
+       Read2(row,col,bank,dword,dword,dword,dword,dword,dword,dword,dword);
+    }
+    Idle(tRTP-1);
+    Precharge(bank);
+    Idle(tRP-1);
+}
+
+
+DCPad()
+{
+    CLK(); CTRL(1,ODT_OFF); DES(); DBUS_IDLE();  CNBUS_SPECIFY(0,0,0);
+}

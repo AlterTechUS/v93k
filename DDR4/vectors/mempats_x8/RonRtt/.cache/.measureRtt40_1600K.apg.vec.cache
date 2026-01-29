@@ -1,0 +1,5 @@
+V 1 1465274132 20365
+DPPS "measureRtt40_1600K",4000010
+SQLB "MEAS_RTT40_1600K",MAIN,0,4,"standard",(@)
+SQPG 2,JSUB,,"initialize_pda",,(@)
+SQPG 3,JPPS,,"measureRtt40_1600K",,(@)

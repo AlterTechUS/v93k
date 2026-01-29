@@ -1,0 +1,78 @@
+// writeleveling.prog
+#include "../include/BasicAccessSequences.inc"
+#include "../include/initialization.inc"
+
+main()
+{
+
+    //initialize();
+
+    for(lp=0; lp<512; lp++) {
+        WriteLeveling();
+    }
+   
+    pad(EndProgPad){}
+}
+
+WriteLeveling()
+{
+
+    ModeRegister(1, 0x0081);                                                    // MRS1,  WriteLeveling ON (A7=1)
+
+    Idle(24);                                                                   // tMOD=max 24nCK 
+
+    CLK();  CTRL(1,ODT_ON);  DES();  DBUS_IDLE();        CNBUS_SPECIFY(0,0,0);  
+    CLK();  CTRL(1,ODT_ON);  DES();  DBUS_IDLE();        CNBUS_SPECIFY(0,0,0);  // tWLDQSEN=25*tCK
+
+    CLK();  CTRL(1,ODT_ON);  DES();  DBUS_WLEV_DQS_00(); CNBUS_SPECIFY(0,0,0);
+    CLK();  CTRL(1,ODT_ON);  DES();  DBUS_WLEV_DQS_00(); CNBUS_SPECIFY(0,0,0);
+    CLK();  CTRL(1,ODT_ON);  DES();  DBUS_WLEV_DQS_00(); CNBUS_SPECIFY(0,0,0);
+    CLK();  CTRL(1,ODT_ON);  DES();  DBUS_WLEV_DQS_00(); CNBUS_SPECIFY(0,0,0);
+    CLK();  CTRL(1,ODT_ON);  DES();  DBUS_WLEV_DQS_00(); CNBUS_SPECIFY(0,0,0);
+    CLK();  CTRL(1,ODT_ON);  DES();  DBUS_WLEV_DQS_00(); CNBUS_SPECIFY(0,0,0);
+    CLK();  CTRL(1,ODT_ON);  DES();  DBUS_WLEV_DQS_00(); CNBUS_SPECIFY(0,0,0);
+    CLK();  CTRL(1,ODT_ON);  DES();  DBUS_WLEV_DQS_00(); CNBUS_SPECIFY(0,0,0);
+
+    CLK();  CTRL(1,ODT_ON);  DES();  DBUS_WLEV_DQS_00(); CNBUS_SPECIFY(0,0,0);
+    CLK();  CTRL(1,ODT_ON);  DES();  DBUS_WLEV_DQS_00(); CNBUS_SPECIFY(0,0,0);
+    CLK();  CTRL(1,ODT_ON);  DES();  DBUS_WLEV_DQS_00(); CNBUS_SPECIFY(0,0,0);
+    CLK();  CTRL(1,ODT_ON);  DES();  DBUS_WLEV_DQS_00(); CNBUS_SPECIFY(0,0,0);
+    CLK();  CTRL(1,ODT_ON);  DES();  DBUS_WLEV_DQS_00(); CNBUS_SPECIFY(0,0,0);
+    CLK();  CTRL(1,ODT_ON);  DES();  DBUS_WLEV_DQS_00(); CNBUS_SPECIFY(0,0,0);
+    CLK();  CTRL(1,ODT_ON);  DES();  DBUS_WLEV_DQS_00(); CNBUS_SPECIFY(0,0,0);
+    CLK();  CTRL(1,ODT_ON);  DES();  DBUS_WLEV_DQS_00(); CNBUS_SPECIFY(0,0,0);
+
+    CLK();  CTRL(1,ODT_ON);  DES();  DBUS_WLEV_DQS_10(); CNBUS_SPECIFY(0,0,0);  // tWLMRD=40*tCK,        
+    CLK();  CTRL(1,ODT_ON);  DES();  DBUS_WLEV_DQS_00(); CNBUS_SPECIFY(0,0,0);
+    CLK();  CTRL(1,ODT_ON);  DES();  DBUS_WLEV_DQS_00(); CNBUS_SPECIFY(0,0,0);
+    CLK();  CTRL(1,ODT_ON);  DES();  DBUS_WLEV_DQS_00(); CNBUS_SPECIFY(0,0,0);
+    CLK();  CTRL(1,ODT_ON);  DES();  DBUS_WLEV_DQS_00(); CNBUS_SPECIFY(0,0,0);
+    CLK();  CTRL(1,ODT_ON);  DES();  DBUS_WLEV_DQS_00(); CNBUS_SPECIFY(0,0,0);
+    CLK();  CTRL(1,ODT_ON);  DES();  DBUS_WLEV_DQS_00(); CNBUS_SPECIFY(0,0,0);
+    CLK();  CTRL(1,ODT_ON);  DES();  DBUS_WLEV_DQS_00(); CNBUS_SPECIFY(0,0,0);
+
+    CLK();  CTRL(1,ODT_ON);  DES();  DBUS_WLEV_DQS_00(); CNBUS_SPECIFY(0,0,0);
+    CLK();  CTRL(1,ODT_ON);  DES();  DBUS_WLEV_DQS_00(); CNBUS_SPECIFY(0,0,0);
+    CLK();  CTRL(1,ODT_ON);  DES();  DBUS_WLEV_DQS_00(); CNBUS_SPECIFY(0,0,0);
+    CLK();  CTRL(1,ODT_ON);  DES();  DBUS_WLEV_DQS_00(); CNBUS_SPECIFY(0,0,0);
+    CLK();  CTRL(1,ODT_ON);  DES();  DBUS_WLEV_DQ_LL();  CNBUS_SPECIFY(0,0,0);  // tWLO=9.5ns
+    CLK();  CTRL(1,ODT_ON);  DES();  DBUS_WLEV_DQS_00(); CNBUS_SPECIFY(0,0,0);
+    CLK();  CTRL(1,ODT_ON);  DES();  DBUS_WLEV_DQS_00(); CNBUS_SPECIFY(0,0,0);
+    CLK();  CTRL(1,ODT_ON);  DES();  DBUS_WLEV_DQS_00(); CNBUS_SPECIFY(0,0,0);
+
+    CLK();  CTRL(1,ODT_ON);  DES();  DBUS_WLEV_DQS_00(); CNBUS_SPECIFY(0,0,0);
+    CLK();  CTRL(1,ODT_ON);  DES();  DBUS_WLEV_DQS_00(); CNBUS_SPECIFY(0,0,0);
+    CLK();  CTRL(1,ODT_ON);  DES();  DBUS_WLEV_DQS_00(); CNBUS_SPECIFY(0,0,0);
+    CLK();  CTRL(1,ODT_ON);  DES();  DBUS_WLEV_DQS_00(); CNBUS_SPECIFY(0,0,0);
+    CLK();  CTRL(1,ODT_ON);  DES();  DBUS_WLEV_DQS_00(); CNBUS_SPECIFY(0,0,0);
+    CLK();  CTRL(1,ODT_ON);  DES();  DBUS_WLEV_DQS_00(); CNBUS_SPECIFY(0,0,0);
+    CLK();  CTRL(1,ODT_ON);  DES();  DBUS_WLEV_DQS_00(); CNBUS_SPECIFY(0,0,0);
+    CLK();  CTRL(1,ODT_ON);  DES();  DBUS_WLEV_DQS_00(); CNBUS_SPECIFY(0,0,0);
+
+    CLK();  CTRL(1,ODT_OFF); DES();  DBUS_WLEV_DQS_00(); CNBUS_SPECIFY(0,0,0);  
+    CLK();  CTRL(1,ODT_OFF); DES();  DBUS_WLEV_DQS_00(); CNBUS_SPECIFY(0,0,0);
+    CLK();  CTRL(1,ODT_OFF); DES();  DBUS_WLEV_DQS_00(); CNBUS_SPECIFY(0,0,0);  
+    CLK();  CTRL(1,ODT_OFF); DES();  DBUS_WLEV_DQS_00(); CNBUS_SPECIFY(0,0,0);
+
+    Idle(24);
+}

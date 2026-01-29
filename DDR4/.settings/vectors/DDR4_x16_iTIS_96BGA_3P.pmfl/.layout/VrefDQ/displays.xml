@@ -1,0 +1,6 @@
+<?xml version ='1.0' encoding ='UTF-8'?>
+<displays xmlns:xsi ='http://www.w3.org/2001/XMLSchema-instance'>
+ <signal name ='Bank_Bus (Bin)' index ='false'/>
+ <signal name ='Address_Bus (Bin)' index ='false'/>
+ <signal name ='DQ00 (DIFF)' index ='false'/>
+</displays>

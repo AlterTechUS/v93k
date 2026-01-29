@@ -1,0 +1,6 @@
+aiv   Version 5.4.22 03-April-2015   (v2b.a   Version 5.4.22 03-April-2015)     started at Tue May 12 14:26:52 2015
+Platform        :  Advantest 93000/SOC
+aiv config file :  ddr4_x8.aiv
+XXXXXXXX initialize_training (v2b translation) XXXXXXXX
+XXXXXXXX initialize_pda (v2b translation) XXXXXXXX
+DONE LOGFILES:  ddr4_x8.aivlog  ddr4_x8.v2blog

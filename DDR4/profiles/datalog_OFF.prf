@@ -1,0 +1,4 @@
+* . * . * . log_events_enable = 1
+* . * . * . stdf_generation = 0
+* . * . * . datalog_level = 0
+* . * . * . datalog_detail = 0

@@ -1,0 +1,37 @@
+#!/bin/ksh
+
+LOG_FILE="$PWD/compile_x8.log"
+TMP="$PWD/tmp_x8.log"
+DIRECTORIES="solid march6n DC RonRtt training"
+COMPILE="./run_apgc_x8"
+
+#find . -name run_apgc -exec {}\; > compile.log 2>&1
+
+
+xterm -e tail -f $TMP &
+XTERM_ID=$!
+
+for i in $DIRECTORIES; 
+do
+    echo compiling directory $i ;
+    cd $i ;
+    time $COMPILE >> $TMP 2>&1 ;
+    cd .. ;
+done
+
+# check for compile errors
+grep -q -E "Abort|Memory fault|Segmentation|Error:" $TMP
+if [[ $? -eq 0 ]];
+then
+    echo Found ERRORS during compile! ;
+    echo Please check log file! ;
+fi
+
+# save log file
+if [[ -f $TMP ]];
+then
+    echo saving log: $LOG_FILE ;
+    /bin/mv --backup=t $TMP $LOG_FILE ;
+fi
+
+kill $XTERM_ID

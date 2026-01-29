@@ -1,0 +1,46 @@
+v2b   Version 5.4.22 03-April-2015     started at Tue May 12 14:26:52 2015
+
+v2b options are:
+ -ATL -z PS3600 -w standard -s -k
+
+
+INPUT
+    ascii vector file:    "./avc_x8/initialize_training.avc"
+    timing mapping (ddc): "./tmf_x8/x4.tmf"
+
+several temporary OUTPUT files are in directory:
+	"./initialize_training.pinvec/"
+
+temporary OUTPUT file:
+	"./initialize_training.ddcrpt"
+
+OUTPUT binary data (for Advantest 93000/SOC platform) in:
+	"../vectors/flatpats_x8/initialize_training.binl.gz"
+..............................................................
+
+   per pin translation rate :  2.341 kvecs/sec
+
+   ended at Tue May 12 14:26:52 2015
+v2b   Version 5.4.22 03-April-2015     started at Tue May 12 14:26:52 2015
+
+v2b options are:
+ -ATL -z PS3600 -w standard -s -k
+
+
+INPUT
+    ascii vector file:    "./avc_x8/initialize_pda.avc"
+    timing mapping (ddc): "./tmf_x8/x4.tmf"
+
+several temporary OUTPUT files are in directory:
+	"./initialize_pda.pinvec/"
+
+temporary OUTPUT file:
+	"./initialize_pda.ddcrpt"
+
+OUTPUT binary data (for Advantest 93000/SOC platform) in:
+	"../vectors/flatpats_x8/initialize_pda.binl.gz"
+..............................................................
+
+   per pin translation rate :  23.607 kvecs/sec
+
+   ended at Tue May 12 14:26:52 2015

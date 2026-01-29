@@ -1,0 +1,178 @@
+PINS CK
+DDC std std std std
+  1010  +00
+  1100  +01
+  0000  +02
+
+PINS CKn
+DDC std std std std
+  0101  +00
+  0011  +01
+  1111  +02
+
+PINS CKE CSn Bank_Addr_Bus Bank_Grp_Bus Address_Bus RESETn ODT ACTn PARITY ODT1_C2 CKE1_C0 CS1n_C1
+DDC std std std std
+  0000  +00
+  0001  +01
+  0010  +02
+  0011  +03
+  0100  +04
+  0101  +05
+  0110  +06
+  0111  +07
+  1000  +08
+  1001  +09
+  1010  +0a
+  1011  +0b
+  1100  +0c
+  1101  +0d
+  1110  +0e
+  1111  +0f
+
+PINS VREFCA
+DDC std std std std
+  1111  +00
+
+PINS DQS_DiffBus DQ_Bus DM_Bus NU_TDQSn
+DDC std std std std
+  0000  +00
+  0001  +01
+  0010  +02
+  0011  +03
+  0100  +04
+  0101  +05
+  0110  +06
+  0111  +07
+  1000  +08
+  1001  +09
+  1010  +0a
+  1011  +0b
+  1100  +0c
+  1101  +0d
+  1110  +0e
+  1111  +0f
+  XXXX  +10
+  XXXL  +11
+  XXXH  +12
+  XXLX  +13
+  XXLL  +14
+  XXLH  +15
+  XXHX  +16
+  XXHL  +17
+  XXHH  +18
+  XLXX  +19
+  XLXL  +1a
+  XLXH  +1b
+  XLLX  +1c
+  XLLL  +1d
+  XLLH  +1e
+  XLHX  +1f
+  XLHL  +20
+  XLHH  +21
+  XHXX  +22
+  XHXL  +23
+  XHXH  +24
+  XHLX  +25
+  XHLL  +26
+  XHLH  +27
+  XHHX  +28
+  XHHL  +29
+  XHHH  +2a
+  LXXX  +2b
+  LXXL  +2c
+  LXXH  +2d
+  LXLX  +2e
+  LXLL  +2f
+  LXLH  +30
+  LXHX  +31
+  LXHL  +32
+  LXHH  +33
+  LLXX  +34
+  LLXL  +35
+  LLXH  +36
+  LLLX  +37
+  LLLL  +38
+  LLLH  +39
+  LLHX  +3a
+  LLHL  +3b
+  LLHH  +3c
+  LHXX  +3d
+  LHXL  +3e
+  LHXH  +3f
+  LHLX  +40
+  LHLL  +41
+  LHLH  +42
+  LHHX  +43
+  LHHL  +44
+  LHHH  +45
+  HXXX  +46
+  HXXL  +47
+  HXXH  +48
+  HXLX  +49
+  HXLL  +4a
+  HXLH  +4b
+  HXHX  +4c
+  HXHL  +4d
+  HXHH  +4e
+  HLXX  +4f
+  HLXL  +50
+  HLXH  +51
+  HLLX  +52
+  HLLL  +53
+  HLLH  +54
+  HLHX  +55
+  HLHL  +56
+  HLHH  +57
+  HHXX  +58
+  HHXL  +59
+  HHXH  +5a
+  HHLX  +5b
+  HHLL  +5c
+  HHLH  +5d
+  HHHX  +5e
+  HHHL  +5f
+  HHHH  +60
+  XX00  +61
+  XX01  +62
+  XX10  +63
+  XX11  +64
+  LX00  +65
+  LX01  +66
+  LX10  +67
+  LX11  +68
+  HX00  +69
+  HX01  +6a
+  HX10  +6b
+  HX11  +6c
+  00XX  +6d
+  10XX  +6e
+  01XX  +6f
+  11XX  +70
+  00XL  +71
+  10XL  +72
+  01XL  +73
+  11XL  +74
+  00XH  +75
+  10XH  +76
+  01XH  +77
+  11XH  +78
+
+PINS ALERTn
+DDC std std std std
+  LLLL  +00
+  LLLH  +01
+  LLHL  +02
+  LLHH  +03
+  LHLL  +04
+  LHLH  +05
+  LHHL  +06
+  LHHH  +07
+  HLLL  +08
+  HLLH  +09
+  HLHL  +0a
+  HLHH  +0b
+  HHLL  +0c
+  HHLH  +0d
+  HHHL  +0e
+  HHHH  +0f
+  XXXX  +10

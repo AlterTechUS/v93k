@@ -1,0 +1,5 @@
+V 1 1465274251 20305
+DPPS "mpr_read_01010101_1866M",13824
+SQLB "MPR_READ_01010101_1866M",MAIN,0,4,"standard",(@)
+SQPG 2,JSUB,,"initialize_training",,(@)
+SQPG 3,JPPS,,"mpr_read_01010101_1866M",,(@)
