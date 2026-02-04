@@ -1,0 +1,17 @@
+#SMT-Version: SMT8
+GLOBAL
+testhead = TH_18Slot        # SX test head (2 card cages)
+dut_interface = SOC
+utility_lines = 256, type = sequencer_controlled, pogo_size = 32
+
+CARD_CONFIGURATION
+slot = 101, HW = AVI64, pogoblocks = 329 330 331 332
+slot = 102, HW = PS5000, pogoblocks = 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132, type = SD
+slot = 103, HW = WSMX, pogoblocks = HS:(426 826) HR:(323 723), type = HD2x32
+slot = 104, HW = UTILITY256, pogoblocks = 165-172, type = UTILITY
+slot = 105, HW = PS5000, pogoblocks = 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116, type = SD
+slot = 109, HW = FVI16, pogoblocks = 405, type = REDIRECT, subtype = E8026PVP, config = 405:(405 406 407 408)
+
+EXTERNAL_INSTRUMENTS  # Instruments for Advantest External Calibration
+# AdvantestIQBoxDmm: type = DigitalMultiMeter, model = 8588A, ifName = GioLanScpi, networkAddress =192.168.0.116, portAddress = 3490
+# AdvantestIQBoxCnt: type = Counter, model = CNT91, ifName = GioPrologix, networkAddress =192.168.0.143, portAddress =13

@@ -11,8 +11,8 @@ debug() {
 
 #############################################################
 device_name="DDR4"
-model_offline_name="model_DDR4_Example"
-model_online_name="model_DDR4_Example"
+model_offline_name="model_offline"
+model_online_name="model_online"
 workspace_name="workspace_DDR4"
 display_name="display_DDR4"
 #############################################################
@@ -38,6 +38,7 @@ set_workspace() {
     #workspace=${root}/workspace-`get_major_release`
     workspace=${root}/${workspace_name}
     prefs=`get_eclipse_prefs`
+    debug 2 "prefs=$prefs"
 
     if [ -n "${prefs}" ] ; then
         backup_prefs=$(mktemp ${prefs}.XXX)
@@ -46,6 +47,7 @@ set_workspace() {
             -e "s;^\(RECENT_WORKSPACES=\\).*\$;\\1${workspace};g" \
             ${backup_prefs} > ${prefs}
     fi
+#   debug 2 "backup_prefs=$pbackup_prefs"
     rm -f ${backup_prefs}
     echo ${workspace}
 }

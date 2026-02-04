@@ -16,7 +16,6 @@ GLOBAL
   device_maintenance = ON
   multisite = ON
   apg_speed = 6800 Mbps
-  s&s_value_package = ON
 
 POGOCABLING
 # 108: pogoblocks="428,828,228,628",type=HD1x256
