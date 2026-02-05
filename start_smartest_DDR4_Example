@@ -105,12 +105,21 @@ kill_smartest() {
 
 usage() {
     cat >&2 <<EOF
-USAGE: $(basename $0) [-h|-k|-o]
-  Run Smartest programs. Options
-  -h       : print this message
-  -k       : kill SmarTest
-  -o       : run SmarTest in offine mode
+USAGE: [DEBUG=1|2] $(basename "$0") [-h|-k|-o]
+
+Run Smartest programs.
+
+Options:
+  -h        print this message
+  -k        kill SmarTest
+  -o        run SmarTest in offine mode
   Without any option SmarTest is run in online mode
+
+Environment:
+  DEBUG is optional
+  (unset) or 0  normal
+  1             debug level 1
+  2             debug level 2 (verbose)
 EOF
     exit 1
 }
