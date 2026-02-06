@@ -9,5 +9,8 @@ m_sets: 4096
 routing_sets: 256
 period_res_precision: 9
 testpoints: 1024
+utility_lines_per_pogoblock: 32
 tester_model: act
+act_min_timeout: 1000
 licensing_file: 
+memory_allocation_strategy: unspecified

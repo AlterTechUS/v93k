@@ -45,3 +45,5 @@
 
 # V93K files to ignore
 lock_file
+.settings/
+*.bak

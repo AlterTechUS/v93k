@@ -11,8 +11,8 @@ debug() {
 
 #############################################################
 device_name="DDR4"
-model_offline_name="model_offline"
-model_online_name="model_online"
+model_offline_name="model.offline"
+model_online_name="model.online"
 workspace_name="workspace_DDR4"
 display_name="display_DDR4"
 #############################################################
@@ -71,6 +71,7 @@ set_display_env() {
 set_model_offline_env() {
     if [ -f "${root}/${model_offline_name}" ] ; then
         model_env="V93000_MODEL=${root}/${model_offline_name}"
+        debug 2 "model_env: $model_env"
         export ${model_env}
     fi
 }
@@ -78,6 +79,7 @@ set_model_offline_env() {
 set_model_online_env() {
     if [ -f "${root}/${model_online_name}" ] ; then
         model_env="V93000_MODEL=${root}/${model_online_name}"
+        debug 2 "model_env: $model_env"
         export ${model_env}
     fi
 }
@@ -87,7 +89,8 @@ run_smartest() {
     set_device_dir
     set_display_env
     set_model_online_env
-    ${smartest_prog}
+    ${smartest_prog} &
+    debug 2 "smartest_prog=${smartest_prog}"
 }
 
 run_smartest_offline() {
@@ -95,7 +98,7 @@ run_smartest_offline() {
     set_device_dir
     set_display_env
     set_model_offline_env
-    ${smartest_prog} -o
+    ${smartest_prog} -o &
 }
 
 kill_smartest() {
@@ -134,4 +137,5 @@ while getopts "hko" OPT ; do
     esac
 done
 
+debug 2 "Executing: $proc"
 ${proc}
